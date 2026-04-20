@@ -99,6 +99,25 @@
       background: var(--blue-dark);
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .nav-contact {
+      color: var(--blue-dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .nav-contact:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+
     /* HERO */
     .hero {
       max-width: 760px;
@@ -428,8 +447,11 @@
       </span>
       Privacy Magic
     </a>
-    <a href="https://chromewebstore.google.com/detail/privacy-magic/cobojehlalmfnplnblndhofhgeglljkc"
-      class="cta-nav">Add to Chrome</a>
+    <div class="nav-actions">
+      <a href="https://chromewebstore.google.com/detail/privacy-magic/cobojehlalmfnplnblndhofhgeglljkc"
+        class="cta-nav">Add to Chrome</a>
+      <a href="mailto:contact@privacymagic.com" class="nav-contact">Contact Us</a>
+    </div>
   </nav>
 
   <section class="hero">
@@ -442,8 +464,6 @@
       <img src="hamsa-white.svg" width="28" height="28">
       Add to Chrome
     </a>
-    <p class="hero-sub">Privacy Magic is in development.<br><a href="mailto:contact@privacymagic.com">Let us know what
-        you think!</a></p>
   </section>
 
   <section class="problem">
