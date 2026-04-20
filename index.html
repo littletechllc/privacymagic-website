@@ -1,561 +1,626 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Magic — Browse Without Being Watched</title>
-<link rel="stylesheet" href="fonts/fonts.css">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Magic — Browse Without Being Watched</title>
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  :root {
-    --blue: #1a5ca8;
-    --blue-dark: #0f3d72;
-    --blue-light: #e8f0fb;
-    --blue-mid: #8ab0e0;
-    --text: #0d1f3c;
-    --text-muted: #3a5070;
-    --text-hint: #596e89;
-    --bg: #fdfcfa;
-    --bg-card: #ffffff;
-    --border: rgba(26,92,168,0.1);
-    --radius: 16px;
-    --radius-sm: 10px;
-  }
+    :root {
+      --blue: #1a5ca8;
+      --blue-dark: #0f3d72;
+      --blue-light: #e8f0fb;
+      --blue-mid: #8ab0e0;
+      --text: #0d1f3c;
+      --text-muted: #3a5070;
+      --text-hint: #596e89;
+      --bg: #fdfcfa;
+      --bg-card: #ffffff;
+      --border: rgba(26, 92, 168, 0.1);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
 
-  body {
-    font-family: 'Nunito', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-  /* NAV */
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 2rem;
-    position: sticky;
-    top: 0;
-    background: rgba(253,252,248,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    z-index: 100;
-  }
-  .logo {
-    font-size: clamp(1.5rem, 6vw, 2.4rem);
-    font-weight: 700;
-    font-family: 'Fondamento', cursive;
-    color: var(--blue-dark);
-    display: flex;
-    align-items: center;
-    gap: 0.16rem;
-    text-decoration: none;
-    letter-spacing: 0.01em;
-    line-height: 1;
-  }
-  .logo-icon {
-    width: 58px; height: 58px;
-    background: white;
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    align-self: center;
-    margin-bottom: 6px;
-  }
-  .logo-icon svg { width: 40px; height: 40px; }
-  nav a.cta-nav {
-    background: var(--blue);
-    color: white;
-    padding: 0.5rem 1.25rem;
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: background 0.2s;
-    text-align: center;
-  }
-  nav a.cta-nav:hover { background: var(--blue-dark); }
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      position: sticky;
+      top: 0;
+      background: rgba(253, 252, 248, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
 
-  /* HERO */
-  .hero {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 5rem 2rem 4rem;
-    text-align: center;
-  }
-  .hero-badge {
-    display: inline-block;
-    background: var(--blue-light);
-    color: var(--blue-dark);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 0.35rem 1rem;
-    border-radius: 999px;
-    margin-bottom: 1.5rem;
-  }
-  .hero h1 {
-    font-family: 'Lora', serif;
-    font-size: clamp(2.2rem, 5vw, 3.4rem);
-    font-weight: 600;
-    line-height: 1.2;
-    color: var(--blue-dark);
-    margin-bottom: 1.25rem;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--blue);
-  }
-  .hero p {
-    font-size: 1.15rem;
-    color: var(--text-muted);
-    max-width: 560px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.7;
-  }
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: var(--blue);
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    padding: 0.85rem 2rem;
-    border-radius: 999px;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    box-shadow: 0 4px 20px rgba(26,92,168,0.2);
-  }
-  .hero-cta:hover { background: var(--blue-dark); transform: translateY(-2px); }
-  .hero-cta svg { width: 20px; height: 20px; fill: white; }
-  .hero-sub {
-    margin-top: 3.5rem;
-    font-size: 0.85rem;
-    color: var(--text-hint);
-  }
+    .logo {
+      font-size: clamp(1.5rem, 6vw, 2.4rem);
+      font-weight: 700;
+      font-family: 'Fondamento', cursive;
+      color: var(--blue-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.16rem;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
 
-  /* PROBLEM */
-  .problem {
-    background: #e8f2fb;
-    padding: 4rem 2rem;
-  }
-  .problem-inner {
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .problem-inner p {
-    font-family: 'Lora', serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    line-height: 1.75;
-    color: var(--text);
-  }
-  .problem-inner p + p { margin-top: 1.25rem; }
-  .highlight {
-    color: #e05555;
-    font-weight: 600;
-  }
+    .logo-icon {
+      width: 58px;
+      height: 58px;
+      background: white;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      align-self: center;
+      margin-bottom: 6px;
+    }
 
-  /* HOW IT WORKS */
-  .section {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 5rem 2rem;
-  }
+    .logo-icon svg {
+      width: 40px;
+      height: 40px;
+    }
 
-  .section h2 {
-    text-align: center;
-    font-family: 'Lora', serif;
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-    font-weight: 600;
-    color: var(--blue-dark);
-    margin-bottom: 3rem;
-  }
+    nav a.cta-nav {
+      background: var(--blue);
+      color: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+      text-align: center;
+    }
 
-  .steps {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-  }
-  .step {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.75rem 1.5rem;
-    text-align: center;
-    width: calc(33.333% - 1rem);
-    min-width: 260px;
-  }
-  .step-num {
-    width: 44px; height: 44px;
-    background: var(--blue-light);
-    color: var(--blue-dark);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 800;
-    margin: 0 auto 1rem;
-  }
-  .step h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--blue-dark);
-  }
-  .step p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
+    nav a.cta-nav:hover {
+      background: var(--blue-dark);
+    }
 
-  /* FEATURES */
-  .features-bg {
-    background: var(--blue-light);
-    padding: 5rem 2rem;
-  }
-  .features-inner {
-    max-width: 860px;
-    margin: 0 auto;
-  }
-  .features-intro {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  .features-intro p {
-    font-size: 1.05rem;
-    color: var(--blue-dark);
-    max-width: 560px;
-    margin: 0 auto;
-  }
+    /* HERO */
+    .hero {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
 
-  .feature-groups {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.25rem;
-  }
-  .feature-group {
-    background: white;
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    border: 1px solid rgba(26,92,168,0.1);
-  }
-  .feature-group-title {
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(26,92,168,0.1);
-  }
-  .feature-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .feature-list li {
-    font-size: 0.9rem;
-    color: var(--text);
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  .feature-card {
-    background: white;
-    border-radius: var(--radius);
-    padding: 1.5rem 1.25rem;
-    border: 1px solid rgba(26,92,168,0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.85rem;
-    width: calc(33.333% - 0.75rem);
-    min-width: 160px;
-  }
-  .feature-icon {
-    width: 64px; height: 64px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .feature-icon svg { width: 64px; height: 64px; }
-  .feature-card-title {
-    font-size: 1.0rem;
-    font-weight: 700;
-    color: var(--blue-dark);
-    line-height: 1.35;
-  }
-  .feature-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
-  @media (max-width: 600px) {
-    .feature-card { width: calc(50% - 0.5rem); }
-  }
-  @media (max-width: 380px) {
-    .feature-card { width: 100%; }
-  }
+    .hero-badge {
+      display: inline-block;
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--blue-dark);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--blue);
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--blue);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(26, 92, 168, 0.2);
+    }
+
+    .hero-cta:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+
+    .hero-cta svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    .hero-sub {
+      margin-top: 3.5rem;
+      font-size: 0.85rem;
+      color: var(--text-hint);
+    }
+
+    /* PROBLEM */
+    .problem {
+      background: #e8f2fb;
+      padding: 4rem 2rem;
+    }
+
+    .problem-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .problem-inner p {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .problem-inner p+p {
+      margin-top: 1.25rem;
+    }
+
+    .highlight {
+      color: #e05555;
+      font-weight: 600;
+    }
+
+    /* HOW IT WORKS */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-family: 'Lora', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 600;
+      color: var(--blue-dark);
+      margin-bottom: 3rem;
+    }
+
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      width: calc(33.333% - 1rem);
+      min-width: 260px;
+    }
+
+    .step-num {
+      width: 44px;
+      height: 44px;
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin: 0 auto 1rem;
+    }
+
+    .step h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--blue-dark);
+    }
+
+    .step p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* FEATURES */
+    .features-bg {
+      background: var(--blue-light);
+      padding: 5rem 2rem;
+    }
+
+    .features-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .features-intro {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .features-intro p {
+      font-size: 1.05rem;
+      color: var(--blue-dark);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .feature-groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .feature-group {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      border: 1px solid rgba(26, 92, 168, 0.1);
+    }
+
+    .feature-group-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(26, 92, 168, 0.1);
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .feature-list li {
+      font-size: 0.9rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem 1.25rem;
+      border: 1px solid rgba(26, 92, 168, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.85rem;
+      width: calc(33.333% - 0.75rem);
+      min-width: 160px;
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .feature-icon svg {
+      width: 64px;
+      height: 64px;
+    }
+
+    .feature-card-title {
+      font-size: 1.0rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      line-height: 1.35;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .feature-card {
+        width: calc(50% - 0.5rem);
+      }
+    }
+
+    @media (max-width: 380px) {
+      .feature-card {
+        width: 100%;
+      }
+    }
 
 
 
-  /* CTA FOOTER */
-  .cta-section {
-    padding: 5rem 2rem;
-    text-align: center;
-  }
-  .cta-section h2 {
-    font-family: 'Lora', serif;
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-    color: var(--blue-dark);
-    margin-bottom: 1rem;
-  }
-  .cta-section p {
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-  }
+    /* CTA FOOTER */
+    .cta-section {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
 
-  footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.82rem;
-    color: var(--text-hint);
-    border-top: 1px solid var(--border);
-  }
-</style>
+    .cta-section h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      color: var(--blue-dark);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.82rem;
+      color: var(--text-hint);
+      border-top: 1px solid var(--border);
+    }
+  </style>
 </head>
+
 <body>
 
-<nav>
-  <a href="#" class="logo">
-    <span class="logo-icon">
-      <svg viewBox="0 95 90 125" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
-        <g transform="translate(6.60056,0.6882665)">
-          <path fill="#0f3d72" d="m 33.69642,99.483523 c -7.67476,-0.002 -7.35765,8.160267 -7.30244,12.641607 -0.18534,12.94585 -0.21633,26.0355 -0.38189,38.9816 -1.36617,0.0384 -1.93514,0.0345 -3.11249,0.0165 -0.0326,-12.38815 -0.0781,-27.55861 -0.51987,-39.94072 -0.48834,-3.70581 -2.59806,-5.13258 -6.33453,-5.11545 -4.39162,0.0201 -5.81078,2.45532 -6.27717,5.48597 -0.81609,10.79484 -0.29735,21.63493 -0.7519,32.44557 -0.0734,5.41556 -0.1493,10.83127 -0.24133,16.24655 -2.84676,-4.67192 -8.70217,-10.69061 -14.86687,-11.32644 -5.09657,-0.58843 -6.94072,1.42229 -11.37043,3.65146 8.08098,0.22217 11.85647,7.36039 14.33098,16.04036 4.05089,11.87787 7.25503,23.7197 14.01732,34.53019 5.13548,6.05692 13.31801,10.05135 21.36884,9.93658 v 0.0295 c 0.0128,-4.2e-4 0.0248,-5.9e-4 0.0362,-0.001 8.96231,-0.055 17.89265,-2.45427 23.6974,-9.91668 6.76224,-10.81049 9.96638,-22.65232 14.01723,-34.53019 2.47451,-8.67997 6.24997,-15.8182 14.33091,-16.04037 -4.42969,-2.22917 -6.27383,-4.23988 -11.37036,-3.65145 -6.16468,0.63583 -12.02005,6.65452 -14.8668,11.32644 -0.092,-5.41528 -0.16792,-10.831 -0.24133,-16.24656 -0.45455,-10.81064 0.0642,-21.65074 -0.75189,-32.44556 -0.46638,-3.03064 -1.88556,-5.46588 -6.27717,-5.48598 -3.73647,-0.0171 -5.84619,1.40967 -6.33453,5.11546 -0.44176,12.38209 -0.48727,27.55256 -0.51987,39.94071 -1.17736,0.018 -1.74631,0.0219 -3.11249,-0.0165 -0.16555,-12.9461 -0.19655,-26.03577 -0.38189,-38.98161 0.0552,-4.48131 0.40738,-12.615667 -6.7836,-12.690177 z"/>
-          <ellipse fill="white" stroke="#0f3d72" stroke-width="2" cx="33.650284" cy="178.74698" rx="23" ry="14"/><circle fill="#0f3d72" cx="33.650284" cy="178.74698" r="9"/>
-          
-        </g>
-      </svg>
-    </span>
-    Privacy Magic
-  </a>
-  <a href="https://chromewebstore.google.com/detail/privacy-magic/cobojehlalmfnplnblndhofhgeglljkc" class="cta-nav">Add to Chrome</a>
-</nav>
+  <nav>
+    <a href="#" class="logo">
+      <span class="logo-icon">
+        <svg viewBox="0 95 90 125" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+          <g transform="translate(6.60056,0.6882665)">
+            <path fill="#0f3d72"
+              d="m 33.69642,99.483523 c -7.67476,-0.002 -7.35765,8.160267 -7.30244,12.641607 -0.18534,12.94585 -0.21633,26.0355 -0.38189,38.9816 -1.36617,0.0384 -1.93514,0.0345 -3.11249,0.0165 -0.0326,-12.38815 -0.0781,-27.55861 -0.51987,-39.94072 -0.48834,-3.70581 -2.59806,-5.13258 -6.33453,-5.11545 -4.39162,0.0201 -5.81078,2.45532 -6.27717,5.48597 -0.81609,10.79484 -0.29735,21.63493 -0.7519,32.44557 -0.0734,5.41556 -0.1493,10.83127 -0.24133,16.24655 -2.84676,-4.67192 -8.70217,-10.69061 -14.86687,-11.32644 -5.09657,-0.58843 -6.94072,1.42229 -11.37043,3.65146 8.08098,0.22217 11.85647,7.36039 14.33098,16.04036 4.05089,11.87787 7.25503,23.7197 14.01732,34.53019 5.13548,6.05692 13.31801,10.05135 21.36884,9.93658 v 0.0295 c 0.0128,-4.2e-4 0.0248,-5.9e-4 0.0362,-0.001 8.96231,-0.055 17.89265,-2.45427 23.6974,-9.91668 6.76224,-10.81049 9.96638,-22.65232 14.01723,-34.53019 2.47451,-8.67997 6.24997,-15.8182 14.33091,-16.04037 -4.42969,-2.22917 -6.27383,-4.23988 -11.37036,-3.65145 -6.16468,0.63583 -12.02005,6.65452 -14.8668,11.32644 -0.092,-5.41528 -0.16792,-10.831 -0.24133,-16.24656 -0.45455,-10.81064 0.0642,-21.65074 -0.75189,-32.44556 -0.46638,-3.03064 -1.88556,-5.46588 -6.27717,-5.48598 -3.73647,-0.0171 -5.84619,1.40967 -6.33453,5.11546 -0.44176,12.38209 -0.48727,27.55256 -0.51987,39.94071 -1.17736,0.018 -1.74631,0.0219 -3.11249,-0.0165 -0.16555,-12.9461 -0.19655,-26.03577 -0.38189,-38.98161 0.0552,-4.48131 0.40738,-12.615667 -6.7836,-12.690177 z" />
+            <ellipse fill="white" stroke="#0f3d72" stroke-width="2" cx="33.650284" cy="178.74698" rx="23" ry="14" />
+            <circle fill="#0f3d72" cx="33.650284" cy="178.74698" r="9" />
 
-<section class="hero">
-  <div class="hero-badge">Free & Open-Source Chrome Extension</div>
-  <h1>Browse the web without<br><em><span class="highlight">being watched</span></em></h1>
-  <p>Privacy Magic provides thorough, layered protections to shield you from the surveillance built into everyday browsing.</p>
-  <a href="https://chromewebstore.google.com/detail/privacy-magic/cobojehlalmfnplnblndhofhgeglljkc" class="hero-cta" style="margin-bottom: 2rem;">
-    <img src="hamsa-white.svg" width="28" height="28">
-    Add to Chrome
-  </a>
-  <p class="hero-sub">Privacy Magic is in development.<br><a href="mailto:contact@privacymagic.com">Let us know what you think!</a></p>
-</section>
+          </g>
+        </svg>
+      </span>
+      Privacy Magic
+    </a>
+    <a href="https://chromewebstore.google.com/detail/privacy-magic/cobojehlalmfnplnblndhofhgeglljkc"
+      class="cta-nav">Add to Chrome</a>
+  </nav>
 
-<section class="problem">
-  <div class="problem-inner">
-    <p>The Web is a <span class="highlight">wonderful</span> thing: it gives you access to the world's information. It's an essential part of modern life.</p>
-    <p>Unfortunately, the Web is also a vehicle for <span class="highlight">mass surveillance</span>. Everything you do online is being tracked, logged, and analyzed by corporations and governments.</p>
-    <p>Privacy Magic <span class="highlight">fights back</span> — shielding you from surveillance as you browse.</p>
-  </div>
-</section>
+  <section class="hero">
+    <div class="hero-badge">Free & Open-Source Chrome Extension</div>
+    <h1>Browse the web without<br><em><span class="highlight">being watched</span></em></h1>
+    <p>Privacy Magic provides thorough, layered protections to shield you from the surveillance built into everyday
+      browsing.</p>
+    <a href="https://chromewebstore.google.com/detail/privacy-magic/cobojehlalmfnplnblndhofhgeglljkc" class="hero-cta"
+      style="margin-bottom: 2rem;">
+      <img src="hamsa-white.svg" width="28" height="28">
+      Add to Chrome
+    </a>
+    <p class="hero-sub">Privacy Magic is in development.<br><a href="mailto:contact@privacymagic.com">Let us know what
+        you think!</a></p>
+  </section>
 
-<section class="section">
-  <h2>Protection that just works</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <h3>Install in seconds</h3>
-      <p>Add Privacy Magic to Chrome from the Web Store. Easy setup, no account needed.</p>
+  <section class="problem">
+    <div class="problem-inner">
+      <p>The Web is a <span class="highlight">wonderful</span> thing: it gives you access to the world's information.
+        It's an essential part of modern life.</p>
+      <p>Unfortunately, the Web is also a vehicle for <span class="highlight">mass surveillance</span>. Everything you
+        do online is being tracked, logged, and analyzed by corporations and governments.</p>
+      <p>Privacy Magic <span class="highlight">fights back</span> — shielding you from surveillance as you browse.</p>
     </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <h3>Browse normally</h3>
-      <p>Privacy Magic works silently in the background. You don't have to change a thing about how you use the web.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <h3>Stay protected</h3>
-      <p>Your privacy is defended automatically on every site you visit.</p>
-    </div>
-  </div>
-  <p style="text-align:center; margin-top:2rem; font-size:1.1rem; color:var(--text-hint);">Complete privacy requires two components: browser protection and a VPN. Privacy Magic handles the browser. When you install the extension, we'll guide you through protecting your IP address too.</p>
-</section>
+  </section>
 
-<section class="features-bg">
-  <div class="features-inner">
-    <h2 style="text-align:center; font-family:'Lora',serif; font-size:clamp(1.6rem,3.5vw,2.2rem); font-weight:600; color:var(--blue-dark); margin-bottom:0.75rem;">Thorough protection, every layer</h2>
-    <div class="features-intro" style="margin-bottom:2.5rem;">
-      <p>Many privacy tools leave significant gaps. Privacy Magic is designed to close them.</p>
+  <section class="section">
+    <h2>Protection that just works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Install in seconds</h3>
+        <p>Add Privacy Magic to Chrome from the Web Store. Easy setup, no account needed.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Browse normally</h3>
+        <p>Privacy Magic works silently in the background. You don't have to change a thing about how you use the web.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Stay protected</h3>
+        <p>Your privacy is defended automatically on every site you visit.</p>
+      </div>
     </div>
+    <p style="text-align:center; margin-top:2rem; font-size:1.1rem; color:var(--text-hint);">Complete privacy requires
+      two components: browser protection and a VPN. Privacy Magic handles the browser. When you install the extension,
+      we'll guide you through protecting your IP address too.</p>
+  </section>
 
-    <div class="feature-grid">
+  <section class="features-bg">
+    <div class="features-inner">
+      <h2
+        style="text-align:center; font-family:'Lora',serif; font-size:clamp(1.6rem,3.5vw,2.2rem); font-weight:600; color:var(--blue-dark); margin-bottom:0.75rem;">
+        Thorough protection, every layer</h2>
+      <div class="features-intro" style="margin-bottom:2.5rem;">
+        <p>Many privacy tools leave significant gaps. Privacy Magic is designed to close them.</p>
+      </div>
 
-      <!-- Block trackers: shoe prints -->
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg xmlns="http://www.w3.org/2000/svg"
-          shape-rendering="geometricPrecision"
-          text-rendering="geometricPrecision"
-          image-rendering="optimizeQuality"
-          fill-rule="evenodd" clip-rule="evenodd"
-          viewBox="0 0 64 64">
-            <g transform="translate(32,32) scale(0.07) translate(-210,-260)">
-              <path fill="var(--blue)" fill-rule="nonzero" d="M25.03 325.99c2.8 12.19 5.7 26.6 8.77 44.54l126.49-5.28c-3.27-44.74 8.61-107.72 17.79-145.06 10.76-45.98 11.56-88.65-22.79-125.21-19.65-20.97-48.58-29.54-76.65-21.19-18.54 5.55-35.3 17.98-47.54 35C9.01 139.62-1.93 186.12.28 223.41c2.08 36.15 16.66 67.4 24.75 102.58zm371.94-70.64c-2.8 12.17-5.7 26.59-8.77 44.51l-126.49-5.26c3.27-44.75-8.61-107.71-17.79-145.04-10.76-45.99-11.56-88.66 22.8-125.22 36.61-39.09 93.67-28.63 124.18 13.8 22.09 30.83 33.03 77.34 30.82 114.63-2.08 36.14-16.66 67.4-24.75 102.58zm-10.71 71.22c-.01 3.18.03 6.38.12 9.59.12 4.47.31 8.41.5 12.23 1.23 26.89 2.1 46.7-21.23 70.3-11.62 11.77-26.31 18.66-41.45 21.11-11.43 1.83-23.07 1.11-33.81-1.99-10.67-3.1-20.43-8.53-28.18-16.21-8.54-8.42-14.62-19.55-16.79-33.17-1.65-10.29-.97-20.53.99-30.64 1.98-10.31 5.35-20.6 8.91-30.63.7-1.97 1.34-3.96 1.91-5.97l129.03 5.38zM35.75 397.22c0 3.19-.05 6.37-.13 9.58-.12 4.47-.31 8.41-.5 12.24-1.23 26.88-2.1 46.69 21.23 70.29C67.97 501.1 82.66 508 97.8 510.44c11.44 1.84 23.07 1.1 33.81-1.99 10.67-3.1 20.43-8.53 28.19-16.22 8.53-8.41 14.61-19.54 16.78-33.15 1.65-10.29.97-20.54-.99-30.64-1.98-10.33-5.35-20.61-8.91-30.64-.7-1.96-1.33-3.94-1.9-5.96l-129.03 5.38z"/>
-            </g>
-            <circle cx="32" cy="32" r="27" stroke="#ffaaaa" stroke-width="5" fill="none"/>
-            <line x1="13" y1="13" x2="51" y2="51" stroke="#ffaaaa" stroke-width="5" stroke-linecap="round"/>
+      <div class="feature-grid">
+
+        <!-- Block trackers: shoe prints -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"
+              text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd"
+              clip-rule="evenodd" viewBox="0 0 64 64">
+              <g transform="translate(32,32) scale(0.07) translate(-210,-260)">
+                <path fill="var(--blue)" fill-rule="nonzero"
+                  d="M25.03 325.99c2.8 12.19 5.7 26.6 8.77 44.54l126.49-5.28c-3.27-44.74 8.61-107.72 17.79-145.06 10.76-45.98 11.56-88.65-22.79-125.21-19.65-20.97-48.58-29.54-76.65-21.19-18.54 5.55-35.3 17.98-47.54 35C9.01 139.62-1.93 186.12.28 223.41c2.08 36.15 16.66 67.4 24.75 102.58zm371.94-70.64c-2.8 12.17-5.7 26.59-8.77 44.51l-126.49-5.26c3.27-44.75-8.61-107.71-17.79-145.04-10.76-45.99-11.56-88.66 22.8-125.22 36.61-39.09 93.67-28.63 124.18 13.8 22.09 30.83 33.03 77.34 30.82 114.63-2.08 36.14-16.66 67.4-24.75 102.58zm-10.71 71.22c-.01 3.18.03 6.38.12 9.59.12 4.47.31 8.41.5 12.23 1.23 26.89 2.1 46.7-21.23 70.3-11.62 11.77-26.31 18.66-41.45 21.11-11.43 1.83-23.07 1.11-33.81-1.99-10.67-3.1-20.43-8.53-28.18-16.21-8.54-8.42-14.62-19.55-16.79-33.17-1.65-10.29-.97-20.53.99-30.64 1.98-10.31 5.35-20.6 8.91-30.63.7-1.97 1.34-3.96 1.91-5.97l129.03 5.38zM35.75 397.22c0 3.19-.05 6.37-.13 9.58-.12 4.47-.31 8.41-.5 12.24-1.23 26.88-2.1 46.69 21.23 70.29C67.97 501.1 82.66 508 97.8 510.44c11.44 1.84 23.07 1.1 33.81-1.99 10.67-3.1 20.43-8.53 28.19-16.22 8.53-8.41 14.61-19.54 16.78-33.15 1.65-10.29.97-20.54-.99-30.64-1.98-10.33-5.35-20.61-8.91-30.64-.7-1.96-1.33-3.94-1.9-5.96l-129.03 5.38z" />
+              </g>
+              <circle cx="32" cy="32" r="27" stroke="#ffaaaa" stroke-width="5" fill="none" />
+              <line x1="13" y1="13" x2="51" y2="51" stroke="#ffaaaa" stroke-width="5" stroke-linecap="round" />
             </svg>
+          </div>
+          <div class="feature-card-title">Block trackers</div>
         </div>
-        <div class="feature-card-title">Block trackers</div>
-      </div>
 
-      <!-- Resist fingerprinting: fingerprint arcs -->
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g transform="translate(32,32) scale(1.9) translate(-12,-12)">
-              <path fill="var(--blue)" d="M17.81 4.47c-.08 0-.16-.02-.23-.06C15.66 3.42 14 3 12.01 3c-1.98 0-3.86.47-5.57 1.41-.24.13-.54.04-.68-.2-.13-.24-.04-.55.2-.68C7.82 2.52 9.86 2 12.01 2c2.13 0 3.99.47 6.03 1.52.25.13.34.43.21.67-.09.18-.26.28-.44.28zM3.5 9.72c-.1 0-.2-.03-.29-.09-.23-.16-.28-.47-.12-.7.99-1.4 2.25-2.5 3.75-3.27C9.98 4.04 14 4.03 17.15 5.65c1.5.77 2.76 1.86 3.75 3.25.16.22.11.54-.12.7-.23.16-.54.11-.7-.12-.9-1.26-2.04-2.25-3.39-2.94-2.87-1.47-6.54-1.47-9.4.01-1.36.7-2.5 1.7-3.4 2.96-.08.14-.23.21-.39.21zm6.25 12.07c-.13 0-.26-.05-.35-.15-.87-.87-1.34-1.43-2.01-2.64-.69-1.23-1.05-2.73-1.05-4.34 0-2.97 2.54-5.39 5.66-5.39s5.66 2.42 5.66 5.39c0 .28-.22.5-.5.5s-.5-.22-.5-.5c0-2.42-2.09-4.39-4.66-4.39-2.57 0-4.66 1.97-4.66 4.39 0 1.44.32 2.77.93 3.85.64 1.15 1.08 1.64 1.85 2.42.19.2.19.51 0 .71-.11.1-.24.15-.37.15zm7.17-1.85c-1.19 0-2.24-.3-3.1-.89-1.49-1.01-2.38-2.65-2.38-4.39 0-.28.22-.5.5-.5s.5.22.5.5c0 1.41.72 2.74 1.94 3.56.71.48 1.54.71 2.54.71.24 0 .64-.03 1.04-.1.27-.05.53.13.58.41.05.27-.13.53-.41.58-.57.11-1.07.12-1.21.12zM14.91 22c-.04 0-.09-.01-.13-.02-1.59-.44-2.63-1.03-3.72-2.1-1.4-1.39-2.17-3.24-2.17-5.22 0-1.62 1.38-2.94 3.08-2.94 1.7 0 3.08 1.32 3.08 2.94 0 1.07.93 1.94 2.08 1.94s2.08-.87 2.08-1.94c0-3.77-3.25-6.83-7.25-6.83-2.84 0-5.44 1.58-6.61 4.03-.39.81-.59 1.76-.59 2.8 0 .78.07 2.01.67 3.61.1.26-.03.55-.29.64-.26.1-.55-.04-.64-.29-.49-1.31-.73-2.61-.73-3.96 0-1.2.23-2.29.68-3.24 1.33-2.79 4.28-4.6 7.51-4.6 4.55 0 8.25 3.51 8.25 7.83 0 1.62-1.38 2.94-3.08 2.94s-3.08-1.32-3.08-2.94c0-1.07-.93-1.94-2.08-1.94s-2.08.87-2.08 1.94c0 1.71.66 3.31 1.87 4.51.95.94 1.86 1.46 3.27 1.85.27.07.42.35.35.61-.05.23-.26.38-.47.38z"/>
-            </g>
-            <circle cx="32" cy="32" r="27" stroke="#ffaaaa" stroke-width="5" fill="none"/>
-            <line x1="13" y1="13" x2="51" y2="51" stroke="#ffaaaa" stroke-width="5" stroke-linecap="round"/>
-          </svg>
+        <!-- Resist fingerprinting: fingerprint arcs -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g transform="translate(32,32) scale(1.9) translate(-12,-12)">
+                <path fill="var(--blue)"
+                  d="M17.81 4.47c-.08 0-.16-.02-.23-.06C15.66 3.42 14 3 12.01 3c-1.98 0-3.86.47-5.57 1.41-.24.13-.54.04-.68-.2-.13-.24-.04-.55.2-.68C7.82 2.52 9.86 2 12.01 2c2.13 0 3.99.47 6.03 1.52.25.13.34.43.21.67-.09.18-.26.28-.44.28zM3.5 9.72c-.1 0-.2-.03-.29-.09-.23-.16-.28-.47-.12-.7.99-1.4 2.25-2.5 3.75-3.27C9.98 4.04 14 4.03 17.15 5.65c1.5.77 2.76 1.86 3.75 3.25.16.22.11.54-.12.7-.23.16-.54.11-.7-.12-.9-1.26-2.04-2.25-3.39-2.94-2.87-1.47-6.54-1.47-9.4.01-1.36.7-2.5 1.7-3.4 2.96-.08.14-.23.21-.39.21zm6.25 12.07c-.13 0-.26-.05-.35-.15-.87-.87-1.34-1.43-2.01-2.64-.69-1.23-1.05-2.73-1.05-4.34 0-2.97 2.54-5.39 5.66-5.39s5.66 2.42 5.66 5.39c0 .28-.22.5-.5.5s-.5-.22-.5-.5c0-2.42-2.09-4.39-4.66-4.39-2.57 0-4.66 1.97-4.66 4.39 0 1.44.32 2.77.93 3.85.64 1.15 1.08 1.64 1.85 2.42.19.2.19.51 0 .71-.11.1-.24.15-.37.15zm7.17-1.85c-1.19 0-2.24-.3-3.1-.89-1.49-1.01-2.38-2.65-2.38-4.39 0-.28.22-.5.5-.5s.5.22.5.5c0 1.41.72 2.74 1.94 3.56.71.48 1.54.71 2.54.71.24 0 .64-.03 1.04-.1.27-.05.53.13.58.41.05.27-.13.53-.41.58-.57.11-1.07.12-1.21.12zM14.91 22c-.04 0-.09-.01-.13-.02-1.59-.44-2.63-1.03-3.72-2.1-1.4-1.39-2.17-3.24-2.17-5.22 0-1.62 1.38-2.94 3.08-2.94 1.7 0 3.08 1.32 3.08 2.94 0 1.07.93 1.94 2.08 1.94s2.08-.87 2.08-1.94c0-3.77-3.25-6.83-7.25-6.83-2.84 0-5.44 1.58-6.61 4.03-.39.81-.59 1.76-.59 2.8 0 .78.07 2.01.67 3.61.1.26-.03.55-.29.64-.26.1-.55-.04-.64-.29-.49-1.31-.73-2.61-.73-3.96 0-1.2.23-2.29.68-3.24 1.33-2.79 4.28-4.6 7.51-4.6 4.55 0 8.25 3.51 8.25 7.83 0 1.62-1.38 2.94-3.08 2.94s-3.08-1.32-3.08-2.94c0-1.07-.93-1.94-2.08-1.94s-2.08.87-2.08 1.94c0 1.71.66 3.31 1.87 4.51.95.94 1.86 1.46 3.27 1.85.27.07.42.35.35.61-.05.23-.26.38-.47.38z" />
+              </g>
+              <circle cx="32" cy="32" r="27" stroke="#ffaaaa" stroke-width="5" fill="none" />
+              <line x1="13" y1="13" x2="51" y2="51" stroke="#ffaaaa" stroke-width="5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="feature-card-title">Resist fingerprinting</div>
         </div>
-        <div class="feature-card-title">Resist fingerprinting</div>
-      </div>
 
-      <!-- Remove tracking breadcrumbs -->
-      <div class="feature-card">
-        <div class="feature-icon">
+        <!-- Remove tracking breadcrumbs -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 64 64" version="1.1" id="svg1" inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+              sodipodi:docname="crumbs.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+              xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg"
+              xmlns:svg="http://www.w3.org/2000/svg">
+              <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1"
+                transform="translate(-3,-18) scale(0.4,0.4)">
+                <path style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.056;stroke-dasharray:none"
+                  d="m 47.979187,139.5223 c 1.221974,-4.25042 -5.76292,-3.74579 -5.932253,-0.30672 -2.878996,2.87995 2.455869,3.3629 3.979023,4.97585 2.641379,2.32349 6.17939,-1.62888 2.513566,-3.22523 -0.379125,-0.36856 -0.644021,-0.90097 -0.560336,-1.4439 z"
+                  id="path1" />
+                <path style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.05599;stroke-dasharray:none"
+                  d="M 100.66799,134.81268 74.765113,129.80872" id="path2" />
+                <path style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.05599;stroke-dasharray:none"
+                  d="M 98.901881,132.16353 109.20416,119.80079" id="path5" />
+                <path style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.05599;stroke-dasharray:none"
+                  d="m 67.000988,132.27889 c 1.616634,0.61371 3.090398,1.6541 4.835538,1.88992 0.539406,-0.15711 1.192543,-0.33504 1.6768,0.0612 0.282732,0.086 0.625112,-0.0273 0.928092,-0.048 0.74172,-0.11527 1.507852,-0.37213 2.024219,-0.94388 0.221997,-0.50988 -0.189496,-0.99267 -0.545832,-1.31303 -0.258643,-0.28156 -0.57416,-0.52569 -0.976372,-0.52485 -0.332295,0.0474 -0.650585,-0.23242 -0.279643,-0.48289 0.403081,-0.27602 0.230077,-0.809 -0.242488,-0.83936 -0.377925,-0.078 -0.693164,-0.29194 -0.922338,-0.59757 -0.710095,-0.71211 -1.61428,-1.17515 -2.42337,-1.75861 -0.224991,-0.26591 -0.655608,-0.51819 -0.984447,-0.2902 -0.304719,0.23461 0.03705,0.91644 0.28708,0.42046 0.129136,-0.34715 -0.04822,-0.90258 -0.487673,-0.87128 -0.485035,-0.23051 -1.186291,-0.37509 -1.591201,0.0765 -0.216973,0.35012 -0.314669,0.76362 -0.506904,1.12965 -0.45261,0.98059 -0.938543,2.02704 -0.804104,3.13685 0.0071,0.31835 0.01946,0.63676 0.01289,0.95524 z"
+                  id="path8" sodipodi:nodetypes="ccccccccccccccccccc" />
+                <path style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.05599;stroke-dasharray:none"
+                  d="m 88.599602,108.90981 c -0.468915,1.53363 -0.421272,3.17182 -0.167905,4.72778 -0.346509,1.52273 -2.11752,1.95281 -3.374751,2.49115 -1.750725,0.58328 -3.646995,0.69771 -5.462228,0.38212 -1.748762,-0.86792 0.0039,-2.74663 0.928336,-3.5318 0.683568,-1.35645 1.78537,-2.34214 3.315675,-2.52292 0.552476,-0.24067 1.048574,-0.5903 1.523014,-0.95763"
+                  id="path10" />
+                <path style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.05599;stroke-dasharray:none"
+                  d="m 100.07928,101.84539 c -1.121874,-0.70687 -2.392455,0.50841 -3.560417,-0.0263 -0.740695,-0.30483 -1.797938,-0.89383 -1.499851,-1.859971 0.528781,-0.828848 1.507695,-1.264079 2.276701,-1.851705 1.015563,-0.02432 1.415872,-1.308488 2.512626,-1.044538 0.733691,-0.338099 1.361121,-0.876928 2.077741,-1.346825 0.43179,-0.123165 1.30934,-1.492376 1.12853,-0.370223 -0.032,0.495023 0.64271,0.386714 0.60409,1.012799 0.32821,0.942566 0.16907,2.264415 1.19364,2.797344 0.75947,0.383419 0.69624,1.449489 0.47038,2.118539 -0.88112,0.2908 -1.87608,0.26003 -2.80602,0.38387 -0.79871,0.0677 -1.59848,0.12319 -2.39742,0.18698 z"
+                  id="path13" />
+                <path style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.05599;stroke-dasharray:none"
+                  d="m 120.09514,88.893953 c 1.17117,1.248209 0.49786,3.006504 -0.61147,3.998379 -0.78293,1.093658 -0.4543,3.130909 1.1688,3.092513 1.84317,0.02851 3.6097,-0.610438 5.32969,-1.203876 0.74259,0.1101 1.54152,-1.129921 1.91935,-1.166908 -0.76866,-0.741283 -2.13435,-1.1888 -1.60423,-2.578689 -0.0938,-1.011215 0.69421,-3.706301 -1.07497,-3.132777 -1.04271,0.558889 -2.1944,0.785758 -3.37455,0.754006 -0.59669,1.92e-4 -1.16626,0.168032 -1.75262,0.237352 z"
+                  id="path14" />
+              </g>
+              <circle cx="32" cy="32" r="27" stroke="#ffaaaa" stroke-width="5" fill="none" />
+              <line x1="13" y1="13" x2="51" y2="51" stroke="#ffaaaa" stroke-width="5" stroke-linecap="round" />
+            </svg>
 
-          <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-          <!-- Created with Inkscape (http://www.inkscape.org/) -->
-  
 
-          <svg
-          viewBox="0 0 64 64"
-          version="1.1"
-          id="svg1"
-          inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
-          sodipodi:docname="crumbs.svg"
-          xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-          xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:svg="http://www.w3.org/2000/svg">
-          <g
-            inkscape:label="Layer 1"
-            inkscape:groupmode="layer"
-            id="layer1"
-            transform="translate(-3,-18) scale(0.4,0.4)">
-            <path
-            style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.056;stroke-dasharray:none"
-            d="m 47.979187,139.5223 c 1.221974,-4.25042 -5.76292,-3.74579 -5.932253,-0.30672 -2.878996,2.87995 2.455869,3.3629 3.979023,4.97585 2.641379,2.32349 6.17939,-1.62888 2.513566,-3.22523 -0.379125,-0.36856 -0.644021,-0.90097 -0.560336,-1.4439 z"
-            id="path1" />
-         <path
-            style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.05599;stroke-dasharray:none"
-            d="M 100.66799,134.81268 74.765113,129.80872"
-            id="path2" />
-         <path
-            style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.05599;stroke-dasharray:none"
-            d="M 98.901881,132.16353 109.20416,119.80079"
-            id="path5" />
-         <path
-            style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.05599;stroke-dasharray:none"
-            d="m 67.000988,132.27889 c 1.616634,0.61371 3.090398,1.6541 4.835538,1.88992 0.539406,-0.15711 1.192543,-0.33504 1.6768,0.0612 0.282732,0.086 0.625112,-0.0273 0.928092,-0.048 0.74172,-0.11527 1.507852,-0.37213 2.024219,-0.94388 0.221997,-0.50988 -0.189496,-0.99267 -0.545832,-1.31303 -0.258643,-0.28156 -0.57416,-0.52569 -0.976372,-0.52485 -0.332295,0.0474 -0.650585,-0.23242 -0.279643,-0.48289 0.403081,-0.27602 0.230077,-0.809 -0.242488,-0.83936 -0.377925,-0.078 -0.693164,-0.29194 -0.922338,-0.59757 -0.710095,-0.71211 -1.61428,-1.17515 -2.42337,-1.75861 -0.224991,-0.26591 -0.655608,-0.51819 -0.984447,-0.2902 -0.304719,0.23461 0.03705,0.91644 0.28708,0.42046 0.129136,-0.34715 -0.04822,-0.90258 -0.487673,-0.87128 -0.485035,-0.23051 -1.186291,-0.37509 -1.591201,0.0765 -0.216973,0.35012 -0.314669,0.76362 -0.506904,1.12965 -0.45261,0.98059 -0.938543,2.02704 -0.804104,3.13685 0.0071,0.31835 0.01946,0.63676 0.01289,0.95524 z"
-            id="path8"
-            sodipodi:nodetypes="ccccccccccccccccccc" />
-         <path
-            style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.05599;stroke-dasharray:none"
-            d="m 88.599602,108.90981 c -0.468915,1.53363 -0.421272,3.17182 -0.167905,4.72778 -0.346509,1.52273 -2.11752,1.95281 -3.374751,2.49115 -1.750725,0.58328 -3.646995,0.69771 -5.462228,0.38212 -1.748762,-0.86792 0.0039,-2.74663 0.928336,-3.5318 0.683568,-1.35645 1.78537,-2.34214 3.315675,-2.52292 0.552476,-0.24067 1.048574,-0.5903 1.523014,-0.95763"
-            id="path10" />
-         <path
-            style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.05599;stroke-dasharray:none"
-            d="m 100.07928,101.84539 c -1.121874,-0.70687 -2.392455,0.50841 -3.560417,-0.0263 -0.740695,-0.30483 -1.797938,-0.89383 -1.499851,-1.859971 0.528781,-0.828848 1.507695,-1.264079 2.276701,-1.851705 1.015563,-0.02432 1.415872,-1.308488 2.512626,-1.044538 0.733691,-0.338099 1.361121,-0.876928 2.077741,-1.346825 0.43179,-0.123165 1.30934,-1.492376 1.12853,-0.370223 -0.032,0.495023 0.64271,0.386714 0.60409,1.012799 0.32821,0.942566 0.16907,2.264415 1.19364,2.797344 0.75947,0.383419 0.69624,1.449489 0.47038,2.118539 -0.88112,0.2908 -1.87608,0.26003 -2.80602,0.38387 -0.79871,0.0677 -1.59848,0.12319 -2.39742,0.18698 z"
-            id="path13" />
-         <path
-            style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.05599;stroke-dasharray:none"
-            d="m 120.09514,88.893953 c 1.17117,1.248209 0.49786,3.006504 -0.61147,3.998379 -0.78293,1.093658 -0.4543,3.130909 1.1688,3.092513 1.84317,0.02851 3.6097,-0.610438 5.32969,-1.203876 0.74259,0.1101 1.54152,-1.129921 1.91935,-1.166908 -0.76866,-0.741283 -2.13435,-1.1888 -1.60423,-2.578689 -0.0938,-1.011215 0.69421,-3.706301 -1.07497,-3.132777 -1.04271,0.558889 -2.1944,0.785758 -3.37455,0.754006 -0.59669,1.92e-4 -1.16626,0.168032 -1.75262,0.237352 z"
-            id="path14" />
-         </g>
-         <circle cx="32" cy="32" r="27" stroke="#ffaaaa" stroke-width="5" fill="none"/>
-         <line x1="13" y1="13" x2="51" y2="51" stroke="#ffaaaa" stroke-width="5" stroke-linecap="round"/>
-      </svg>
-       
-  
 
+          </div>
+          <div class="feature-card-title">Remove tracking breadcrumbs</div>
         </div>
-        <div class="feature-card-title">Remove tracking breadcrumbs</div>
-      </div>
 
-      <!-- Plug browser leaks: water drop -->
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M32 16 C32 16 20 28 20 36 a12 12 0 0 0 24 0 C44 28 32 16 32 16Z" fill="var(--blue)"/>
-            <path d="M26 36 a6 6 0 0 0 5 5" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
-            <circle cx="32" cy="32" r="27" stroke="#ffaaaa" stroke-width="5" fill="none"/>
-            <line x1="13" y1="13" x2="51" y2="51" stroke="#ffaaaa" stroke-width="5" stroke-linecap="round"/>
-          </svg>
+        <!-- Plug browser leaks: water drop -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 16 C32 16 20 28 20 36 a12 12 0 0 0 24 0 C44 28 32 16 32 16Z" fill="var(--blue)" />
+              <path d="M26 36 a6 6 0 0 0 5 5" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity="0.5" />
+              <circle cx="32" cy="32" r="27" stroke="#ffaaaa" stroke-width="5" fill="none" />
+              <line x1="13" y1="13" x2="51" y2="51" stroke="#ffaaaa" stroke-width="5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="feature-card-title">Plug browser leaks</div>
         </div>
-        <div class="feature-card-title">Plug browser leaks</div>
-      </div>
 
-      <!-- Stop web leaks removed -->
+        <!-- Stop web leaks removed -->
 
 
 
-      <!-- Block ad targeting: gunsight crosshair -->
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- outer ring -->
-            <circle cx="32" cy="32" r="15" stroke="var(--blue)" stroke-width="2.5" fill="var(--blue-light)"/>
-            <!-- crosshair: top -->
-            <line x1="32" y1="13" x2="32" y2="23" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- crosshair: bottom -->
-            <line x1="32" y1="41" x2="32" y2="51" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- crosshair: left -->
-            <line x1="13" y1="32" x2="23" y2="32" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- crosshair: right -->
-            <line x1="41" y1="32" x2="51" y2="32" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- center dot -->
-            <circle cx="32" cy="32" r="3" fill="var(--blue)"/>
-            <circle cx="32" cy="32" r="27" stroke="#ffaaaa" stroke-width="5" fill="none"/>
-            <line x1="13" y1="13" x2="51" y2="51" stroke="#ffaaaa" stroke-width="5" stroke-linecap="round"/>
-          </svg>
+        <!-- Block ad targeting: gunsight crosshair -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- outer ring -->
+              <circle cx="32" cy="32" r="15" stroke="var(--blue)" stroke-width="2.5" fill="var(--blue-light)" />
+              <!-- crosshair: top -->
+              <line x1="32" y1="13" x2="32" y2="23" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" />
+              <!-- crosshair: bottom -->
+              <line x1="32" y1="41" x2="32" y2="51" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" />
+              <!-- crosshair: left -->
+              <line x1="13" y1="32" x2="23" y2="32" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" />
+              <!-- crosshair: right -->
+              <line x1="41" y1="32" x2="51" y2="32" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" />
+              <!-- center dot -->
+              <circle cx="32" cy="32" r="3" fill="var(--blue)" />
+              <circle cx="32" cy="32" r="27" stroke="#ffaaaa" stroke-width="5" fill="none" />
+              <line x1="13" y1="13" x2="51" y2="51" stroke="#ffaaaa" stroke-width="5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="feature-card-title">Block ad targeting</div>
         </div>
-        <div class="feature-card-title">Block ad targeting</div>
-      </div>
 
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="cta-section" id="install">
-  <h2>Privacy is your <span class="highlight">right</span>.</h2>
-  <p>Protect yourself and your family.</p>
-  <a href="https://chromewebstore.google.com/detail/privacy-magic/cobojehlalmfnplnblndhofhgeglljkc" class="hero-cta">
-    <img src="hamsa-white.svg" width="28" height="28">
-    Add to Chrome
-  </a>
-</section>
+  <section class="cta-section" id="install">
+    <h2>Privacy is your <span class="highlight">right</span>.</h2>
+    <p>Protect yourself and your family.</p>
+    <a href="https://chromewebstore.google.com/detail/privacy-magic/cobojehlalmfnplnblndhofhgeglljkc" class="hero-cta">
+      <img src="hamsa-white.svg" width="28" height="28">
+      Add to Chrome
+    </a>
+  </section>
 
-<footer>
-  &copy; 2026 Little Tech LLC &nbsp;·&nbsp; <a href="https://github.com/littletechllc/privacymagic-extension" style="color:inherit;">Source Code</a>
-</footer>
+  <footer>
+    &copy; 2026 Little Tech LLC &nbsp;·&nbsp; <a href="https://github.com/littletechllc/privacymagic-extension"
+      style="color:inherit;">Source Code</a>
+  </footer>
 
 </body>
+
 </html>
