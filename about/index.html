@@ -30,10 +30,34 @@
   </a>
   <div class="nav-actions">
     <a href="https://chromewebstore.google.com/detail/privacy-magic/cobojehlalmfnplnblndhofhgeglljkc" class="cta-nav">Add to Chrome</a>
-    <a href="/about/" class="nav-contact">About</a>
-    <a href="mailto:contact@privacymagic.com" class="nav-contact">Contact Us</a>
+    <details class="nav-menu">
+      <summary class="nav-menu-toggle" aria-label="Open menu">
+        <span class="nav-menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </summary>
+      <ul class="nav-menu-panel">
+        <li><a href="/about/">About</a></li>
+        <li><a href="mailto:contact@privacymagic.com">Contact Us</a></li>
+      </ul>
+    </details>
   </div>
 </nav>
+<script>
+  const menu = document.querySelector(".nav-menu");
+  if (menu) {
+    menu.querySelector(".nav-menu-panel")?.addEventListener("click", (event) => {
+      if (event.target.closest("a")) menu.open = false;
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!menu.open || menu.contains(event.target)) return;
+      menu.open = false;
+    });
+  }
+</script>
 
   
   
@@ -82,7 +106,8 @@
       <p class="author-bio-title">Owner, Little Tech LLC</p>
       
       
-      <p class="author-bio-body">Arthur Edelstein is a software engineer focused on human wellbeing. At Tor, he introduced stream isolation, where Tor Browser uses [a separate circuit for each website you visit](https://support.torproject.org/tor-browser/features/managing-identities/#:~:text=The%20URL%20bar). At Firefox, he was the product manager for the teams that developed [Total Cookie Protection](https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/) and [HTTPS-Only Mode](https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/). At Brave, he introduced [HTTPS by Default](https://brave.com/privacy-updates/22-https-by-default/) and co-authored a paper on the [Pool-Party Attack](https://brave.com/research/files/pool-party-usenix-2023.pdf) on privacy. In 2021, he published [PrivacyTests.org](https://privacytests.org), a project to hold web browser makers accountable for their leaks of private information. He also co-created [Project Timestamper](https://projecttimestamper.org), which is an ongoing effort to preserve the authenticity of human knowledge and culture in the age of AI.</p>
+      <div class="author-bio-body"><p>Arthur Edelstein is a software engineer focused on human wellbeing. At Tor, he introduced stream isolation, where Tor Browser uses <a href="https://support.torproject.org/tor-browser/features/managing-identities/#:~:text=The%20URL%20bar">a separate circuit for each website you visit</a>. At Firefox, he was the product manager for the teams that developed <a href="https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/">Total Cookie Protection</a> and <a href="https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/">HTTPS-Only Mode</a>. At Brave, he introduced <a href="https://brave.com/privacy-updates/22-https-by-default/">HTTPS by Default</a> and co-authored a paper on the <a href="https://brave.com/research/files/pool-party-usenix-2023.pdf">Pool-Party Attack</a> on privacy. In 2021, he published <a href="https://privacytests.org">PrivacyTests.org</a>, a project to hold web browser makers accountable for their leaks of private information. He also co-created <a href="https://projecttimestamper.org">Project Timestamper</a>, which is an ongoing effort to preserve the authenticity of human knowledge and culture in the age of AI.</p>
+</div>
       
     </div>
   </aside>
