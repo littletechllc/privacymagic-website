@@ -23,7 +23,7 @@ To implement this idea, I created Privacy Magic, a "set-and-forget" privacy brow
 
 These protections include automatically blocking ads and trackers (similar to an adblocker, but uniform across all users), resisting fingerprinting (blocking all manner of leaks of information about your device), blocking breadcrumbs (so websites can't "tag" your browser), sealing web browser leaks (hardening things such as iframes and web workers), blocking third-party cookies, disabling anti-privacy features in the browser (such as so-called Ad Measurement), and enabling the Global Privacy Control (a message that demands websites don't sell your data).
 
-All of these privacy protections have been designed to avoid interfering with your browsing. But, if by chance, you do run into a website that doesn't work with Privacy Magic out of the box, you can disable Privacy Magic for just that website by clicking on the 🪬 button and switching it off.
+All of these privacy protections have been designed to avoid interfering with your browsing. But, if by chance, you do run into a website that doesn't work with Privacy Magic out of the box, you can disable Privacy Magic for just that website by clicking on the <span class="post-inline-logo" aria-hidden="true"><img src="/images/logo.svg" alt=""></span> button and switching it off.
 
 In addition to the in-browser protections that Privacy Magic offers, it's essential to keep your IP address safe from prying eyes. During installation, the extension provides you a link to the Privacy Guides' recommended VPNs that will hide your IP address from websites and embedded trackers.
 

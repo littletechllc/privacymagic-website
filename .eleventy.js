@@ -74,6 +74,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css/**");
   eleventyConfig.addPassthroughCopy("src/images/**/*.png");
   eleventyConfig.addPassthroughCopy({
+    "src/images/logo.svg": "images/logo.svg",
     "fonts/**": "fonts",
     "favicon.ico": "favicon.ico",
     "favicon-32x32.png": "favicon-32x32.png",
