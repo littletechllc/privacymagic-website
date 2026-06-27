@@ -1,6 +1,6 @@
 
 
-Privacy Magic is an extension for Chrome that comprehensively protections your privacy as you browse the web.
+Privacy Magic is an open-source extension for Chrome that comprehensively protections your privacy as you browse the web.
 
 ## Open source
 
@@ -10,7 +10,7 @@ Privacy Magic is a fully open-source extension (see the [source code on GitHub](
 
 ### Blocking ads and trackers
 
-Privacy Magic uses a number of popular filter lists: [EasyList](https://easylist.to/), [EasyPrivacy](https://easylist.to/), [Fanboy's Annoyance List](https://easylist.to/), and the [small oisd blocklist](https://oisd.nl/). These filter lists block ads from being requested by your browser on the network, and they also hide the empty spaces that are left when ads are blocked. Privacy Magic uses a pinned version of these filter lists so that the extension's behavior is fully reproducible. 
+Privacy Magic uses a number of popular filter lists: [EasyList](https://easylist.to/), [EasyPrivacy](https://easylist.to/), [Fanboy's Annoyance List](https://easylist.to/), and the [small oisd blocklist](https://oisd.nl/). These filter lists block ads from being requested by your browser on the network, and they also hide the empty spaces that are left when ads are blocked. Privacy Magic uses a pinned version of these filter lists so that the extension's blocking behavior is fully reproducible and identical for every user.
 
 ### Protecting system information (fingerprinting)
 
@@ -22,17 +22,17 @@ Traditionally, browsers leak copious amounts of information about your computer 
 - Device
 - Disk
 - Display
-- Fonts
+- Fonts: Privacy Magic hides custom fonts installed on your system. Web pages can continue to use standard system fonts and downloaded web fonts.
 - Graphics
 - Keyboard
 - Language
-- Math
-- Memory
+- Math: Privacy Magic patches the JavaScript Math functions so that they behave identically across platforms. 
+- Memory: Privacy Magic prevents hides amount of memory available on your system from web pages and trackers.
 - Network
 - Processor
 - Screen
-- Time Zone
-- Timing
+- Time Zone: Privacy Magic coalesces time zones so that every time zone has a single name. That way the browser does not leak unnecessary information about your location on the globe.
+- Timing: Privacy Magic 
 - Touch
 
 ### Removing tracking breadcrumbs
@@ -43,15 +43,15 @@ Traditionally, browsers leak copious amounts of information about your computer 
 
 ### Stopping web leaks
 
-- Iframes
-- Service Workers
-- Shared Storage
-- Shared Workers
-- Web Workers
+- Iframes: Privacy Magic injects its protections into every iframe on a web page, to ensure a tracker can't bypass those protections.
+- Service Workers: Service workers are generally disabled on all sites, to prevent leaks of private information that cannot be patched otherwise.
+- Shared Storage: Shared Storage is disabled on all websites.
+- Shared Workers: Privacy Magic injects its protections into every Shared Worker on a page.
+- Web Workers: Privacy Magic injects its protections into every Web Worker on a page, to make sure trackers can't use Workers to bypass those protections.
 
 ### Privacy signals
 
-- Global Privacy Control
+- Global Privacy Control: Privacy Magic sends the Global Privacy Control header with every request to every web page or embedded resource. It also injects a JavaScript signal in every page and iframe.
 
 ### Browser protections
 
