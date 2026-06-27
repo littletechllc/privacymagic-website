@@ -1,0 +1,68 @@
+hero:
+  badge: "Free & Open-Source Chrome Extension"
+  headlineBefore: "Browse the web without"
+  headlineHighlight: "being watched"
+  description: >-
+    Privacy Magic provides thorough, layered protections to shield you from
+    the surveillance built into everyday browsing.
+  cta: "Add to Chrome"
+
+problem:
+  paragraphs:
+    - >-
+      The Web is a <span class="highlight">wonderful</span> thing: it gives you
+      access to the world's information. It's an essential part of modern life.
+    - >-
+      Unfortunately, the Web is also a vehicle for
+      <span class="highlight">mass surveillance</span>. Everything you do
+      online is being tracked, logged, and analyzed by corporations and
+      governments.
+    - >-
+      Privacy Magic <span class="highlight">fights back</span> — shielding you
+      from surveillance as you browse.
+
+steps:
+  title: "Protection that just works"
+  items:
+    - number: 1
+      title: "Install in seconds"
+      description: >-
+        Add Privacy Magic to Chrome from the Web Store. Easy setup, no account
+        needed.
+    - number: 2
+      title: "Browse normally"
+      description: >-
+        Privacy Magic works silently in the background. You don't have to change
+        a thing about how you use the web.
+    - number: 3
+      title: "Stay protected"
+      description: >-
+        Your privacy is defended automatically on every site you visit.
+  footnote: >-
+    Complete privacy on the web requires two components: browser hardening and
+    IP address protection. Privacy Magic hardens the browser. When you install
+    the extension, we'll help you choose a VPN to protect your IP address.
+
+features:
+  title: "Thorough protection, every layer"
+  intro: >-
+    Many privacy tools leave significant gaps. Privacy Magic is designed to
+    close them.
+  items:
+    - title: "Blocks trackers & ads"
+      icon: features/trackers.svg
+    - title: "Resists fingerprinting"
+      icon: features/fingerprint.svg
+    - title: "Removes tracking breadcrumbs"
+      icon: features/crumbs.svg
+    - title: "Plugs browser leaks"
+      icon: features/browser-leaks.svg
+    - title: "Prevents ad targeting"
+      icon: features/ad-targeting.svg
+
+cta:
+  titleBefore: "Privacy is your"
+  titleHighlight: "right"
+  titleAfter: "."
+  description: "Protect yourself and your family."
+  button: "Add to Chrome"

@@ -1,0 +1,10 @@
+<div class="feature-grid">
+  {% for feature in homepage.features.items %}
+  <div class="feature-card">
+    <div class="feature-icon">
+      {{ feature.icon | inlineSvg | safe }}
+    </div>
+    <div class="feature-card-title">{{ feature.title }}</div>
+  </div>
+  {% endfor %}
+</div>
