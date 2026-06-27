@@ -257,6 +257,10 @@ nav a.cta-nav:hover {
   transform: translateY(-2px);
 }
 
+.hero .hero-cta {
+  margin-bottom: 2rem;
+}
+
 .hero-cta svg,
 .hero-cta-icon svg {
   width: 28px;
@@ -358,6 +362,13 @@ nav a.cta-nav:hover {
   line-height: 1.6;
 }
 
+.steps-footnote {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: var(--text-hint);
+}
+
 /* FEATURES */
 .features-bg {
   background: var(--blue-light);
@@ -369,9 +380,18 @@ nav a.cta-nav:hover {
   margin: 0 auto;
 }
 
+.features-inner h2 {
+  text-align: center;
+  font-family: 'Lora', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 600;
+  color: var(--blue-dark);
+  margin-bottom: 0.75rem;
+}
+
 .features-intro {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .features-intro p {
