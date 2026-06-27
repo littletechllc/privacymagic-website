@@ -577,6 +577,17 @@ footer a {
   color: var(--blue-dark);
 }
 
+.post-inline-logo {
+  display: inline-block;
+  vertical-align: -0.15em;
+  line-height: 0;
+}
+
+.post-inline-logo img {
+  width: 1.15em;
+  height: 1.15em;
+}
+
 .author-bio {
   display: flex;
   gap: 1.25rem;
