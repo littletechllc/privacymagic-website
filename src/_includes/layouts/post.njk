@@ -38,7 +38,14 @@ layout: layouts/base.njk
       {% if authorData.bio %}
       <div class="author-bio-body">{{ authorData.bio | safe }}</div>
       {% endif %}
+      <p class="author-bio-back"><button type="button" class="author-bio-back-link">↑ Back to top</button></p>
     </div>
   </aside>
   {% endif %}
 </article>
+<script>
+  document.querySelector(".author-bio-back-link")?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  });
+</script>
