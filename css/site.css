@@ -597,7 +597,7 @@ footer a {
   background: var(--blue-light);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  scroll-margin-top: 5rem;
+  scroll-margin-top: calc(2.5rem + 64px + 1rem);
 }
 
 .author-bio-photo {
