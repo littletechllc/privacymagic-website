@@ -45,12 +45,3 @@ permalink: /
     {% include "partials/feature-grid.njk" %}
   </div>
 </section>
-
-<section class="cta-section" id="install">
-  <h2>{{ homepage.cta.titleBefore }} <span class="highlight">{{ homepage.cta.titleHighlight }}</span>{{ homepage.cta.titleAfter }}</h2>
-  <p>{{ homepage.cta.description }}</p>
-  <a href="{{ site.chromeStoreUrl }}" class="hero-cta">
-    <span class="hero-cta-icon" aria-hidden="true">{{ "hamsa-white.svg" | inlineSvg | safe }}</span>
-    {{ homepage.cta.button }}
-  </a>
-</section>

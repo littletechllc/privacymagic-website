@@ -59,10 +59,3 @@ features:
       icon: features/browser-leaks.svg
     - title: "Prevents ad targeting"
       icon: features/ad-targeting.svg
-
-cta:
-  titleBefore: "Privacy is your"
-  titleHighlight: "right"
-  titleAfter: "."
-  description: "Protect yourself and your family."
-  button: "Add to Chrome"
