@@ -621,6 +621,17 @@ footer a {
   color: var(--text-muted);
 }
 
+.author-bio-body a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  font-weight: 600;
+}
+
+.author-bio-body a:hover {
+  color: var(--blue);
+}
+
 @media (max-width: 480px) {
   .author-bio {
     flex-direction: row;
