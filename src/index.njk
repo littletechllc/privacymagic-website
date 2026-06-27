@@ -7,7 +7,7 @@ permalink: /
   <div class="hero-badge">{{ homepage.hero.badge }}</div>
   <h1>{{ homepage.hero.headlineBefore }}<br><em><span class="highlight">{{ homepage.hero.headlineHighlight }}</span></em></h1>
   <p>{{ homepage.hero.description }}</p>
-  <a href="{{ site.chromeStoreUrl }}" class="hero-cta" style="margin-bottom: 2rem;">
+  <a href="{{ site.chromeStoreUrl }}" class="hero-cta">
     <span class="hero-cta-icon" aria-hidden="true">{{ "hamsa-white.svg" | inlineSvg | safe }}</span>
     {{ homepage.hero.cta }}
   </a>
@@ -32,14 +32,13 @@ permalink: /
     </div>
     {% endfor %}
   </div>
-  <p style="text-align:center; margin-top:2rem; font-size:1.1rem; color:var(--text-hint);">{{ homepage.steps.footnote }}</p>
+  <p class="steps-footnote">{{ homepage.steps.footnote }}</p>
 </section>
 
 <section class="features-bg">
   <div class="features-inner">
-    <h2 style="text-align:center; font-family:'Lora',serif; font-size:clamp(1.6rem,3.5vw,2.2rem); font-weight:600; color:var(--blue-dark); margin-bottom:0.75rem;">
-      {{ homepage.features.title }}</h2>
-    <div class="features-intro" style="margin-bottom:2.5rem;">
+    <h2>{{ homepage.features.title }}</h2>
+    <div class="features-intro">
       <p>{{ homepage.features.intro }}</p>
     </div>
     {% include "partials/feature-grid.njk" %}
