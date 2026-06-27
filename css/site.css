@@ -647,6 +647,30 @@ footer a {
   color: var(--blue);
 }
 
+.author-bio-back {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.author-bio-back-link {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  color: var(--text-hint);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.author-bio-back-link:hover {
+  color: var(--blue-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 @media (max-width: 480px) {
   .author-bio {
     flex-direction: row;

@@ -109,10 +109,17 @@
       <div class="author-bio-body"><p>Arthur Edelstein is a software engineer focused on human wellbeing. At Tor, he introduced stream isolation, where Tor Browser uses <a href="https://support.torproject.org/tor-browser/features/managing-identities/#:~:text=The%20URL%20bar">a separate circuit for each website you visit</a>. At Firefox, he was the product manager for the teams that developed <a href="https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/">Total Cookie Protection</a> and <a href="https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/">HTTPS-Only Mode</a>. At Brave, he introduced <a href="https://brave.com/privacy-updates/22-https-by-default/">HTTPS by Default</a> and co-authored a paper on the <a href="https://brave.com/research/files/pool-party-usenix-2023.pdf">Pool-Party Attack</a> on privacy. In 2021, he published <a href="https://privacytests.org">PrivacyTests.org</a>, a project to hold web browser makers accountable for their leaks of private information. He also co-created <a href="https://projecttimestamper.org">Project Timestamper</a>, which is an ongoing effort to preserve the authenticity of human knowledge and culture in the age of AI.</p>
 </div>
       
+      <p class="author-bio-back"><button type="button" class="author-bio-back-link">↑ Back to top</button></p>
     </div>
   </aside>
   
 </article>
+<script>
+  document.querySelector(".author-bio-back-link")?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  });
+</script>
 
   <section class="cta-section" id="install">
   <h2>Privacy is your <span class="highlight">right</span>.</h2>
