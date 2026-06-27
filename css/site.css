@@ -510,7 +510,11 @@ footer a {
 .post {
   max-width: 760px;
   margin: 0 auto;
-  padding: 4rem 2rem 5rem;
+  padding: 4rem 2rem 2rem;
+}
+
+.post + .cta-section {
+  padding-top: 2.5rem;
 }
 
 .post-header {
@@ -616,9 +620,20 @@ footer a {
 }
 
 .author-bio-body {
-  font-size: 0.95rem;
+  font-size: 1.14rem;
   line-height: 1.65;
   color: var(--text-muted);
+}
+
+.author-bio-body a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  font-weight: 600;
+}
+
+.author-bio-body a:hover {
+  color: var(--blue);
 }
 
 @media (max-width: 480px) {
