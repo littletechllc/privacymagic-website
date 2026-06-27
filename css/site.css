@@ -691,15 +691,23 @@ footer a {
   text-underline-offset: 0.15em;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .author-bio {
-    flex-direction: row;
-    align-items: flex-start;
-    text-align: left;
+    display: block;
   }
 
   .author-bio-photo {
-    width: clamp(72px, 22vw, 120px);
-    height: clamp(72px, 22vw, 120px);
+    float: left;
+    width: clamp(72px, 28vw, 120px);
+    height: clamp(72px, 28vw, 120px);
+    margin: 0 1rem 0.75rem 0;
+  }
+
+  .author-bio-text {
+    display: contents;
+  }
+
+  .author-bio-back {
+    clear: both;
   }
 }
