@@ -107,16 +107,90 @@ nav a.cta-nav:hover {
   flex-shrink: 0;
 }
 
-.nav-contact {
+.nav-menu {
+  position: relative;
+}
+
+.nav-menu-toggle {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--blue-dark);
+  transition: background 0.2s;
+}
+
+.nav-menu-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.nav-menu-toggle:hover,
+.nav-menu[open] .nav-menu-toggle {
+  background: var(--blue-light);
+}
+
+.nav-menu-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 1.25rem;
+  height: 1rem;
+}
+
+.nav-menu-icon span {
+  display: block;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.nav-menu[open] .nav-menu-icon span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-menu[open] .nav-menu-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-menu[open] .nav-menu-icon span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-menu-panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 10rem;
+  margin: 0;
+  padding: 0.5rem 0;
+  list-style: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 24px rgba(15, 61, 114, 0.12);
+}
+
+.nav-menu-panel a {
+  display: block;
+  padding: 0.625rem 1.25rem;
   color: var(--blue-dark);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 
-.nav-contact:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+.nav-menu-panel a:hover {
+  background: var(--blue-light);
 }
 
 /* HERO */

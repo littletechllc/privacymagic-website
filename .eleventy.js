@@ -1,16 +1,18 @@
 const yaml = require("js-yaml");
 const matter = require("gray-matter");
+const MarkdownIt = require("markdown-it");
 const fs = require("fs");
 const path = require("path");
 
 const arthurBioPath = path.join(__dirname, "src/_data/arthur-bio.md");
 const imagesDir = path.join(__dirname, "src/images");
+const md = new MarkdownIt();
 
 function loadArthurBio() {
   const parsed = matter(fs.readFileSync(arthurBioPath, "utf8"));
   return {
     ...parsed.data,
-    bio: parsed.content.trim(),
+    bio: md.render(parsed.content.trim()),
   };
 }
 

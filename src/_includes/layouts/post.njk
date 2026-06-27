@@ -36,7 +36,7 @@ layout: layouts/base.njk
       <p class="author-bio-title">{{ authorData.title }}</p>
       {% endif %}
       {% if authorData.bio %}
-      <p class="author-bio-body">{{ authorData.bio }}</p>
+      <div class="author-bio-body">{{ authorData.bio | safe }}</div>
       {% endif %}
     </div>
   </aside>

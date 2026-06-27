@@ -7,7 +7,31 @@
   </a>
   <div class="nav-actions">
     <a href="{{ site.chromeStoreUrl }}" class="cta-nav">Add to Chrome</a>
-    <a href="/about/" class="nav-contact">About</a>
-    <a href="mailto:{{ site.contactEmail }}" class="nav-contact">Contact Us</a>
+    <details class="nav-menu">
+      <summary class="nav-menu-toggle" aria-label="Open menu">
+        <span class="nav-menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </summary>
+      <ul class="nav-menu-panel">
+        <li><a href="/about/">About</a></li>
+        <li><a href="mailto:{{ site.contactEmail }}">Contact Us</a></li>
+      </ul>
+    </details>
   </div>
 </nav>
+<script>
+  const menu = document.querySelector(".nav-menu");
+  if (menu) {
+    menu.querySelector(".nav-menu-panel")?.addEventListener("click", (event) => {
+      if (event.target.closest("a")) menu.open = false;
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!menu.open || menu.contains(event.target)) return;
+      menu.open = false;
+    });
+  }
+</script>
