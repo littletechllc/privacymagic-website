@@ -1,12 +1,30 @@
 const yaml = require("js-yaml");
 const matter = require("gray-matter");
 const MarkdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const fs = require("fs");
 const path = require("path");
 
 const arthurBioPath = path.join(__dirname, "src/data/arthur-bio.md");
 const imagesDir = path.join(__dirname, "src/static/images");
-const md = new MarkdownIt();
+
+function slugify(str) {
+  return String(str)
+    .trim()
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
+const md = new MarkdownIt({ html: true }).use(markdownItAnchor, {
+  level: [1, 2, 3],
+  slugify,
+  permalink: markdownItAnchor.permalink.headerLink({
+    safariReaderFix: true,
+  }),
+});
 
 function loadArthurBio() {
   const parsed = matter(fs.readFileSync(arthurBioPath, "utf8"));
@@ -17,6 +35,10 @@ function loadArthurBio() {
 }
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.setLibrary("md", md);
+  eleventyConfig.addFilter("slugify", slugify);
+
   function parseLocalDate(value) {
     if (typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
       const [year, month, day] = value.split("-").map(Number);
@@ -72,6 +94,9 @@ module.exports = function (eleventyConfig) {
   }));
 
   eleventyConfig.addPassthroughCopy({ "src/static": "/" });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/prismjs/themes/prism.min.css": "css/prism.css",
+  });
 
   return {
     dir: {

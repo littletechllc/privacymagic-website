@@ -10,7 +10,7 @@ layout: layouts/base.njk
 {% endif %}
 <article class="post">
   <header class="post-header">
-    <h1>{{ title }}</h1>
+    <h1 id="{{ title | slugify }}"><a class="header-anchor" href="#{{ title | slugify }}"><span>{{ title }}</span></a></h1>
     {% if description %}
     <p class="post-lead">{{ description }}</p>
     {% endif %}
