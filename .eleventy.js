@@ -4,8 +4,8 @@ const MarkdownIt = require("markdown-it");
 const fs = require("fs");
 const path = require("path");
 
-const arthurBioPath = path.join(__dirname, "src/_data/arthur-bio.md");
-const imagesDir = path.join(__dirname, "src/images");
+const arthurBioPath = path.join(__dirname, "src/data/arthur-bio.md");
+const imagesDir = path.join(__dirname, "src/static/images");
 const md = new MarkdownIt();
 
 function loadArthurBio() {
@@ -71,23 +71,13 @@ module.exports = function (eleventyConfig) {
     arthur: loadArthurBio(),
   }));
 
-  eleventyConfig.addPassthroughCopy("src/css/**");
-  eleventyConfig.addPassthroughCopy("src/images/**/*.png");
-  eleventyConfig.addPassthroughCopy({
-    "src/images/logo.svg": "images/logo.svg",
-    "fonts/**": "fonts",
-    "favicon.ico": "favicon.ico",
-    "favicon-32x32.png": "favicon-32x32.png",
-    "favicon-192x192.png": "favicon-192x192.png",
-    "apple-touch-icon.png": "apple-touch-icon.png",
-    "CNAME": "CNAME",
-  });
+  eleventyConfig.addPassthroughCopy({ "src/static": "/" });
 
   return {
     dir: {
       input: "src",
-      includes: "_includes",
-      data: "_data",
+      includes: "templates/includes",
+      data: "data",
       output: "_site",
     },
   };

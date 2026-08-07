@@ -17,6 +17,9 @@ layout: layouts/base.njk
     {% if authorData and authorData.name %}
     <p class="post-byline">by <a href="#author">{{ authorData.name }}</a></p>
     {% endif %}
+    {% if showDate and date %}
+    <p class="post-date"><time datetime="{{ date | isoDate }}">{{ date | longDate }}</time></p>
+    {% endif %}
   </header>
   <div class="post-content">
     {{ content | safe }}

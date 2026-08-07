@@ -1,5 +1,4 @@
 ---
-layout: layouts/post.njk
 title: About Privacy Magic
 description: A Chrome extension to protect your privacy
 permalink: /about/

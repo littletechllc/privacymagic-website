@@ -16,8 +16,9 @@
         </span>
       </summary>
       <ul class="nav-menu-panel">
-        <li><a href="/about/">About</a></li>
-        <li><a href="mailto:{{ site.contactEmail }}">Contact Us</a></li>
+        {% for item in nav %}
+        <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+        {% endfor %}
       </ul>
     </details>
   </div>

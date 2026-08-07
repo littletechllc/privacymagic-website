@@ -1,0 +1,31 @@
+---
+layout: layouts/base.njk
+title: Blog
+permalink: /blog/
+---
+<div class="blog-index">
+  <header class="blog-index-header">
+    <h1>Blog</h1>
+    <p class="blog-index-lead">Privacy Magic - news and notes</p>
+  </header>
+  {% set posts = collections.posts | reverse %}
+  {% if posts.length %}
+  <ul class="blog-list">
+    {% for post in posts %}
+    <li class="blog-item">
+      <a class="blog-item-link" href="{{ post.url }}">
+        <h2 class="blog-item-title">{{ post.data.title }}</h2>
+        {% if post.data.date %}
+        <time class="blog-item-date" datetime="{{ post.data.date | isoDate }}">{{ post.data.date | longDate }}</time>
+        {% endif %}
+        {% if post.data.description %}
+        <p class="blog-item-desc">{{ post.data.description }}</p>
+        {% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="blog-empty">No posts yet. Check back soon.</p>
+  {% endif %}
+</div>

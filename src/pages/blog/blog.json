@@ -1,0 +1,6 @@
+{
+  "layout": "layouts/post.njk",
+  "tags": "posts",
+  "showDate": true,
+  "permalink": "/blog/{{ page.fileSlug }}/"
+}
