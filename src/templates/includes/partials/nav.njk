@@ -6,6 +6,10 @@
     Privacy Magic
   </a>
   <div class="nav-actions">
+    <div class="nav-social">
+      <a href="{{ site.xUrl }}" rel="noopener noreferrer" aria-label="Follow us on X"><span class="nav-social-icon">{{ "x.svg" | inlineSvg | safe }}</span></a>
+      <a href="{{ site.githubUrl }}" rel="noopener noreferrer" aria-label="View source on GitHub"><span class="nav-social-icon">{{ "github.svg" | inlineSvg | safe }}</span></a>
+    </div>
     <a href="{{ site.chromeStoreUrl }}" class="cta-nav">Add to Chrome</a>
     <details class="nav-menu">
       <summary class="nav-menu-toggle" aria-label="Open menu">
@@ -19,6 +23,12 @@
         {% for item in nav %}
         <li><a href="{{ item.url }}">{{ item.label }}</a></li>
         {% endfor %}
+        <li class="nav-menu-social">
+          <div class="nav-menu-social-links">
+            {% set iconClass = "nav-menu-social-icon" %}
+            {% include "partials/social-icons.njk" %}
+          </div>
+        </li>
       </ul>
     </details>
   </div>

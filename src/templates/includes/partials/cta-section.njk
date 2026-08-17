@@ -5,4 +5,11 @@
     <span class="hero-cta-icon" aria-hidden="true">{{ "hamsa-white.svg" | inlineSvg | safe }}</span>
     {{ cta.button }}
   </a>
+  <p class="cta-follow">
+    Follow us:
+    <span class="cta-follow-links">
+      {% set iconClass = "cta-follow-icon" %}
+      {% include "partials/social-icons.njk" %}
+    </span>
+  </p>
 </section>

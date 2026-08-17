@@ -1,0 +1,3 @@
+{% for item in social %}
+<a href="{{ site[item.siteKey] }}" rel="noopener noreferrer" aria-label="{{ item.label }}"><span class="{{ iconClass }}">{{ item.icon | inlineSvg | safe }}</span></a>
+{% endfor %}

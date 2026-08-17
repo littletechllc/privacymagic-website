@@ -94,8 +94,36 @@ nav a.cta-nav:hover {
   background: var(--blue-dark);
 }
 
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-social a {
+  display: inline-flex;
+  color: var(--blue-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-social a:hover {
+  color: var(--blue);
+}
+
+.nav-social-icon {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.nav-social-icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
 @media (max-width: 699px) {
-  nav a.cta-nav {
+  nav a.cta-nav,
+  .nav-social {
     display: none;
   }
 }
@@ -191,6 +219,42 @@ nav a.cta-nav:hover {
 
 .nav-menu-panel a:hover {
   background: var(--blue-light);
+}
+
+.nav-menu-social {
+  border-top: 1px solid var(--border);
+  margin-top: 0.25rem;
+  padding-top: 0.25rem;
+}
+
+.nav-menu-social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.5rem 1rem 0.625rem;
+}
+
+.nav-menu-social-links a {
+  display: inline-flex;
+  padding: 0.25rem;
+  color: var(--blue);
+  white-space: normal;
+}
+
+.nav-menu-social-links a:hover {
+  color: var(--blue-dark);
+  background: transparent;
+}
+
+.nav-menu-social-icon {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.nav-menu-social-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 /* HERO */
@@ -497,7 +561,7 @@ nav a.cta-nav:hover {
 
 /* CTA FOOTER */
 .cta-section {
-  padding: 5rem 2rem;
+  padding: 5rem 2rem 0;
   text-align: center;
 }
 
@@ -512,6 +576,43 @@ nav a.cta-nav:hover {
   font-size: 1.05rem;
   color: var(--text-muted);
   margin-bottom: 2rem;
+}
+
+.cta-section .cta-follow {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+.cta-section .cta-follow-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+.cta-section .cta-follow a {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.cta-section .cta-follow-icon {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.cta-section .cta-follow-icon svg {
+  width: 1.15em;
+  height: 1.15em;
+}
+
+.cta-section .cta-follow a:hover {
+  color: var(--blue-dark);
 }
 
 footer {
@@ -607,7 +708,7 @@ footer a {
 }
 
 .post + .cta-section {
-  padding-top: 2.5rem;
+  padding: 2.5rem 2rem 0;
 }
 
 .post-header {

@@ -1,0 +1,15 @@
+- label: Follow us on X
+  icon: x.svg
+  siteKey: xUrl
+- label: Follow us on Bluesky
+  icon: bluesky.svg
+  siteKey: blueskyUrl
+- label: Follow us on Mastodon
+  icon: mastodon.svg
+  siteKey: mastodonUrl
+- label: Follow us on LinkedIn
+  icon: linkedin.svg
+  siteKey: linkedinUrl
+- label: View source on GitHub
+  icon: github.svg
+  siteKey: githubUrl

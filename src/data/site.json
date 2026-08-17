@@ -4,6 +4,10 @@
   "chromeStoreUrl": "https://chromewebstore.google.com/detail/privacy-magic/cobojehlalmfnplnblndhofhgeglljkc",
   "contactEmail": "contact@privacymagic.com",
   "githubUrl": "https://github.com/littletechllc/privacymagic-extension",
+  "xUrl": "https://x.com/privacymagic",
+  "linkedinUrl": "https://www.linkedin.com/company/privacy-magic/",
+  "blueskyUrl": "https://bsky.app/profile/privacymagic.bsky.social",
+  "mastodonUrl": "https://mastodon.social/@privacymagic",
   "company": "Little Tech LLC",
   "year": 2026
 }
