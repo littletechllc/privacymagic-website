@@ -20,7 +20,6 @@
   --radius: 16px;
   --radius-sm: 10px;
   --sticky-nav-offset: calc(2.5rem + 64px);
-  --sticky-table-header-height: 2.5rem;
 }
 
 html {
@@ -280,7 +279,7 @@ nav a.cta-nav:hover {
   margin-bottom: 1.5rem;
 }
 
-.hero h1 {
+.hero-title {
   font-family: 'Lora', serif;
   font-size: clamp(2.2rem, 5vw, 3.4rem);
   font-weight: 600;
@@ -289,7 +288,7 @@ nav a.cta-nav:hover {
   margin-bottom: 1.25rem;
 }
 
-.hero h1 em {
+.hero-title em {
   font-style: italic;
   color: var(--blue);
 }
@@ -375,7 +374,7 @@ nav a.cta-nav:hover {
   padding: 5rem 2rem;
 }
 
-.section h2 {
+.section-title {
   text-align: center;
   font-family: 'Lora', serif;
   font-size: clamp(1.6rem, 3.5vw, 2.2rem);
@@ -415,7 +414,7 @@ nav a.cta-nav:hover {
   margin: 0 auto 1rem;
 }
 
-.step h3 {
+.step-title {
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -446,7 +445,7 @@ nav a.cta-nav:hover {
   margin: 0 auto;
 }
 
-.features-inner h2 {
+.features-title {
   text-align: center;
   font-family: 'Lora', serif;
   font-size: clamp(1.6rem, 3.5vw, 2.2rem);
@@ -567,7 +566,7 @@ nav a.cta-nav:hover {
   text-align: center;
 }
 
-.cta-section h2 {
+.cta-title {
   font-family: 'Lora', serif;
   font-size: clamp(1.6rem, 3.5vw, 2.2rem);
   color: var(--blue-dark);
@@ -843,6 +842,7 @@ footer a {
   border-spacing: 0;
   table-layout: fixed;
   width: 100%;
+  --sticky-table-header-height: 2.5rem;
 }
 
 .post-content th:nth-child(1),
@@ -862,6 +862,8 @@ footer a {
   top: var(--sticky-nav-offset);
   background: var(--bg);
   z-index: 1;
+  padding-top: 1rem;
+  padding-bottom: 0.75rem;
 }
 
 .post-content th:not(:last-child),

@@ -5,7 +5,7 @@ permalink: /
 
 <section class="hero">
   <div class="hero-badge">{{ homepage.hero.badge }}</div>
-  <h1>{{ homepage.hero.headlineBefore }}<br><em><span class="highlight">{{ homepage.hero.headlineHighlight }}</span></em></h1>
+  <div class="hero-title">{{ homepage.hero.headlineBefore }}<br><em><span class="highlight">{{ homepage.hero.headlineHighlight }}</span></em></div>
   <p>{{ homepage.hero.description }}</p>
   <a href="{{ site.chromeStoreUrl }}" class="hero-cta">
     <span class="hero-cta-icon" aria-hidden="true">{{ "hamsa-white.svg" | inlineSvg | safe }}</span>
@@ -22,12 +22,12 @@ permalink: /
 </section>
 
 <section class="section">
-  <h2>{{ homepage.steps.title }}</h2>
+  <div class="section-title">{{ homepage.steps.title }}</div>
   <div class="steps">
     {% for step in homepage.steps.items %}
     <div class="step">
       <div class="step-num">{{ step.number }}</div>
-      <h3>{{ step.title }}</h3>
+      <div class="step-title">{{ step.title }}</div>
       <p>{{ step.description }}</p>
     </div>
     {% endfor %}
@@ -37,7 +37,7 @@ permalink: /
 
 <section class="features-bg">
   <div class="features-inner">
-    <h2>{{ homepage.features.title }}</h2>
+    <div class="features-title">{{ homepage.features.title }}</div>
     <div class="features-intro">
       <p>{{ homepage.features.intro }}</p>
     </div>

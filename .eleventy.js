@@ -24,15 +24,27 @@ module.exports = function (eleventyConfig) {
     if (!this.page.outputPath || !this.page.outputPath.endsWith(".html")) {
       return content;
     }
-    return content.replace(
-      /<(h[1-6])([^>]*\sid=["']([^"']+)["'][^>]*)>([\s\S]*?)<\/\1>/gi,
-      (match, tag, attrs, id, inner) => {
-        if (/class=["'][^"']*\bheading-anchor\b/.test(inner)) {
-          return match;
+
+    const linkHeading = (html) =>
+      html.replace(
+        /<(h[1-6])([^>]*\sid=["']([^"']+)["'][^>]*)>([\s\S]*?)<\/\1>/gi,
+        (headingMatch, tag, attrs, id, headingInner) => {
+          if (/class=["'][^"']*\bheading-anchor\b/.test(headingInner)) {
+            return headingMatch;
+          }
+          return `<${tag}${attrs}><a href="#${id}" class="heading-anchor">${headingInner}</a></${tag}>`;
         }
-        return `<${tag}${attrs}><a href="#${id}" class="heading-anchor">${inner}</a></${tag}>`;
-      }
-    );
+      );
+
+    return content
+      .replace(
+        /(<header class="post-header">)([\s\S]*?)(<\/header>)/i,
+        (match, open, inner, close) => open + linkHeading(inner) + close
+      )
+      .replace(
+        /(<div class="post-content">)([\s\S]*?)(<\/div>)(\s*(?:<aside class="author-bio"|<\/article>))/i,
+        (match, open, inner, close, after) => open + linkHeading(inner) + close + after
+      );
   });
 
   eleventyConfig.addTransform("table-row-anchors", function (content) {

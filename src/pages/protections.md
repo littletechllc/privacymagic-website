@@ -14,7 +14,7 @@ Privacy Magic uses a number of popular filter lists: [EasyList](https://easylist
 
 Traditionally, browsers leak copious amounts of information about your computer to any website or tracking script that asks! And trackers gather this data to track you as you browse the web.
 
-| Feature | Standard web browsers | Privacy Magic |
+| Fingerprint | Standard web browsers | Privacy Magic |
 | :--- | :--- | :--- |
 | Audio | Web browsers' audio processing functionality typically leaks information about your sound card. | Privacy Magic reduces such leaks by erasing the least significant bit from audio data whenever it is read by a script. This erasure has no audible effects. |
 | Battery | Web browsers will typically tell any website that asks what your battery level is, whether your device is plugged into a power source, and an estimate for how much time remains before your battery is empty. | Privacy Magic stops this information leak by simulating a battery that is always at 100% and always plugged in. |
@@ -45,7 +45,7 @@ Traditionally, browsers leak copious amounts of information about your computer 
 
 ## Stopping web leaks
 
-| Web feature | Standard web browsers | Privacy Magic |
+| Feature | Standard web browsers | Privacy Magic |
 | :--- | :--- | :--- |
 | Iframes |  | Privacy Magic injects its protections into every iframe on a web page, to ensure a tracker can't bypass those protections. |
 | Service Workers |  | Service workers are generally disabled on all sites, to prevent leaks of private information that cannot be patched otherwise. |
