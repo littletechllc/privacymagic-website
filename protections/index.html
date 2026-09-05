@@ -117,7 +117,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Feature</th>
+<th style="text-align:left">Fingerprint</th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
@@ -246,7 +246,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Web feature</th>
+<th style="text-align:left">Feature</th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
@@ -308,10 +308,53 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
     history.replaceState(null, "", window.location.pathname + window.location.search);
   });
+
+  (function () {
+    const tables = document.querySelectorAll(".post-content table");
+    if (tables.length === 0) return;
+
+    const syncTableHeaderHeights = () => {
+      tables.forEach((table) => {
+        const thead = table.querySelector("thead");
+        if (thead == null) return;
+        table.style.setProperty(
+          "--sticky-table-header-height",
+          `${Math.ceil(thead.getBoundingClientRect().height)}px`
+        );
+      });
+    };
+
+    const retargetHash = () => {
+      const id = window.location.hash.slice(1);
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (target == null || !target.closest(".post-content table")) return;
+      target.scrollIntoView();
+    };
+
+    syncTableHeaderHeights();
+    if (window.location.hash) {
+      requestAnimationFrame(() => {
+        syncTableHeaderHeights();
+        retargetHash();
+      });
+    }
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", syncTableHeaderHeights);
+      return;
+    }
+
+    const observer = new ResizeObserver(syncTableHeaderHeights);
+    tables.forEach((table) => {
+      const thead = table.querySelector("thead");
+      if (thead != null) observer.observe(thead);
+    });
+  })();
 </script>
 
   <section class="cta-section" id="install">
-  <h2 id="privacy-is-your-right"><a href="#privacy-is-your-right" class="heading-anchor">Privacy is your <span class="highlight">right</span>.</a></h2>
+  <div class="cta-title">Privacy is your <span class="highlight">right</span>.</div>
   <p>Protect yourself and your family.</p>
   <a href="https://chromewebstore.google.com/detail/privacy-magic/cobojehlalmfnplnblndhofhgeglljkc" class="hero-cta">
     <span class="hero-cta-icon" aria-hidden="true"><svg viewBox="0 95 90 125" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
