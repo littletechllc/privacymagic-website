@@ -754,6 +754,7 @@ footer a {
 
 .post-lead {
   font-size: 1.15rem;
+  font-style: italic;
   color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 0.75rem;
