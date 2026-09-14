@@ -109,32 +109,32 @@
     
   </header>
   <div class="post-content">
-    <p>Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web. Browsers are very leaky, so we have built multiple layers of protection, described below.</p>
+    <p>Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web. Browsers are very leaky, so Privacy Magic provides multiple layers of protection.</p>
 <h2 id="blocking-ads-and-trackers"><a href="#blocking-ads-and-trackers" class="heading-anchor">Blocking ads and trackers</a></h2>
 <p>Across the web, advertisements, tracking scripts, and tracking pixels are following you around without your consent using a variety of invisible methods.</p>
 <p>Privacy Magic uses popular filter lists to block many ads and trackers from being requested by your browser on the network. The filter lists and also hide the empty boxes that are left when ads are blocked on a web page. Privacy Magic uses a pinned version of these filter lists so that the extension's blocking behavior is fully reproducible and identical for every user.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left"><a href="#filter-list" id="filter-list" class="heading-anchor">Filter list</a></th>
+<th style="text-align:left"><a href="#filter-list" id="filter-list" class="heading-anchor">Fil­ter list</a></th>
 <th style="text-align:left">Items blocked</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="#easylist" id="easylist" class="heading-anchor"><a href="https://easylist.to/">EasyList</a></a></td>
+<td style="text-align:left"><a href="#easylist" id="easylist" class="heading-anchor"><a href="https://easylist.to/">Easy­List</a></a></td>
 <td style="text-align:left">Advertisements, including banners, ad scripts, images, and video ads.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#easyprivacy" id="easyprivacy" class="heading-anchor"><a href="https://easylist.to/">EasyPrivacy</a></a></td>
+<td style="text-align:left"><a href="#easyprivacy" id="easyprivacy" class="heading-anchor"><a href="https://easylist.to/">Easy­Privacy</a></a></td>
 <td style="text-align:left">Trackers, including tracking scripts, pixels, web bugs, and other information collectors.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#fanboys-annoyance-list" id="fanboys-annoyance-list" class="heading-anchor"><a href="https://easylist.to/">Fanboy's Annoyance List</a></a></td>
+<td style="text-align:left"><a href="#fanboys-annoyance-list" id="fanboys-annoyance-list" class="heading-anchor"><a href="https://easylist.to/">Fan­boy's An­noy­ance List</a></a></td>
 <td style="text-align:left">Cookie notices, social media widgets, in-page pop-ups, and other annoyances.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#small-oisd-blocklist" id="small-oisd-blocklist" class="heading-anchor"><a href="https://oisd.nl/">small oisd blocklist</a></a></td>
+<td style="text-align:left"><a href="#small-oisd-blocklist" id="small-oisd-blocklist" class="heading-anchor"><a href="https://oisd.nl/">small oisd block­list</a></a></td>
 <td style="text-align:left">Additional advertising domains</td>
 </tr>
 </tbody>
@@ -144,29 +144,29 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"><a href="#fingerprint" id="fingerprint" class="heading-anchor">Fingerprint</a></th>
+<th style="text-align:left"><a href="#fingerprint" id="fingerprint" class="heading-anchor">Fin­ger­print</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="#audio" id="audio" class="heading-anchor">Audio</a></td>
+<td style="text-align:left"><a href="#audio" id="audio" class="heading-anchor">Au­dio</a></td>
 <td style="text-align:left">Web browsers' audio processing functionality typically leaks information about your sound card.</td>
 <td style="text-align:left">Privacy Magic reduces such leaks by erasing the least significant bit from audio data whenever it is read by a script. This erasure has no audible effects.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#battery" id="battery" class="heading-anchor">Battery</a></td>
+<td style="text-align:left"><a href="#battery" id="battery" class="heading-anchor">Bat­tery</a></td>
 <td style="text-align:left">Web browsers will typically tell any website that asks what your battery level is, whether your device is plugged into a power source, and an estimate for how much time remains before your battery is empty.</td>
 <td style="text-align:left">Privacy Magic stops this information leak by simulating a battery that is always at 100% and always plugged in.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#browser" id="browser" class="heading-anchor">Browser</a></td>
+<td style="text-align:left"><a href="#browser" id="browser" class="heading-anchor">Brows­er</a></td>
 <td style="text-align:left">A web page can interrogate your browser to get detailed information about the operating system it is running in.</td>
 <td style="text-align:left">Privacy Magic spoofs the <code>navigator.platform</code> to a single value for each different operating system.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#device" id="device" class="heading-anchor">Device</a></td>
+<td style="text-align:left"><a href="#device" id="device" class="heading-anchor">De­vice</a></td>
 <td style="text-align:left">Web browsers will leak whether your device is in a &quot;continuous&quot; (flat) or &quot;folded&quot; state. In other words -- is it a tablet or a laptop?</td>
 <td style="text-align:left">Privacy Magic always spoofs this as being in the &quot;continuous&quot; state.</td>
 </tr>
@@ -176,7 +176,7 @@
 <td style="text-align:left">Privacy Magic spoofs these values so they are the same for everyone.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#display" id="display" class="heading-anchor">Display</a></td>
+<td style="text-align:left"><a href="#display" id="display" class="heading-anchor">Dis­play</a></td>
 <td style="text-align:left">Traditionally web browsers leak display settings, including whether your system is set to &quot;prefer reduced motion&quot;.</td>
 <td style="text-align:left">Privacy Magic prevents this leak.</td>
 </tr>
@@ -186,17 +186,17 @@
 <td style="text-align:left">Privacy Magic hides custom fonts installed on your system from all scripts. Web pages can continue to use standard system fonts and downloaded web fonts.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#graphics" id="graphics" class="heading-anchor">Graphics</a></td>
+<td style="text-align:left"><a href="#graphics" id="graphics" class="heading-anchor">Graph­ics</a></td>
 <td style="text-align:left">Canvas and WebGL are two major fingerprinting vectors, that leak the kind of GPU (graphics chip) your computer is using.</td>
 <td style="text-align:left">Privacy Magic uses advanced techniques to hide the graphics chip while allowing you to continue to play games and use other websites that make heavy use of graphics.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#keyboard" id="keyboard" class="heading-anchor">Keyboard</a></td>
+<td style="text-align:left"><a href="#keyboard" id="keyboard" class="heading-anchor">Key­board</a></td>
 <td style="text-align:left">By default, browsers to leak the keyboard layout you are using to any website that asks.</td>
 <td style="text-align:left">Privacy Magic blocks your keyboard layout from being revealed to website scripts.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#language" id="language" class="heading-anchor">Language</a></td>
+<td style="text-align:left"><a href="#language" id="language" class="heading-anchor">Lan­guage</a></td>
 <td style="text-align:left">Typically, web browsers will leak a list of languages that you have approved. While it's important to be able to specify which language you prefer for the websites you visit, browsers will typically reveal a list of the user's preferred languages, which can be too revealing.</td>
 <td style="text-align:left">Privacy Magic only allows a single language to be passed to websites you visit.</td>
 </tr>
@@ -206,17 +206,17 @@
 <td style="text-align:left">Privacy Magic patches the JavaScript Math functions so that they behave identically across all platforms.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#memory" id="memory" class="heading-anchor">Memory</a></td>
+<td style="text-align:left"><a href="#memory" id="memory" class="heading-anchor">Mem­o­ry</a></td>
 <td style="text-align:left">Websites are able to find out from most browsers how much memory is unused on your computer.</td>
 <td style="text-align:left">Privacy Magic hides the amount of memory available on your system from web pages and trackers.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#network" id="network" class="heading-anchor">Network</a></td>
+<td style="text-align:left"><a href="#network" id="network" class="heading-anchor">Net­work</a></td>
 <td style="text-align:left">Browsers normally leak details about the kind of network connection you have.</td>
 <td style="text-align:left">Privacy Magic prevents these details from leaking by making them homogeneous across all users.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#processor" id="processor" class="heading-anchor">Processor</a></td>
+<td style="text-align:left"><a href="#processor" id="processor" class="heading-anchor">Proces­sor</a></td>
 <td style="text-align:left">Browsers are designed to report the number of cores on your computer's processor.</td>
 <td style="text-align:left">Privacy Magic pretends that everyone has exactly <code>4</code>.</td>
 </tr>
@@ -231,7 +231,7 @@
 <td style="text-align:left">Privacy Magic coalesces time zones so that every time zone offset has a single representative time zone. That way the browser does not leak unnecessary information about your location on the globe.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#timing" id="timing" class="heading-anchor">Timing</a></td>
+<td style="text-align:left"><a href="#timing" id="timing" class="heading-anchor">Tim­ing</a></td>
 <td style="text-align:left">High resolution timing APIs allow scripts to characterise your system by measuring tiny differences in the timing of browser behaviors.</td>
 <td style="text-align:left">Privacy Magic rounds off the times provided by these APIs so that it is much harder for tracking scripts to use them to distinguish between browsers.</td>
 </tr>
@@ -247,7 +247,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"><a href="#breadcrumb" id="breadcrumb" class="heading-anchor">Breadcrumb</a></th>
+<th style="text-align:left"><a href="#breadcrumb" id="breadcrumb" class="heading-anchor">Bread­crumb</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
@@ -259,17 +259,17 @@
 <td style="text-align:left">Privacy Magic clears vulnerable caches so that these leaks can't happen.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#referrer-policy" id="referrer-policy" class="heading-anchor">Referrer Policy</a></td>
+<td style="text-align:left"><a href="#referrer-policy" id="referrer-policy" class="heading-anchor">Re­fer­rer Pol­i­cy</a></td>
 <td style="text-align:left">Traditionally, browsers will tell each web page you visit which web page you came from!</td>
 <td style="text-align:left">Privacy Magic deletes the exact page (or path) in the Referrer, and for web compatibility, only allows the domain to be shared.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#tracking-parameters" id="tracking-parameters" class="heading-anchor">Tracking Parameters</a></td>
+<td style="text-align:left"><a href="#tracking-parameters" id="tracking-parameters" class="heading-anchor">Track­ing Pa­ra­me­ters</a></td>
 <td style="text-align:left">Trackers can add extra &quot;tracking parameters&quot; to the addresses of the web pages you visit, so advertisers can keep track of who you are or where you have been browsing.</td>
 <td style="text-align:left">Privacy Magic deletes known tracking parameters from web addresses so that this information is not shared with the websites you visit.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#window-name" id="window-name" class="heading-anchor">Window Name</a></td>
+<td style="text-align:left"><a href="#window-name" id="window-name" class="heading-anchor">Win­dow Name</a></td>
 <td style="text-align:left">Normally, the <code>window.name</code> JavaScript API leaks data if you navigate between websites in the same tab.</td>
 <td style="text-align:left">Privacy Magic prevents this leak by enforcing a separate <code>window.name</code> for each website.</td>
 </tr>
@@ -279,7 +279,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"><a href="#feature" id="feature" class="heading-anchor">Feature</a></th>
+<th style="text-align:left"><a href="#feature" id="feature" class="heading-anchor">Fea­ture</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
@@ -291,22 +291,22 @@
 <td style="text-align:left">Privacy Magic injects all of its protections into every iframe on a web page, to ensure a tracker can't bypass those protections by hiding inside an iframe.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#service-workers" id="service-workers" class="heading-anchor">Service Workers</a></td>
+<td style="text-align:left"><a href="#service-workers" id="service-workers" class="heading-anchor">Ser­vice Work­ers</a></td>
 <td style="text-align:left">Service Workers are a browser feature that allow code to run in the background even when you aren't connected to the internet. Unfortunately, these Service Workers are easily able to leak private information.</td>
 <td style="text-align:left">Service workers are generally disabled on all sites, to prevent leaks of private information that cannot be patched otherwise.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#shared-storage" id="shared-storage" class="heading-anchor">Shared Storage</a></td>
+<td style="text-align:left"><a href="#shared-storage" id="shared-storage" class="heading-anchor">Shared Stor­age</a></td>
 <td style="text-align:left">Shared Storage is a browser feature that allows data about your browsing to be aggregate and collected. While it was purported to be privacy-preserving, this feature raised strong privacy concerns and is due to removed from browsers.</td>
 <td style="text-align:left">Privacy Magic makes sure that Shared Storage is disabled on all websites.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#shared-workers" id="shared-workers" class="heading-anchor">Shared Workers</a></td>
+<td style="text-align:left"><a href="#shared-workers" id="shared-workers" class="heading-anchor">Shared Work­ers</a></td>
 <td style="text-align:left">Shared Workers are code that runs in the background and can be shared between websites.</td>
 <td style="text-align:left">Privacy Magic injects its protections into every Shared Worker loaded by any website.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#web-workers" id="web-workers" class="heading-anchor">Web Workers</a></td>
+<td style="text-align:left"><a href="#web-workers" id="web-workers" class="heading-anchor">Web Work­ers</a></td>
 <td style="text-align:left">Web Workers are code that runs in the background on a web page. Like the main page's scripts, web worker code can leak private data.</td>
 <td style="text-align:left">Privacy Magic injects its protections into every Web Worker on a page, to make sure trackers can't use Web Workers to bypass those protections.</td>
 </tr>
@@ -316,14 +316,14 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"><a href="#signal" id="signal" class="heading-anchor">Signal</a></th>
+<th style="text-align:left"><a href="#signal" id="signal" class="heading-anchor">Sig­nal</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="#global-privacy-control" id="global-privacy-control" class="heading-anchor">Global Privacy Control</a></td>
+<td style="text-align:left"><a href="#global-privacy-control" id="global-privacy-control" class="heading-anchor">Glob­al Pri­va­cy Con­trol</a></td>
 <td style="text-align:left">The Global Privacy Control is a signal that can be sent to the websites you visit to indicate that you don't want your data selling or sharing your personal information. Unfortunately, most web browsers do not send the Global Privacy Control preference by default.</td>
 <td style="text-align:left">Privacy Magic ensures that your browser sends the Global Privacy Control header with every request to every web page or embedded resource. It also injects a JavaScript signal in every page and iframe.</td>
 </tr>
@@ -335,24 +335,24 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"><a href="#feature-2" id="feature-2" class="heading-anchor">Feature</a></th>
+<th style="text-align:left"><a href="#feature-2" id="feature-2" class="heading-anchor">Fea­ture</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="#hyperlink-auditing" id="hyperlink-auditing" class="heading-anchor">Hyperlink Auditing</a></td>
+<td style="text-align:left"><a href="#hyperlink-auditing" id="hyperlink-auditing" class="heading-anchor">Hy­per­link Au­dit­ing</a></td>
 <td style="text-align:left">Standard browsers have a feature that allows websites to &quot;ping&quot; a tracking server with the links you click.</td>
 <td style="text-align:left">Privacy Magic disables this ping.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#third-party-cookies" id="third-party-cookies" class="heading-anchor">Third-Party Cookies</a></td>
+<td style="text-align:left"><a href="#third-party-cookies" id="third-party-cookies" class="heading-anchor">Third-Par­ty Cook­ies</a></td>
 <td style="text-align:left">The most famous tracking feature of all. Chrome allows third-party cookies which allow you to be tracked from site to site.</td>
 <td style="text-align:left">Privacy Magic disables third-party cookies by default.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#webrtc-non-proxied-udp" id="webrtc-non-proxied-udp" class="heading-anchor">WebRTC non-proxied UDP</a></td>
+<td style="text-align:left"><a href="#webrtc-non-proxied-udp" id="webrtc-non-proxied-udp" class="heading-anchor">Web­RTC non-prox­ied UDP</a></td>
 <td style="text-align:left">WebRTC is a web browser capability that allows you to communicate to other Chrome users directly. Unfortunately, if you are using a browser proxy, standard Chrome-based browsers will leak WebRTC communications outside of the proxy.</td>
 <td style="text-align:left">Privacy Magic blocks the WebRTC leaks, while still allowing WebRTC to function on the websites that use it.</td>
 </tr>
@@ -362,29 +362,29 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"><a href="#service" id="service" class="heading-anchor">Service</a></th>
+<th style="text-align:left"><a href="#service" id="service" class="heading-anchor">Ser­vice</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="#alternate-error-pages" id="alternate-error-pages" class="heading-anchor">Alternate Error Pages</a></td>
+<td style="text-align:left"><a href="#alternate-error-pages" id="alternate-error-pages" class="heading-anchor">Al­ter­nate Er­ror Pages</a></td>
 <td style="text-align:left">By default, Chrome will show alternate error pages when an error occurs. To show these pages, data about what pages you are visiting is sent to Google's servers.</td>
 <td style="text-align:left">Privacy Magic disables these alternate error pages so that no data is sent.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#safe-browsing-extended-reporting" id="safe-browsing-extended-reporting" class="heading-anchor">Safe Browsing Extended Reporting</a></td>
+<td style="text-align:left"><a href="#safe-browsing-extended-reporting" id="safe-browsing-extended-reporting" class="heading-anchor">Safe Brows­ing Ex­tend­ed Re­port­ing</a></td>
 <td style="text-align:left">When Safe Browsing blocks a page, Chrome will may send the content of a blocked page to Google's servers.</td>
 <td style="text-align:left">Privacy Magic blocks this feature, so that no data is sent.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#search-suggest" id="search-suggest" class="heading-anchor">Search Suggest</a></td>
+<td style="text-align:left"><a href="#search-suggest" id="search-suggest" class="heading-anchor">Search Sug­gest</a></td>
 <td style="text-align:left">By default, Chrome sends anything you type into the address bar to your default search engine (typically Google search) while you are typing, to make auto-suggestions.</td>
 <td style="text-align:left">Privacy Magic blocks this continuous monitoring, so that Chrome only sends your search or when you press &quot;enter&quot;.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#spelling-service" id="spelling-service" class="heading-anchor">Spelling Service</a></td>
+<td style="text-align:left"><a href="#spelling-service" id="spelling-service" class="heading-anchor">Spelling Ser­vice</a></td>
 <td style="text-align:left">Chrome offers an &quot;enhanced spell check&quot; that sends what you type to Google's servers.</td>
 <td style="text-align:left">Privacy Magic disables this option and permits Chrome to use only the local &quot;basic spell check.&quot;</td>
 </tr>
@@ -401,17 +401,17 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="#ad-measurement-api" id="ad-measurement-api" class="heading-anchor">Ad Measurement API</a></td>
+<td style="text-align:left"><a href="#ad-measurement-api" id="ad-measurement-api" class="heading-anchor">Ad Mea­sure­ment API</a></td>
 <td style="text-align:left">The Ad Measurement API (and the related Private Aggregation API) sends data about your browsing, the ads you click, and other private data to advertising servers.</td>
 <td style="text-align:left">Privacy Magic disables these APIs to protect your data.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#protected-audience-api" id="protected-audience-api" class="heading-anchor">Protected Audience API</a></td>
+<td style="text-align:left"><a href="#protected-audience-api" id="protected-audience-api" class="heading-anchor">Pro­tect­ed Au­di­ence API</a></td>
 <td style="text-align:left">By default, this API is made available by Chrome to run an auction on your attention on behalf of advertisers.</td>
 <td style="text-align:left">Privacy Magic disables this API so your browsing data is not used this way.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#topics-api" id="topics-api" class="heading-anchor">Topics API</a></td>
+<td style="text-align:left"><a href="#topics-api" id="topics-api" class="heading-anchor">Top­ics API</a></td>
 <td style="text-align:left">Chrome's Topics API gives advertisers a list of topics that supposedly interest you.</td>
 <td style="text-align:left">Privacy Magic disables the Topics API to keep that data private.</td>
 </tr>
@@ -422,24 +422,24 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"><a href="#setting" id="setting" class="heading-anchor">Setting</a></th>
+<th style="text-align:left"><a href="#setting" id="setting" class="heading-anchor">Set­ting</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="#history-syncing" id="history-syncing" class="heading-anchor">History syncing</a></td>
+<td style="text-align:left"><a href="#history-syncing" id="history-syncing" class="heading-anchor">His­to­ry sync­ing</a></td>
 <td style="text-align:left">When you're signed in the Chrome, it syncs your browsing history between devices. It also saves that same data on Google servers.</td>
 <td style="text-align:left">Privacy Magic guides you to the setting that disables history syncing to keep your browsing history private.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#user-experience-metrics" id="user-experience-metrics" class="heading-anchor">User experience metrics</a></td>
+<td style="text-align:left"><a href="#user-experience-metrics" id="user-experience-metrics" class="heading-anchor">User ex­pe­ri­ence met­rics</a></td>
 <td style="text-align:left">Chrome silently sends metrics about your use of the browser back to Google's Servers</td>
 <td style="text-align:left">Privacy Magic helps you block this hidden data collection.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="#per-url-data-collection" id="per-url-data-collection" class="heading-anchor">Per-URL data collection</a></td>
+<td style="text-align:left"><a href="#per-url-data-collection" id="per-url-data-collection" class="heading-anchor">Per-URL data col­lec­tion</a></td>
 <td style="text-align:left">For every URL you visit, Chrome collects &quot;anonymized&quot; data on your browsing on those pages and sends them to Google.</td>
 <td style="text-align:left">Privacy Magic helps you to disable this setting to prevent the data from being sent.</td>
 </tr>
