@@ -175,13 +175,39 @@
       });
     };
 
+    const scrollTableToTop = (table) => {
+      table.scrollIntoView({ block: "start" });
+    };
+
     const retargetHash = () => {
       const id = window.location.hash.slice(1);
       if (!id) return;
       const target = document.getElementById(id);
-      if (target == null || !target.closest(".post-content table")) return;
+      if (target == null) return;
+      const table = target.closest(".post-content table");
+      if (table == null) return;
+      if (target.closest("thead")) {
+        scrollTableToTop(table);
+        return;
+      }
       target.scrollIntoView();
     };
+
+    document.querySelectorAll(".post-content thead th a.heading-anchor").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const table = link.closest("table");
+        if (table == null) return;
+        event.preventDefault();
+        const href = link.getAttribute("href");
+        if (href && window.location.hash !== href) {
+          history.pushState(null, "", href);
+        }
+        scrollTableToTop(table);
+      });
+    });
+
+    window.addEventListener("hashchange", retargetHash);
+    window.addEventListener("popstate", retargetHash);
 
     syncTableHeaderHeights();
     if (window.location.hash) {

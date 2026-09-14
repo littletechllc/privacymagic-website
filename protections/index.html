@@ -116,7 +116,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Filter list</th>
+<th style="text-align:left"><a href="#filter-list" id="filter-list" class="heading-anchor">Filter list</a></th>
 <th style="text-align:left">Items blocked</th>
 </tr>
 </thead>
@@ -144,7 +144,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Fingerprint</th>
+<th style="text-align:left"><a href="#fingerprint" id="fingerprint" class="heading-anchor">Fingerprint</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
@@ -243,11 +243,11 @@
 </tbody>
 </table>
 <h2 id="removing-tracking-breadcrumbs"><a href="#removing-tracking-breadcrumbs" class="heading-anchor">Removing tracking breadcrumbs</a></h2>
-<p>Some browser features are</p>
+<p>Some browser features are vulnerable to being used to share parts of your browsing history (&quot;breadcrumbs&quot;) to different websites you visit. Privacy Magic hardens these features so they are less leaky.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Breadcrumb</th>
+<th style="text-align:left"><a href="#breadcrumb" id="breadcrumb" class="heading-anchor">Breadcrumb</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
@@ -255,23 +255,23 @@
 <tbody>
 <tr>
 <td style="text-align:left"><a href="#cache-leaks" id="cache-leaks" class="heading-anchor">Cache Leaks</a></td>
-<td style="text-align:left">Browsers all store data in local caches, so that when you visit a page or view a second time , it doesn't need to load that resource a second time. Unfortunately, those caches are sometimes leaky and will reveal something about your browsing history to a website you visit.</td>
+<td style="text-align:left">Browsers store data in local caches, so that when you visit a page or view it a second time, that data doesn't need to be loaded a second time. Unfortunately, those caches are sometimes leaky and will reveal something about your browsing history to a website you visit.</td>
 <td style="text-align:left">Privacy Magic clears vulnerable caches so that these leaks can't happen.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#referrer-policy" id="referrer-policy" class="heading-anchor">Referrer Policy</a></td>
-<td style="text-align:left">Traditionally, browsers will tell each web page you visit, which web page you came from!</td>
-<td style="text-align:left">Privacy Magic deletes exact page (or path) in the Referer, and for web compatibility, only allows the domain to be shared.</td>
+<td style="text-align:left">Traditionally, browsers will tell each web page you visit which web page you came from!</td>
+<td style="text-align:left">Privacy Magic deletes the exact page (or path) in the Referrer, and for web compatibility, only allows the domain to be shared.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#tracking-parameters" id="tracking-parameters" class="heading-anchor">Tracking Parameters</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">Trackers can add extra &quot;tracking parameters&quot; to the addresses of the web pages you visit, so advertisers can keep track of who you are or where you have been browsing.</td>
+<td style="text-align:left">Privacy Magic deletes known tracking parameters from web addresses so that this information is not shared with the websites you visit.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#window-name" id="window-name" class="heading-anchor">Window Name</a></td>
 <td style="text-align:left">Normally, the <code>window.name</code> JavaScript API leaks data if you navigate between websites in the same tab.</td>
-<td style="text-align:left">Privacy Magic prevents this leak.</td>
+<td style="text-align:left">Privacy Magic prevents this leak by enforcing a separate <code>window.name</code> for each website.</td>
 </tr>
 </tbody>
 </table>
@@ -279,7 +279,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Feature</th>
+<th style="text-align:left"><a href="#feature" id="feature" class="heading-anchor">Feature</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
@@ -307,8 +307,8 @@
 </tr>
 <tr>
 <td style="text-align:left"><a href="#web-workers" id="web-workers" class="heading-anchor">Web Workers</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">Privacy Magic injects its protections into every Web Worker on a page, to make sure trackers can't use Workers to bypass those protections.</td>
+<td style="text-align:left">Web Workers are code that runs in the background on a web page. Like the main page's scripts, web worker code can leak private data.</td>
+<td style="text-align:left">Privacy Magic injects its protections into every Web Worker on a page, to make sure trackers can't use Web Workers to bypass those protections.</td>
 </tr>
 </tbody>
 </table>
@@ -316,7 +316,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Signal</th>
+<th style="text-align:left"><a href="#signal" id="signal" class="heading-anchor">Signal</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
@@ -335,7 +335,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Feature</th>
+<th style="text-align:left"><a href="#feature-2" id="feature-2" class="heading-anchor">Feature</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
@@ -362,7 +362,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Service</th>
+<th style="text-align:left"><a href="#service" id="service" class="heading-anchor">Service</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
@@ -394,7 +394,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">API</th>
+<th style="text-align:left"><a href="#api" id="api" class="heading-anchor">API</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
@@ -402,18 +402,18 @@
 <tbody>
 <tr>
 <td style="text-align:left"><a href="#ad-measurement-api" id="ad-measurement-api" class="heading-anchor">Ad Measurement API</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">The Ad Measurement API (and the related Private Aggregation API) sends data about your browsing, the ads you click, and other private data to advertising servers.</td>
+<td style="text-align:left">Privacy Magic disables these APIs to protect your data.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#protected-audience-api" id="protected-audience-api" class="heading-anchor">Protected Audience API</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">By default, this API is made available by Chrome to run an auction on your attention on behalf of advertisers.</td>
+<td style="text-align:left">Privacy Magic disables this API so your browsing data is not used this way.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#topics-api" id="topics-api" class="heading-anchor">Topics API</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">Chrome's Topics API gives advertisers a list of topics that supposedly interest you.</td>
+<td style="text-align:left">Privacy Magic disables the Topics API to keep that data private.</td>
 </tr>
 </tbody>
 </table>
@@ -422,7 +422,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Setting</th>
+<th style="text-align:left"><a href="#setting" id="setting" class="heading-anchor">Setting</a></th>
 <th style="text-align:left">Standard web browsers</th>
 <th style="text-align:left">Privacy Magic</th>
 </tr>
@@ -472,13 +472,39 @@
       });
     };
 
+    const scrollTableToTop = (table) => {
+      table.scrollIntoView({ block: "start" });
+    };
+
     const retargetHash = () => {
       const id = window.location.hash.slice(1);
       if (!id) return;
       const target = document.getElementById(id);
-      if (target == null || !target.closest(".post-content table")) return;
+      if (target == null) return;
+      const table = target.closest(".post-content table");
+      if (table == null) return;
+      if (target.closest("thead")) {
+        scrollTableToTop(table);
+        return;
+      }
       target.scrollIntoView();
     };
+
+    document.querySelectorAll(".post-content thead th a.heading-anchor").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const table = link.closest("table");
+        if (table == null) return;
+        event.preventDefault();
+        const href = link.getAttribute("href");
+        if (href && window.location.hash !== href) {
+          history.pushState(null, "", href);
+        }
+        scrollTableToTop(table);
+      });
+    });
+
+    window.addEventListener("hashchange", retargetHash);
+    window.addEventListener("popstate", retargetHash);
 
     syncTableHeaderHeights();
     if (window.location.hash) {

@@ -733,7 +733,8 @@ footer a {
 
 .post-header h1 a.heading-anchor,
 .post-content :is(h2, h3, h4) a.heading-anchor,
-.post-content td a.heading-anchor {
+.post-content td a.heading-anchor,
+.post-content thead th a.heading-anchor {
   color: inherit;
   text-decoration: none;
 }
@@ -744,9 +745,14 @@ footer a {
   );
 }
 
+.post-content thead th a.heading-anchor {
+  scroll-margin-top: var(--sticky-nav-offset);
+}
+
 .post-header h1 a.heading-anchor:hover,
 .post-content :is(h2, h3, h4) a.heading-anchor:hover,
-.post-content td a.heading-anchor:hover {
+.post-content td a.heading-anchor:hover,
+.post-content thead th a.heading-anchor:hover {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 0.15em;
@@ -795,21 +801,21 @@ footer a {
 
 .post-content h2 {
   font-size: 1.5rem;
-  margin-top: 2.25rem;
+  margin-top: 2.75rem;
   margin-bottom: 0.75rem;
   scroll-margin-top: var(--sticky-nav-offset);
 }
 
 .post-content h3 {
   font-size: 1.2rem;
-  margin-top: 1.75rem;
+  margin-top: 2.25rem;
   margin-bottom: 0.5rem;
   scroll-margin-top: var(--sticky-nav-offset);
 }
 
 .post-content h4 {
   font-size: 1.05rem;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   margin-bottom: 0.5rem;
   scroll-margin-top: var(--sticky-nav-offset);
 }
@@ -836,13 +842,14 @@ footer a {
 }
 
 .post-content table {
-  margin-top: 2em;
+  margin-top: 1.25em;
   font-size: 0.9em;
   line-height: 1.575;
   border-collapse: separate;
   border-spacing: 0;
   table-layout: fixed;
   width: 100%;
+  scroll-margin-top: var(--sticky-nav-offset);
   --sticky-table-header-height: 2.5rem;
 }
 
@@ -863,8 +870,8 @@ footer a {
   top: var(--sticky-nav-offset);
   background: var(--bg);
   z-index: 1;
-  padding-top: 1rem;
-  padding-bottom: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.4rem;
 }
 
 .post-content th:not(:last-child),
@@ -873,11 +880,11 @@ footer a {
 }
 
 .post-content tbody tr:first-child td {
-  padding-top: 1.5em;
+  padding-top: 0.4em;
 }
 
 .post-content tbody tr:not(:last-child) td {
-  padding-bottom: 1.5em;
+  padding-bottom: 1em;
 }
 
 .post-content code {
