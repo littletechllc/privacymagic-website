@@ -54,34 +54,42 @@ module.exports = function (eleventyConfig) {
     const slugify = eleventyConfig.getFilter("slugify");
     const usedIds = new Set();
 
-    return content.replace(/<tbody>([\s\S]*?)<\/tbody>/gi, (tbodyMatch, tbodyInner) => {
-      const updated = tbodyInner.replace(
-        /<tr>(\s*)<td([^>]*)>([\s\S]*?)<\/td>/gi,
-        (rowMatch, whitespace, attrs, inner) => {
-          if (/\bid\s*=/.test(attrs) || /class=["'][^"']*\bheading-anchor\b/.test(inner)) {
-            return rowMatch;
-          }
-          const text = inner.replace(/<[^>]+>/g, "").trim();
-          if (!text) {
-            return rowMatch;
-          }
-          let id = slugify(text);
-          if (!id) {
-            return rowMatch;
-          }
-          if (usedIds.has(id)) {
-            let n = 2;
-            while (usedIds.has(`${id}-${n}`)) {
-              n += 1;
-            }
-            id = `${id}-${n}`;
-          }
-          usedIds.add(id);
-          return `<tr>${whitespace}<td${attrs}><a href="#${id}" id="${id}" class="heading-anchor">${inner}</a></td>`;
+    const wrapFirstCell = (cellTag) => (rowMatch, whitespace, attrs, inner) => {
+      if (/\bid\s*=/.test(attrs) || /class=["'][^"']*\bheading-anchor\b/.test(inner)) {
+        return rowMatch;
+      }
+      const text = inner.replace(/<[^>]+>/g, "").trim();
+      if (!text) {
+        return rowMatch;
+      }
+      let id = slugify(text);
+      if (!id) {
+        return rowMatch;
+      }
+      if (usedIds.has(id)) {
+        let n = 2;
+        while (usedIds.has(`${id}-${n}`)) {
+          n += 1;
         }
-      );
-      return `<tbody>${updated}</tbody>`;
-    });
+        id = `${id}-${n}`;
+      }
+      usedIds.add(id);
+      return `<tr>${whitespace}<${cellTag}${attrs}><a href="#${id}" id="${id}" class="heading-anchor">${inner}</a></${cellTag}>`;
+    };
+
+    return content
+      .replace(/<thead>([\s\S]*?)<\/thead>/gi, (match, inner) => {
+        return `<thead>${inner.replace(
+          /<tr>(\s*)<th([^>]*)>([\s\S]*?)<\/th>/gi,
+          wrapFirstCell("th")
+        )}</thead>`;
+      })
+      .replace(/<tbody>([\s\S]*?)<\/tbody>/gi, (match, inner) => {
+        return `<tbody>${inner.replace(
+          /<tr>(\s*)<td([^>]*)>([\s\S]*?)<\/td>/gi,
+          wrapFirstCell("td")
+        )}</tbody>`;
+      });
   });
 
   function parseLocalDate(value) {
