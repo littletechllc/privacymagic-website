@@ -4,6 +4,7 @@ const MarkdownIt = require("markdown-it");
 const fs = require("fs");
 const path = require("path");
 const { IdAttributePlugin } = require("@11ty/eleventy");
+const { hyphenateSync } = require("hyphen/en-us");
 
 const arthurBioPath = path.join(__dirname, "src/data/arthur-bio.md");
 const imagesDir = path.join(__dirname, "src/static/images");
@@ -74,7 +75,10 @@ module.exports = function (eleventyConfig) {
         id = `${id}-${n}`;
       }
       usedIds.add(id);
-      return `<tr>${whitespace}<${cellTag}${attrs}><a href="#${id}" id="${id}" class="heading-anchor">${inner}</a></${cellTag}>`;
+      const hyphenated = hyphenateSync(
+        inner.replace(/([a-z])([A-Z])/g, "$1\u00AD$2")
+      );
+      return `<tr>${whitespace}<${cellTag}${attrs}><a href="#${id}" id="${id}" class="heading-anchor">${hyphenated}</a></${cellTag}>`;
     };
 
     return content

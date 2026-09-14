@@ -4,7 +4,7 @@ description: How Privacy Magic protects your privacy as you browse the web
 permalink: /protections/
 ---
 
-Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web. Browsers are very leaky, so we have built multiple layers of protection, described below.
+Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web. Browsers are very leaky, so Privacy Magic provides multiple layers of protection.
 
 ## Blocking ads and trackers
 
