@@ -46,14 +46,14 @@ Traditionally, browsers leak copious amounts of information about your computer 
 
 ## Removing tracking breadcrumbs
 
-Some browser features are 
+Some browser features are vulnerable to being used to share parts of your browsing history ("breadcrumbs") to different websites you visit. Privacy Magic hardens these features so they are less leaky.
 
 | Breadcrumb | Standard web browsers | Privacy Magic |
 | :--- | :--- | :--- |
-| Cache Leaks | Browsers all store data in local caches, so that when you visit a page or view a second time , it doesn't need to load that resource a second time. Unfortunately, those caches are sometimes leaky and will reveal something about your browsing history to a website you visit. | Privacy Magic clears vulnerable caches so that these leaks can't happen. |
-| Referrer Policy | Traditionally, browsers will tell each web page you visit, which web page you came from! | Privacy Magic deletes exact page (or path) in the Referer, and for web compatibility, only allows the domain to be shared. |
-| Tracking Parameters |  |  |
-| Window Name | Normally, the `window.name` JavaScript API leaks data if you navigate between websites in the same tab. | Privacy Magic prevents this leak. |
+| Cache Leaks | Browsers store data in local caches, so that when you visit a page or view it a second time, that data doesn't need to be loaded a second time. Unfortunately, those caches are sometimes leaky and will reveal something about your browsing history to a website you visit. | Privacy Magic clears vulnerable caches so that these leaks can't happen. |
+| Referrer Policy | Traditionally, browsers will tell each web page you visit which web page you came from! | Privacy Magic deletes the exact page (or path) in the Referrer, and for web compatibility, only allows the domain to be shared. |
+| Tracking Parameters | Trackers can add extra "tracking parameters" to the addresses of the web pages you visit, so advertisers can keep track of who you are or where you have been browsing. | Privacy Magic deletes known tracking parameters from web addresses so that this information is not shared with the websites you visit. |
+| Window Name | Normally, the `window.name` JavaScript API leaks data if you navigate between websites in the same tab. | Privacy Magic prevents this leak by enforcing a separate `window.name` for each website. |
 
 ## Stopping web leaks
 
@@ -63,7 +63,7 @@ Some browser features are
 | Service Workers | Service Workers are a browser feature that allow code to run in the background even when you aren't connected to the internet. Unfortunately, these Service Workers are easily able to leak private information. | Service workers are generally disabled on all sites, to prevent leaks of private information that cannot be patched otherwise. |
 | Shared Storage | Shared Storage is a browser feature that allows data about your browsing to be aggregate and collected. While it was purported to be privacy-preserving, this feature raised strong privacy concerns and is due to removed from browsers. | Privacy Magic makes sure that Shared Storage is disabled on all websites. |
 | Shared Workers | Shared Workers are code that runs in the background and can be shared between websites. | Privacy Magic injects its protections into every Shared Worker loaded by any website. |
-| Web Workers |  | Privacy Magic injects its protections into every Web Worker on a page, to make sure trackers can't use Workers to bypass those protections. |
+| Web Workers | Web Workers are code that runs in the background on a web page. Like the main page's scripts, web worker code can leak private data. | Privacy Magic injects its protections into every Web Worker on a page, to make sure trackers can't use Web Workers to bypass those protections. |
 
 ## Privacy signals
 
@@ -96,9 +96,9 @@ Browsers are badly behaved. Privacy Magic puts them in line by disabling a bunch
 
 | API | Standard web browsers | Privacy Magic |
 | :--- | :--- | :--- |
-| Ad Measurement API |  |  |
-| Protected Audience API | |  |
-| Topics API |  |  |
+| Ad Measurement API | The Ad Measurement API (and the related Private Aggregation API) sends data about your browsing, the ads you click, and other private data to advertising servers. | Privacy Magic disables these APIs to protect your data. |
+| Protected Audience API | By default, this API is made available by Chrome to run an auction on your attention on behalf of advertisers. | Privacy Magic disables this API so your browsing data is not used this way. |
+| Topics API | Chrome's Topics API gives advertisers a list of topics that supposedly interest you. | Privacy Magic disables the Topics API to keep that data private. |
 
 ### Disabling leaky Chrome settings
 
