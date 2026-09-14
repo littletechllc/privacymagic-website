@@ -109,9 +109,36 @@
     
   </header>
   <div class="post-content">
-    <p>Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web.</p>
+    <p>Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web. Browsers are very leaky, so we have built multiple layers of protection, described below.</p>
 <h2 id="blocking-ads-and-trackers"><a href="#blocking-ads-and-trackers" class="heading-anchor">Blocking ads and trackers</a></h2>
-<p>Privacy Magic uses a number of popular filter lists: <a href="https://easylist.to/">EasyList</a>, <a href="https://easylist.to/">EasyPrivacy</a>, <a href="https://easylist.to/">Fanboy's Annoyance List</a>, and the <a href="https://oisd.nl/">small oisd blocklist</a>. These filter lists block ads from being requested by your browser on the network, and they also hide the empty boxes that are left when ads are blocked on a web page. Privacy Magic uses a pinned version of these filter lists so that the extension's blocking behavior is fully reproducible and identical for every user.</p>
+<p>Across the web, advertisements, tracking scripts, and tracking pixels are following you around without your consent using a variety of invisible methods.</p>
+<p>Privacy Magic uses popular filter lists to block many ads and trackers from being requested by your browser on the network. The filter lists and also hide the empty boxes that are left when ads are blocked on a web page. Privacy Magic uses a pinned version of these filter lists so that the extension's blocking behavior is fully reproducible and identical for every user.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Filter list</th>
+<th style="text-align:left">Items blocked</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#easylist" id="easylist" class="heading-anchor"><a href="https://easylist.to/">EasyList</a></a></td>
+<td style="text-align:left">Advertisements, including banners, ad scripts, images, and video ads.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#easyprivacy" id="easyprivacy" class="heading-anchor"><a href="https://easylist.to/">EasyPrivacy</a></a></td>
+<td style="text-align:left">Trackers, including tracking scripts, pixels, web bugs, and other information collectors.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#fanboys-annoyance-list" id="fanboys-annoyance-list" class="heading-anchor"><a href="https://easylist.to/">Fanboy's Annoyance List</a></a></td>
+<td style="text-align:left">Cookie notices, social media widgets, in-page pop-ups, and other annoyances.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#small-oisd-blocklist" id="small-oisd-blocklist" class="heading-anchor"><a href="https://oisd.nl/">small oisd blocklist</a></a></td>
+<td style="text-align:left">Additional advertising domains</td>
+</tr>
+</tbody>
+</table>
 <h2 id="protecting-system-information-fingerprinting"><a href="#protecting-system-information-fingerprinting" class="heading-anchor">Protecting system information (fingerprinting)</a></h2>
 <p>Traditionally, browsers leak copious amounts of information about your computer to any website or tracking script that asks! And trackers gather this data to track you as you browse the web.</p>
 <table>
@@ -155,8 +182,8 @@
 </tr>
 <tr>
 <td style="text-align:left"><a href="#fonts" id="fonts" class="heading-anchor">Fonts</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">Privacy Magic hides custom fonts installed on your system. Web pages can continue to use standard system fonts and downloaded web fonts.</td>
+<td style="text-align:left">Standard web browsers leak what custom fonts you have installed on your system, potentially making your fingerprint very unique.</td>
+<td style="text-align:left">Privacy Magic hides custom fonts installed on your system from all scripts. Web pages can continue to use standard system fonts and downloaded web fonts.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#graphics" id="graphics" class="heading-anchor">Graphics</a></td>
@@ -165,8 +192,8 @@
 </tr>
 <tr>
 <td style="text-align:left"><a href="#keyboard" id="keyboard" class="heading-anchor">Keyboard</a></td>
-<td style="text-align:left">which is to leak the keyboard layout you are using to any website that asks.</td>
-<td style="text-align:left">Privacy Magic prevents the default behavior of Chrome,</td>
+<td style="text-align:left">By default, browsers to leak the keyboard layout you are using to any website that asks.</td>
+<td style="text-align:left">Privacy Magic blocks your keyboard layout from being revealed to website scripts.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#language" id="language" class="heading-anchor">Language</a></td>
@@ -175,8 +202,8 @@
 </tr>
 <tr>
 <td style="text-align:left"><a href="#math" id="math" class="heading-anchor">Math</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">Privacy Magic patches the JavaScript Math functions so that they behave identically across platforms.</td>
+<td style="text-align:left">Tracking scripts in web pages can use idiosyncratic behavior of Math functions, such as cosine or hyberbolic tangent, on your device to tell you apart from other web users.</td>
+<td style="text-align:left">Privacy Magic patches the JavaScript Math functions so that they behave identically across all platforms.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#memory" id="memory" class="heading-anchor">Memory</a></td>
@@ -200,22 +227,23 @@
 </tr>
 <tr>
 <td style="text-align:left"><a href="#time-zone" id="time-zone" class="heading-anchor">Time Zone</a></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">Web browsers will leak your approximate location when scripts ask for your time zone. For example, if your are in Central European Time, the browser will provide a time zone identifier that indicates whether your are in Paris, Berlin, Luxembourg or any one of dozens of other cities.</td>
 <td style="text-align:left">Privacy Magic coalesces time zones so that every time zone offset has a single representative time zone. That way the browser does not leak unnecessary information about your location on the globe.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#timing" id="timing" class="heading-anchor">Timing</a></td>
-<td style="text-align:left">high resolution timing APIs that allow scripts to characterise your system by measuring tiny differences in the timing of browser behaviors.</td>
-<td style="text-align:left">Privacy Magic rounds off</td>
+<td style="text-align:left">High resolution timing APIs allow scripts to characterise your system by measuring tiny differences in the timing of browser behaviors.</td>
+<td style="text-align:left">Privacy Magic rounds off the times provided by these APIs so that it is much harder for tracking scripts to use them to distinguish between browsers.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#touch" id="touch" class="heading-anchor">Touch</a></td>
-<td style="text-align:left">whether your device has touch and how many touch points it allows.</td>
-<td style="text-align:left">Privacy Magic hides from websites</td>
+<td style="text-align:left">The Touch API leaks whether your device has touch and how many touch points it allows.</td>
+<td style="text-align:left">Privacy Magic hides this information from websites.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="removing-tracking-breadcrumbs"><a href="#removing-tracking-breadcrumbs" class="heading-anchor">Removing tracking breadcrumbs</a></h2>
+<p>Some browser features are</p>
 <table>
 <thead>
 <tr>
@@ -226,9 +254,14 @@
 </thead>
 <tbody>
 <tr>
+<td style="text-align:left"><a href="#cache-leaks" id="cache-leaks" class="heading-anchor">Cache Leaks</a></td>
+<td style="text-align:left">Browsers all store data in local caches, so that when you visit a page or view a second time , it doesn't need to load that resource a second time. Unfortunately, those caches are sometimes leaky and will reveal something about your browsing history to a website you visit.</td>
+<td style="text-align:left">Privacy Magic clears vulnerable caches so that these leaks can't happen.</td>
+</tr>
+<tr>
 <td style="text-align:left"><a href="#referrer-policy" id="referrer-policy" class="heading-anchor">Referrer Policy</a></td>
 <td style="text-align:left">Traditionally, browsers will tell each web page you visit, which web page you came from!</td>
-<td style="text-align:left">Privacy Magic deletes exact page (or path) in the Referer, and only allows the domain to be shared.</td>
+<td style="text-align:left">Privacy Magic deletes exact page (or path) in the Referer, and for web compatibility, only allows the domain to be shared.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#tracking-parameters" id="tracking-parameters" class="heading-anchor">Tracking Parameters</a></td>
@@ -254,23 +287,23 @@
 <tbody>
 <tr>
 <td style="text-align:left"><a href="#iframes" id="iframes" class="heading-anchor">Iframes</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">Privacy Magic injects its protections into every iframe on a web page, to ensure a tracker can't bypass those protections.</td>
+<td style="text-align:left">An Iframe is a &quot;web page within a web page.&quot; It's a box inside the page you are visiting, where a second web page can hide and use all of the same tracking techniques that a normal web page can use.</td>
+<td style="text-align:left">Privacy Magic injects all of its protections into every iframe on a web page, to ensure a tracker can't bypass those protections by hiding inside an iframe.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#service-workers" id="service-workers" class="heading-anchor">Service Workers</a></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">Service Workers are a browser feature that allow code to run in the background even when you aren't connected to the internet. Unfortunately, these Service Workers are easily able to leak private information.</td>
 <td style="text-align:left">Service workers are generally disabled on all sites, to prevent leaks of private information that cannot be patched otherwise.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#shared-storage" id="shared-storage" class="heading-anchor">Shared Storage</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">Shared Storage is disabled on all websites.</td>
+<td style="text-align:left">Shared Storage is a browser feature that allows data about your browsing to be aggregate and collected. While it was purported to be privacy-preserving, this feature raised strong privacy concerns and is due to removed from browsers.</td>
+<td style="text-align:left">Privacy Magic makes sure that Shared Storage is disabled on all websites.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#shared-workers" id="shared-workers" class="heading-anchor">Shared Workers</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">Privacy Magic injects its protections into every Shared Worker on a page.</td>
+<td style="text-align:left">Shared Workers are code that runs in the background and can be shared between websites.</td>
+<td style="text-align:left">Privacy Magic injects its protections into every Shared Worker loaded by any website.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="#web-workers" id="web-workers" class="heading-anchor">Web Workers</a></td>
@@ -291,14 +324,129 @@
 <tbody>
 <tr>
 <td style="text-align:left"><a href="#global-privacy-control" id="global-privacy-control" class="heading-anchor">Global Privacy Control</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">Privacy Magic sends the Global Privacy Control header with every request to every web page or embedded resource. It also injects a JavaScript signal in every page and iframe.</td>
+<td style="text-align:left">The Global Privacy Control is a signal that can be sent to the websites you visit to indicate that you don't want your data selling or sharing your personal information. Unfortunately, most web browsers do not send the Global Privacy Control preference by default.</td>
+<td style="text-align:left">Privacy Magic ensures that your browser sends the Global Privacy Control header with every request to every web page or embedded resource. It also injects a JavaScript signal in every page and iframe.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="browser-protections"><a href="#browser-protections" class="heading-anchor">Browser protections</a></h2>
+<p>Browsers are badly behaved. Privacy Magic puts them in line by disabling a bunch of bad browser behaviors that hurt your privacy.</p>
+<h3 id="disabling-leaky-web-features"><a href="#disabling-leaky-web-features" class="heading-anchor">Disabling leaky web features</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Feature</th>
+<th style="text-align:left">Standard web browsers</th>
+<th style="text-align:left">Privacy Magic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#hyperlink-auditing" id="hyperlink-auditing" class="heading-anchor">Hyperlink Auditing</a></td>
+<td style="text-align:left">Standard browsers have a feature that allows websites to &quot;ping&quot; a tracking server with the links you click.</td>
+<td style="text-align:left">Privacy Magic disables this ping.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#third-party-cookies" id="third-party-cookies" class="heading-anchor">Third-Party Cookies</a></td>
+<td style="text-align:left">The most famous tracking feature of all. Chrome allows third-party cookies which allow you to be tracked from site to site.</td>
+<td style="text-align:left">Privacy Magic disables third-party cookies by default.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#webrtc-non-proxied-udp" id="webrtc-non-proxied-udp" class="heading-anchor">WebRTC non-proxied UDP</a></td>
+<td style="text-align:left">WebRTC is a web browser capability that allows you to communicate to other Chrome users directly. Unfortunately, if you are using a browser proxy, standard Chrome-based browsers will leak WebRTC communications outside of the proxy.</td>
+<td style="text-align:left">Privacy Magic blocks the WebRTC leaks, while still allowing WebRTC to function on the websites that use it.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="disabling-invasive-cloud-services"><a href="#disabling-invasive-cloud-services" class="heading-anchor">Disabling invasive cloud services</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Service</th>
+<th style="text-align:left">Standard web browsers</th>
+<th style="text-align:left">Privacy Magic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#alternate-error-pages" id="alternate-error-pages" class="heading-anchor">Alternate Error Pages</a></td>
+<td style="text-align:left">By default, Chrome will show alternate error pages when an error occurs. To show these pages, data about what pages you are visiting is sent to Google's servers.</td>
+<td style="text-align:left">Privacy Magic disables these alternate error pages so that no data is sent.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#safe-browsing-extended-reporting" id="safe-browsing-extended-reporting" class="heading-anchor">Safe Browsing Extended Reporting</a></td>
+<td style="text-align:left">When Safe Browsing blocks a page, Chrome will may send the content of a blocked page to Google's servers.</td>
+<td style="text-align:left">Privacy Magic blocks this feature, so that no data is sent.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#search-suggest" id="search-suggest" class="heading-anchor">Search Suggest</a></td>
+<td style="text-align:left">By default, Chrome sends anything you type into the address bar to your default search engine (typically Google search) while you are typing, to make auto-suggestions.</td>
+<td style="text-align:left">Privacy Magic blocks this continuous monitoring, so that Chrome only sends your search or when you press &quot;enter&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#spelling-service" id="spelling-service" class="heading-anchor">Spelling Service</a></td>
+<td style="text-align:left">Chrome offers an &quot;enhanced spell check&quot; that sends what you type to Google's servers.</td>
+<td style="text-align:left">Privacy Magic disables this option and permits Chrome to use only the local &quot;basic spell check.&quot;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="disabling-ad-targeting-apis"><a href="#disabling-ad-targeting-apis" class="heading-anchor">Disabling ad targeting APIs</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">API</th>
+<th style="text-align:left">Standard web browsers</th>
+<th style="text-align:left">Privacy Magic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#ad-measurement-api" id="ad-measurement-api" class="heading-anchor">Ad Measurement API</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#protected-audience-api" id="protected-audience-api" class="heading-anchor">Protected Audience API</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#topics-api" id="topics-api" class="heading-anchor">Topics API</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="disabling-leaky-chrome-settings"><a href="#disabling-leaky-chrome-settings" class="heading-anchor">Disabling leaky Chrome settings</a></h3>
+<p>Chrome contains certain settings that are antithetical to your privacy: specifically, functionality that collects data on your browsing habits and sends them to Google's servers. These settings cannot be directly controled by a browser extension, but during setup, Privacy Magic will help you find the settings and turn them off yourself.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Setting</th>
+<th style="text-align:left">Standard web browsers</th>
+<th style="text-align:left">Privacy Magic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#history-syncing" id="history-syncing" class="heading-anchor">History syncing</a></td>
+<td style="text-align:left">When you're signed in the Chrome, it syncs your browsing history between devices. It also saves that same data on Google servers.</td>
+<td style="text-align:left">Privacy Magic guides you to the setting that disables history syncing to keep your browsing history private.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#user-experience-metrics" id="user-experience-metrics" class="heading-anchor">User experience metrics</a></td>
+<td style="text-align:left">Chrome silently sends metrics about your use of the browser back to Google's Servers</td>
+<td style="text-align:left">Privacy Magic helps you block this hidden data collection.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#per-url-data-collection" id="per-url-data-collection" class="heading-anchor">Per-URL data collection</a></td>
+<td style="text-align:left">For every URL you visit, Chrome collects &quot;anonymized&quot; data on your browsing on those pages and sends them to Google.</td>
+<td style="text-align:left">Privacy Magic helps you to disable this setting to prevent the data from being sent.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="remote-setting-control"><a href="#remote-setting-control" class="heading-anchor">Remote setting control</a></h2>
-<p>Privacy Magic also has remote setting control for specific protections and specific websites. For example, if the Time Zone protection interfered with the proper functioning of Le Monde newspaper website, then we would quickly respond by remotely disabling that particular protection on the lemonde.fr website. Once the protection had been fixed so it no longer breaks the site, then it would be remotely re-enabled.</p>
+<p>Privacy Magic also has remote setting control for specific protections and specific websites. For example, if the Time Zone protection were to interfere with the proper functioning of Le Monde newspaper website, then we would quickly respond by remotely disabling that particular protection on lemonde.fr. We would remotely re-enable the protection once it had been fixed so it no longer broke the site.</p>
 
   </div>
   
