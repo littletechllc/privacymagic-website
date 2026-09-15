@@ -46,7 +46,6 @@ nav {
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   z-index: 100;
-  cursor: pointer;
 }
 
 .logo {
@@ -207,7 +206,6 @@ nav a.cta-nav:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   box-shadow: 0 8px 24px rgba(15, 61, 114, 0.12);
-  cursor: default;
 }
 
 .nav-menu-panel a {
@@ -1045,21 +1043,33 @@ footer a {
 }
 
 .post-back-to-top {
-  margin-top: 2rem;
-  margin-bottom: 0;
+  --back-to-top-shift: calc(100% + max(1.25rem, env(safe-area-inset-bottom)));
+  position: fixed;
+  right: max(1.25rem, env(safe-area-inset-right));
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 50;
+  margin: 0;
   font-size: 0.9rem;
-  text-align: right;
+  transform: translateY(var(--back-to-top-shift));
+  pointer-events: none;
+}
+
+.post-back-to-top.is-visible {
+  pointer-events: auto;
 }
 
 .post-back-to-top-link {
-  padding: 0;
-  border: none;
-  background: none;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: rgba(253, 252, 248, 0.7);
+  backdrop-filter: blur(8px);
   font: inherit;
   cursor: pointer;
   color: var(--text-hint);
   text-decoration: none;
   font-weight: 600;
+  text-shadow: 0 0 6px var(--bg), 0 0 12px var(--bg);
 }
 
 .post-back-to-top-link:hover {
