@@ -1,7 +1,7 @@
 - label: About
   url: /about/
-# - label: Protections
-#   url: /protections/
+- label: Protections
+  url: /protections/
 # - label: Technical
 #   url: /technical/
 # - label: Blog
