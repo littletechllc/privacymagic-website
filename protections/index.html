@@ -98,12 +98,6 @@
       menu.open = false;
     });
   }
-
-  document.querySelector("nav")?.addEventListener("click", (event) => {
-    if (event.target.closest("a, button, summary, .nav-menu-panel")) return;
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    history.replaceState(null, "", window.location.pathname + window.location.search);
-  });
 </script>
 
   
@@ -470,14 +464,45 @@
     history.replaceState(null, "", window.location.pathname + window.location.search);
   };
 
-  document.querySelector(".post-back-to-top-link")?.addEventListener("click", scrollToPageTop);
+  const backToTop = document.querySelector(".post-back-to-top");
+  const titleHeading = document.querySelector(".post-header h1");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let backToTopFrame = 0;
+
+  const updateBackToTop = () => {
+    if (backToTop == null || titleHeading == null) return;
+    const navHeight = document.querySelector("nav")?.getBoundingClientRect().height ?? 0;
+    const pastTitle = navHeight - titleHeading.getBoundingClientRect().bottom;
+    const travel = backToTop.offsetHeight + (parseFloat(getComputedStyle(backToTop).bottom) || 0);
+    let shift = Math.min(travel, Math.max(0, travel - pastTitle));
+    if (prefersReducedMotion.matches) {
+      shift = pastTitle > 0 ? 0 : travel;
+    }
+    backToTop.style.setProperty("--back-to-top-shift", `${shift}px`);
+    const hidden = shift >= travel - 0.5;
+    backToTop.classList.toggle("is-visible", !hidden);
+    backToTop.toggleAttribute("inert", hidden);
+    backToTop.setAttribute("aria-hidden", hidden ? "true" : "false");
+  };
+
+  const scheduleBackToTop = () => {
+    if (backToTopFrame) return;
+    backToTopFrame = requestAnimationFrame(() => {
+      backToTopFrame = 0;
+      updateBackToTop();
+    });
+  };
+
+  backToTop?.querySelector(".post-back-to-top-link")?.addEventListener("click", scrollToPageTop);
+  window.addEventListener("scroll", scheduleBackToTop, { passive: true });
+  window.addEventListener("resize", scheduleBackToTop);
+  updateBackToTop();
 
   document.querySelector(".post-header h1 a.heading-anchor")?.addEventListener("click", (event) => {
     event.preventDefault();
     scrollToPageTop();
   });
 
-  const titleHeading = document.querySelector(".post-header h1");
   if (titleHeading?.id && window.location.hash === `#${titleHeading.id}`) {
     scrollToPageTop();
   }
