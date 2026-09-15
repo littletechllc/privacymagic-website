@@ -127,13 +127,13 @@
 <p>Privacy Magic makes heavy use of the MV3's <a href="https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts">content script</a> injection capability. In short, a series of protections, written in TypeScript, are compiled and bundled into a single JavaScript file, and injected at <code>document_start</code> in the <code>MAIN</code> world of every web page and every available iframe to ensure that the hardening code runs before any remote web page scripts run.</p>
 <h2 id="iframes-web-workers-and-sharedworkers"><a href="#iframes-web-workers-and-sharedworkers" class="heading-anchor">Iframes, Web Workers and SharedWorkers</a></h2>
 <p>One challenge with web pages that is not entirely addressed by the Manifest v3 API is that iframes, web workers and SharedWorkers all contain JavaScript contexts where a remote script can fingerprint the client. In order to harden these contexts, it's necessary to find ways to inject the hardening code <em>before</em> any remote code runs.</p>
-<p>Unfortunately, although Manifest V3 is able to inject content scripts at <code>document_start</code> for most iframes, there are some iframes that do not receive a content script therefore, without further treatment, would remain unhardened. Privacy Magic addresses this issue by recursively applying its hardening script to each iframe, worker and SharedWorker found in a context.</p>
+<p>Unfortunately, although Manifest V3 is able to inject content scripts at <code>document_start</code> for most iframes, there are some iframes that do not receive a content script therefore, without further treatment, would remain unhardened. Privacy Magic addresses this issue by recursively applying its hardening script to each iframe, worker and SharedWorker found in a page.</p>
 <h2 id="network-hardening"><a href="#network-hardening" class="heading-anchor">Network hardening</a></h2>
 <p>Privacy Magic also includes code to modify request headers so that they reveal less about the client.</p>
 <h2 id="browser-settings-fixes"><a href="#browser-settings-fixes" class="heading-anchor">Browser settings fixes</a></h2>
 <p>Privacy Magic makes use of the <a href="https://developer.chrome.com/docs/extensions/reference/api/privacy"><code>chrome.privacy</code></a> API in MV3 to disable <a href="/protections/#browser-protections">certain features</a> that are harmful to user privacy. Some features cannot be disabled using MV3; in those cases we navigate the user to the specific chrome://settings pages where the setting can be manually disabled and help them to do so by giving clear instructions in a side panel.</p>
 <h2 id="unit-tests"><a href="#unit-tests" class="heading-anchor">Unit tests</a></h2>
-<p>Privacy Magic has an extensive suite of unit tests that check the privacy protections for correctness. End-to-end testing in the browser is under development.</p>
+<p>Privacy Magic has an extensive suite of unit tests that check the privacy protections for correctness. End-to-end testing in a live browser is under development.</p>
 
   </div>
   
@@ -274,6 +274,9 @@
 
 
     </span>
+  </p>
+  <p class="cta-get-in-touch">
+    Email:<a class="cta-support-email" href="mailto:support@privacymagic.com">support@privacymagic.com</a>
   </p>
 </section>
 
