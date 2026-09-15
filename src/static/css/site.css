@@ -583,7 +583,7 @@ nav a.cta-nav:hover {
 
 .cta-section .cta-follow {
   margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.85rem;
   font-size: 1.2rem;
   color: var(--text-muted);
 }
@@ -616,6 +616,24 @@ nav a.cta-nav:hover {
 
 .cta-section .cta-follow a:hover {
   color: var(--blue-dark);
+}
+
+.cta-section .cta-get-in-touch {
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+.cta-section .cta-support-email {
+  margin-inline-start: 0.55rem;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.cta-section .cta-support-email:hover {
+  color: var(--blue-dark);
+  text-decoration: underline;
 }
 
 footer {
