@@ -24,7 +24,7 @@ Privacy Magic makes heavy use of the MV3's [content script](https://developer.ch
 
 One challenge with web pages that is not entirely addressed by the Manifest v3 API is that iframes, web workers and SharedWorkers all contain JavaScript contexts where a remote script can fingerprint the client. In order to harden these contexts, it's necessary to find ways to inject the hardening code *before* any remote code runs.
 
-Unfortunately, although Manifest V3 is able to inject content scripts at `document_start` for most iframes, there are some iframes that do not receive a content script therefore, without further treatment, would remain unhardened. Privacy Magic addresses this issue by recursively applying its hardening script to each iframe, worker and SharedWorker found in a context.
+Unfortunately, although Manifest V3 is able to inject content scripts at `document_start` for most iframes, there are some iframes that do not receive a content script therefore, without further treatment, would remain unhardened. Privacy Magic addresses this issue by recursively applying its hardening script to each iframe, worker and SharedWorker found in a page.
 
 ## Network hardening
 
@@ -36,4 +36,4 @@ Privacy Magic makes use of the [`chrome.privacy`](https://developer.chrome.com/d
 
 ## Unit tests
 
-Privacy Magic has an extensive suite of unit tests that check the privacy protections for correctness. End-to-end testing in the browser is under development.
+Privacy Magic has an extensive suite of unit tests that check the privacy protections for correctness. End-to-end testing in a live browser is under development.
