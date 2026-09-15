@@ -861,6 +861,7 @@ footer a {
   -webkit-hyphens: manual;
   hyphenate-character: "-";
   -webkit-hyphenate-character: "-";
+  -webkit-tap-highlight-color: transparent;
 }
 
 .post-content th:nth-child(1) a.heading-anchor,
@@ -868,6 +869,19 @@ footer a {
   display: block;
   hyphens: manual;
   -webkit-hyphens: manual;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.post-content th:nth-child(1) a.heading-anchor:focus,
+.post-content th:nth-child(1) a.heading-anchor:focus-visible,
+.post-content th:nth-child(1) a.heading-anchor:target,
+.post-content td:nth-child(1) a.heading-anchor:focus,
+.post-content td:nth-child(1) a.heading-anchor:focus-visible,
+.post-content td:nth-child(1) a.heading-anchor:target {
+  outline: none;
+  box-shadow: none;
+  background: transparent;
 }
 
 .post-content thead th {
