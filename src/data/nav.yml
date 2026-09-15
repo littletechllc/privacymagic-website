@@ -6,5 +6,7 @@
 #   url: /technical/
 # - label: Blog
 #   url: /blog/
+- label: Privacy Policy
+  url: /privacy-policy/
 - label: Contact Us
   url: mailto:contact@privacymagic.com

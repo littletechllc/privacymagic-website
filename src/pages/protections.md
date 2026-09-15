@@ -4,7 +4,7 @@ description: How Privacy Magic protects your privacy as you browse the web
 permalink: /protections/
 ---
 
-Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web. Browsers are very leaky, so Privacy Magic provides multiple layers of protection, including [blocking ads and trackers](#blocking-ads-and-trackers), [protecting system information](#protecting-system-information-fingerprinting), [removing tracking breadcrumbs](#removing-tracking-breadcrumbs), [stopping web leaks](#stopping-web-leaks), [sending privacy signals](#privacy-signals), [enforcing browser protections](#browser-protections), and [our privacy policy](#our-privacy-policy), all described below.
+Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web. Browsers are very leaky, so Privacy Magic provides multiple layers of protection, including [blocking ads and trackers](#blocking-ads-and-trackers), [protecting system information](#protecting-system-information-fingerprinting), [removing tracking breadcrumbs](#removing-tracking-breadcrumbs), [stopping web leaks](#stopping-web-leaks), [sending privacy signals](#privacy-signals), and [enforcing browser protections](#browser-protections).
 
 ## Blocking ads and trackers
 
@@ -114,11 +114,3 @@ Chrome contains certain settings that are antithetical to your privacy: specific
 | User experience metrics | Chrome silently sends metrics about your use of the browser back to Google's servers. | Privacy Magic helps you block this hidden data collection. |
 | Per-URL data collection | For every URL you visit, Chrome collects "anonymized" data on your browsing on those pages and sends them to Google. | Privacy Magic helps you to disable this setting to prevent the data from being sent. |
 
-
-## Our privacy policy
-
-The Privacy Magic browser extension contains no analytics or telemetry: it doesn't collect any private data about you or send any personal data to our servers. We don't know who you are, how you browse, or your browser settings, and we don't try to find out. We don't have any data to share about you with third parties. The extension regularly fetches a remote settings file (described above) but it's the same for everyone and we don't use it to collect information.
-
-We will never use Privacy Magic for advertising or tracking. We will never make you the product. The only way we would ever make money from you is if you chose to be a customer.
-
-Our website also contains no analytics. We don't know how many visitors it has, or who they are. We will never share or sell data about you. In short, we respect your privacy regardless of what browser or browser extension you might be using.
