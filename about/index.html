@@ -220,6 +220,15 @@
       });
     });
 
+    document.querySelectorAll(
+      ".post-content :is(th, td):nth-child(1) a.heading-anchor"
+    ).forEach((link) => {
+      link.addEventListener("click", () => {
+        link.blur();
+        requestAnimationFrame(() => link.blur());
+      });
+    });
+
     window.addEventListener("hashchange", retargetHash);
     window.addEventListener("popstate", retargetHash);
 
