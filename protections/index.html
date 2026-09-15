@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Protections: plugging the leaks</title>
+  <title>Protections: plugging browser leaks</title>
   <link rel="canonical" href="https://privacymagic.com/protections/">
   <link rel="me" href="https://mastodon.social/@privacymagic">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -98,12 +98,18 @@
       menu.open = false;
     });
   }
+
+  document.querySelector("nav")?.addEventListener("click", (event) => {
+    if (event.target.closest("a, button, summary, .nav-menu-panel")) return;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  });
 </script>
 
   
 <article class="post">
   <header class="post-header">
-    <h1 id="protections-plugging-the-leaks"><a href="#" class="heading-anchor">Protections: plugging the leaks</a></h1>
+    <h1 id="protections-plugging-browser-leaks"><a href="#" class="heading-anchor">Protections: plugging browser leaks</a></h1>
     
     <p class="post-lead">How Privacy Magic protects your privacy as you browse the web</p>
     
