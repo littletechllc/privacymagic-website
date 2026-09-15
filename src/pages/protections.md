@@ -4,7 +4,7 @@ description: How Privacy Magic protects your privacy as you browse the web
 permalink: /protections/
 ---
 
-Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web. Browsers are very leaky, so Privacy Magic provides multiple layers of protection.
+Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web. Browsers are very leaky, so Privacy Magic provides multiple layers of protection, including [blocking ads and trackers](#blocking-ads-and-trackers), [protecting system information](#protecting-system-information-fingerprinting), [removing tracking breadcrumbs](#removing-tracking-breadcrumbs), [stopping web leaks](#stopping-web-leaks), [sending privacy signals](#privacy-signals), [enforcing browser protections](#browser-protections), and [our privacy policy](#our-privacy-policy), all described below.
 
 ## Blocking ads and trackers
 
@@ -114,9 +114,6 @@ Chrome contains certain settings that are antithetical to your privacy: specific
 | User experience metrics | Chrome silently sends metrics about your use of the browser back to Google's servers. | Privacy Magic helps you block this hidden data collection. |
 | Per-URL data collection | For every URL you visit, Chrome collects "anonymized" data on your browsing on those pages and sends them to Google. | Privacy Magic helps you to disable this setting to prevent the data from being sent. |
 
-## Remote setting control
-
-Privacy Magic also has remote setting control for specific protections and specific websites. For example, if the Time Zone protection were to interfere with the proper functioning of website abc.com, then we would quickly respond by remotely disabling that particular protection on abc.com. We would remotely re-enable the protection once it had been fixed so that it no longer broke the site.
 
 ## Our privacy policy
 

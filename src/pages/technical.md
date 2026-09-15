@@ -34,6 +34,10 @@ Privacy Magic also includes code to modify request headers so that they reveal l
 
 Privacy Magic makes use of the [`chrome.privacy`](https://developer.chrome.com/docs/extensions/reference/api/privacy) API in MV3 to disable [certain features](/protections/#browser-protections) that are harmful to user privacy. Some features cannot be disabled using MV3; in those cases we navigate the user to the specific chrome://settings pages where the setting can be manually disabled and help them to do so by giving clear instructions in a side panel.
 
+## Remote setting control
+
+Privacy Magic has remote setting control for specific protections and specific websites. For example, if the Time Zone protection were to interfere with the proper functioning of website abc.com, then we would quickly respond by remotely disabling that particular protection on abc.com. We would remotely re-enable the protection once it had been fixed so that it no longer broke the site.
+
 ## Unit tests
 
 Privacy Magic has an extensive suite of unit tests that check the privacy protections for correctness. End-to-end testing in a live browser is under development.
