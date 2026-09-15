@@ -903,6 +903,11 @@ footer a {
     font-size: 0.8em;
   }
 
+  .post-content th,
+  .post-content td {
+    width: 33.333%;
+  }
+
   .post-content th:not(:last-child),
   .post-content td:not(:last-child) {
     padding-right: 0.75em;
