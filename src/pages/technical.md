@@ -6,11 +6,13 @@ permalink: /technical/
 
 We aim to make Privacy Magic work like magic. But of course it's actually engineering. The details of how the extension is built matter: only by taking pains to get the code right can we be sure that the protections really work.
 
-For people who are interested: here we describe some of the nitty gritty technical details that went into making Privacy Magic a solid privacy extension, built for set-and-forget privacy, for everyone.
+The goal of Privacy Magic is to offer the best possible privacy for anyone using Chrome. The privacy protections are designed to be enabled by default, such that no websites should be broken. The extension constructs a multi-layered defense, including protections against fingerprinting, breadcrumbs, trackers, third-party cookies, browser leaks, and more. The user interface aims to be simple and intuitive.
+
+For those who are interested: here we describe some of the nitty gritty technical details that went into making Privacy Magic a solid privacy extension.
 
 ## Source code
 
-Privacy Magic is a fully open-source extension (see the [source code on GitHub](https://github.com/littletechllc/privacymagic-extension/)), written in TypeScript, and licensed under the [GPL 3.0 license](https://www.gnu.org/licenses/gpl-3.0.html). The extension is designed for reproducible builds: that is, it is possible to confirm that the extension you install in your browser matches the public source code.
+Privacy Magic is a fully open-source project (see the [source code on GitHub](https://github.com/littletechllc/privacymagic-extension/)), written in TypeScript, and licensed under the [GPL 3.0 license](https://www.gnu.org/licenses/gpl-3.0.html). The extension is designed for reproducible builds: that is, it is possible to confirm that the extension you install in your browser matches the public source code.
 
 The Privacy Magic extension is strictly written to the Manifest V3 (MV3) API for Chrome extensions. To protect the user's privacy, Privacy Magic makes use of content script injection, network header modification, request blocking, CSS cosmetic injection and the Chrome privacy configuration API, 
 
