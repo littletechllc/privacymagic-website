@@ -1,5 +1,5 @@
 ---
-title: "Protections: plugging the leaks"
+title: "Protections: plugging browser leaks"
 description: How Privacy Magic protects your privacy as you browse the web
 permalink: /protections/
 ---

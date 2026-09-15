@@ -45,4 +45,10 @@
       menu.open = false;
     });
   }
+
+  document.querySelector("nav")?.addEventListener("click", (event) => {
+    if (event.target.closest("a, button, summary, .nav-menu-panel")) return;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  });
 </script>

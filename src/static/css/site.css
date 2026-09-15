@@ -46,6 +46,7 @@ nav {
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   z-index: 100;
+  cursor: pointer;
 }
 
 .logo {
@@ -206,6 +207,7 @@ nav a.cta-nav:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   box-shadow: 0 8px 24px rgba(15, 61, 114, 0.12);
+  cursor: default;
 }
 
 .nav-menu-panel a {
