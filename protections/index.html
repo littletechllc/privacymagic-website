@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Protections</title>
+  <title>Protections: plugging the leaks</title>
   <link rel="canonical" href="https://privacymagic.com/protections/">
   <link rel="me" href="https://mastodon.social/@privacymagic">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -103,7 +103,7 @@
   
 <article class="post">
   <header class="post-header">
-    <h1 id="protections"><a href="#protections" class="heading-anchor">Protections</a></h1>
+    <h1 id="protections-plugging-the-leaks"><a href="#" class="heading-anchor">Protections: plugging the leaks</a></h1>
     
     <p class="post-lead">How Privacy Magic protects your privacy as you browse the web</p>
     
@@ -451,15 +451,31 @@
 </table>
 <h2 id="remote-setting-control"><a href="#remote-setting-control" class="heading-anchor">Remote setting control</a></h2>
 <p>Privacy Magic also has remote setting control for specific protections and specific websites. For example, if the Time Zone protection were to interfere with the proper functioning of website abc.com, then we would quickly respond by remotely disabling that particular protection on abc.com. We would remotely re-enable the protection once it had been fixed so that it no longer broke the site.</p>
+<h2 id="our-privacy-policy"><a href="#our-privacy-policy" class="heading-anchor">Our privacy policy</a></h2>
+<p>The Privacy Magic browser extension contains no analytics or telemetry: it doesn't collect any private data about you or send any personal data to our servers. We don't know who you are, how you browse, or your browser settings, and we don't try to find out. We don't have any data to share about you with third parties. The extension regularly fetches a remote settings file (described above) but it's the same for everyone and we don't use it to collect information.</p>
+<p>We will never use Privacy Magic for advertising or tracking. We will never make you the product. The only way we would ever make money from you is if you chose to be a customer.</p>
+<p>Our website also contains no analytics. We don't know how many visitors it has, or who they are. We will never share or sell data about you. In short, we respect your privacy regardless of what browser or browser extension you might be using.</p>
 
   </div>
   
 </article>
 <script>
-  document.querySelector(".author-bio-back-link")?.addEventListener("click", () => {
+  const scrollToPageTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     history.replaceState(null, "", window.location.pathname + window.location.search);
+  };
+
+  document.querySelector(".author-bio-back-link")?.addEventListener("click", scrollToPageTop);
+
+  document.querySelector(".post-header h1 a.heading-anchor")?.addEventListener("click", (event) => {
+    event.preventDefault();
+    scrollToPageTop();
   });
+
+  const titleHeading = document.querySelector(".post-header h1");
+  if (titleHeading?.id && window.location.hash === `#${titleHeading.id}`) {
+    scrollToPageTop();
+  }
 
   (function () {
     const tables = document.querySelectorAll(".post-content table");
