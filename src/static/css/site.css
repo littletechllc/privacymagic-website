@@ -1072,6 +1072,12 @@ footer a {
   text-shadow: 0 0 6px var(--bg), 0 0 12px var(--bg);
 }
 
+.post-back-to-top.is-in-gutter .post-back-to-top-link {
+  border-color: transparent;
+  background: transparent;
+  backdrop-filter: none;
+}
+
 .post-back-to-top-link:hover {
   color: var(--blue-dark);
   text-decoration: underline;
