@@ -33,7 +33,8 @@ module.exports = function (eleventyConfig) {
           if (/class=["'][^"']*\bheading-anchor\b/.test(headingInner)) {
             return headingMatch;
           }
-          return `<${tag}${attrs}><a href="#${id}" class="heading-anchor">${headingInner}</a></${tag}>`;
+          const href = tag.toLowerCase() === "h1" ? "#" : `#${id}`;
+          return `<${tag}${attrs}><a href="${href}" class="heading-anchor">${headingInner}</a></${tag}>`;
         }
       );
 

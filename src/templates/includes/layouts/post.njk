@@ -47,10 +47,22 @@ layout: layouts/base.njk
   {% endif %}
 </article>
 <script>
-  document.querySelector(".author-bio-back-link")?.addEventListener("click", () => {
+  const scrollToPageTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     history.replaceState(null, "", window.location.pathname + window.location.search);
+  };
+
+  document.querySelector(".author-bio-back-link")?.addEventListener("click", scrollToPageTop);
+
+  document.querySelector(".post-header h1 a.heading-anchor")?.addEventListener("click", (event) => {
+    event.preventDefault();
+    scrollToPageTop();
   });
+
+  const titleHeading = document.querySelector(".post-header h1");
+  if (titleHeading?.id && window.location.hash === `#${titleHeading.id}`) {
+    scrollToPageTop();
+  }
 
   (function () {
     const tables = document.querySelectorAll(".post-content table");
