@@ -908,6 +908,11 @@ footer a {
     width: 33.333%;
   }
 
+  .post-content tr > :nth-child(1):nth-last-child(2),
+  .post-content tr > :nth-child(2):last-child {
+    width: 50%;
+  }
+
   .post-content th:not(:last-child),
   .post-content td:not(:last-child) {
     padding-right: 0.75em;
