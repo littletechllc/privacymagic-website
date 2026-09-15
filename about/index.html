@@ -181,6 +181,18 @@
     backToTop.classList.toggle("is-visible", !hidden);
     backToTop.toggleAttribute("inert", hidden);
     backToTop.setAttribute("aria-hidden", hidden ? "true" : "false");
+
+    const article = document.querySelector(".post");
+    const button = backToTop.querySelector(".post-back-to-top-link") ?? backToTop;
+    let inGutter = true;
+    if (article != null) {
+      const articleRect = article.getBoundingClientRect();
+      const articlePaddingRight = parseFloat(getComputedStyle(article).paddingRight) || 0;
+      inGutter =
+        button.getBoundingClientRect().left >=
+        articleRect.right - articlePaddingRight + 8;
+    }
+    backToTop.classList.toggle("is-in-gutter", inGutter);
   };
 
   const scheduleBackToTop = () => {
