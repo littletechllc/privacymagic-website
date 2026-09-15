@@ -117,8 +117,8 @@
     
   </header>
   <div class="post-content">
-    <p>Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web. Browsers are very leaky, so Privacy Magic provides multiple layers of protection.</p>
-<h2 id="blocking-ads-and-trackers"><a href="#blocking-ads-and-trackers" class="heading-anchor">Blocking ads and trackers</a></h2>
+    <p>Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web. Browsers are very leaky, so Privacy Magic provides multiple layers of protection, including <a href="#blocking-ads-and-trackers">blocking ads and trackers</a>, <a href="#protecting-system-information-fingerprinting">protecting system information</a>, <a href="#removing-tracking-breadcrumbs">removing tracking breadcrumbs</a>, <a href="#stopping-web-leaks">stopping web leaks</a>, <a href="#privacy-signals">sending privacy signals</a>, <a href="#browser-protections">enforcing browser protections</a>, and <a href="#our-privacy-policy">our privacy policy</a>, all described below.</p>
+<h2 id="blocking-ads-and-trackers">Blocking ads and trackers</h2>
 <p>Across the web, advertisements, tracking scripts, and tracking pixels are following you around without your consent using a variety of invisible methods.</p>
 <p>Privacy Magic uses popular filter lists to block many ads and trackers from being requested by your browser on the network. The filter lists also hide the empty boxes that are left when ads are blocked on a web page. Privacy Magic uses a pinned version of these filter lists so that the extension's blocking behavior is fully reproducible and identical for every user.</p>
 <table>
@@ -147,7 +147,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="protecting-system-information-fingerprinting"><a href="#protecting-system-information-fingerprinting" class="heading-anchor">Protecting system information (fingerprinting)</a></h2>
+<h2 id="protecting-system-information-fingerprinting">Protecting system information (fingerprinting)</h2>
 <p>Traditionally, browsers leak copious amounts of information about your computer to any website or tracking script that asks! And trackers gather this data to track you as you browse the web.</p>
 <table>
 <thead>
@@ -250,7 +250,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="removing-tracking-breadcrumbs"><a href="#removing-tracking-breadcrumbs" class="heading-anchor">Removing tracking breadcrumbs</a></h2>
+<h2 id="removing-tracking-breadcrumbs">Removing tracking breadcrumbs</h2>
 <p>Some browser features are vulnerable to being used to share parts of your browsing history (&quot;breadcrumbs&quot;) to different websites you visit. Privacy Magic hardens these features so they are less leaky.</p>
 <table>
 <thead>
@@ -283,7 +283,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="stopping-web-leaks"><a href="#stopping-web-leaks" class="heading-anchor">Stopping web leaks</a></h2>
+<h2 id="stopping-web-leaks">Stopping web leaks</h2>
 <p>Web browsers are complicated beasts! Leaks of private information can spring from many different browser features. Our approach in Privacy Magic is to plug leaks wherever they may be found.</p>
 <table>
 <thead>
@@ -321,7 +321,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="privacy-signals"><a href="#privacy-signals" class="heading-anchor">Privacy signals</a></h2>
+<h2 id="privacy-signals">Privacy signals</h2>
 <p>We're interested in improving your privacy in every way possible. So Privacy Magic's policy is to trigger pro-privacy policies in the websites you visit, if possible.</p>
 <table>
 <thead>
@@ -339,9 +339,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="browser-protections"><a href="#browser-protections" class="heading-anchor">Browser protections</a></h2>
+<h2 id="browser-protections">Browser protections</h2>
 <p>Browsers are badly behaved not only in how they render web pages, but also in how they send data to the parent company or to third-party advertising companies. Privacy Magic disables a variety of bad browser behaviors that would otherwise leak your private information.</p>
-<h3 id="disabling-leaky-web-features"><a href="#disabling-leaky-web-features" class="heading-anchor">Disabling leaky web features</a></h3>
+<h3 id="disabling-leaky-web-features">Disabling leaky web features</h3>
 <table>
 <thead>
 <tr>
@@ -368,7 +368,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="disabling-invasive-cloud-services"><a href="#disabling-invasive-cloud-services" class="heading-anchor">Disabling invasive cloud services</a></h3>
+<h3 id="disabling-invasive-cloud-services">Disabling invasive cloud services</h3>
 <table>
 <thead>
 <tr>
@@ -400,7 +400,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="disabling-ad-targeting-apis"><a href="#disabling-ad-targeting-apis" class="heading-anchor">Disabling ad targeting APIs</a></h3>
+<h3 id="disabling-ad-targeting-apis">Disabling ad targeting APIs</h3>
 <table>
 <thead>
 <tr>
@@ -427,7 +427,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="disabling-leaky-chrome-settings"><a href="#disabling-leaky-chrome-settings" class="heading-anchor">Disabling leaky Chrome settings</a></h3>
+<h3 id="disabling-leaky-chrome-settings">Disabling leaky Chrome settings</h3>
 <p>Chrome contains certain settings that are antithetical to your privacy: specifically, functionality that collects data on your browsing habits and sends them to Google's servers. These settings cannot be directly controlled by a browser extension, but during setup, Privacy Magic will help you find the settings and turn them off yourself.</p>
 <table>
 <thead>
@@ -455,15 +455,14 @@
 </tr>
 </tbody>
 </table>
-<h2 id="remote-setting-control"><a href="#remote-setting-control" class="heading-anchor">Remote setting control</a></h2>
-<p>Privacy Magic also has remote setting control for specific protections and specific websites. For example, if the Time Zone protection were to interfere with the proper functioning of website abc.com, then we would quickly respond by remotely disabling that particular protection on abc.com. We would remotely re-enable the protection once it had been fixed so that it no longer broke the site.</p>
-<h2 id="our-privacy-policy"><a href="#our-privacy-policy" class="heading-anchor">Our privacy policy</a></h2>
+<h2 id="our-privacy-policy">Our privacy policy</h2>
 <p>The Privacy Magic browser extension contains no analytics or telemetry: it doesn't collect any private data about you or send any personal data to our servers. We don't know who you are, how you browse, or your browser settings, and we don't try to find out. We don't have any data to share about you with third parties. The extension regularly fetches a remote settings file (described above) but it's the same for everyone and we don't use it to collect information.</p>
 <p>We will never use Privacy Magic for advertising or tracking. We will never make you the product. The only way we would ever make money from you is if you chose to be a customer.</p>
 <p>Our website also contains no analytics. We don't know how many visitors it has, or who they are. We will never share or sell data about you. In short, we respect your privacy regardless of what browser or browser extension you might be using.</p>
 
   </div>
   
+  <p class="post-back-to-top"><button type="button" class="post-back-to-top-link">↑ Back to top</button></p>
 </article>
 <script>
   const scrollToPageTop = () => {
@@ -471,7 +470,7 @@
     history.replaceState(null, "", window.location.pathname + window.location.search);
   };
 
-  document.querySelector(".author-bio-back-link")?.addEventListener("click", scrollToPageTop);
+  document.querySelector(".post-back-to-top-link")?.addEventListener("click", scrollToPageTop);
 
   document.querySelector(".post-header h1 a.heading-anchor")?.addEventListener("click", (event) => {
     event.preventDefault();

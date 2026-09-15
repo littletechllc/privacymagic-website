@@ -120,23 +120,26 @@
     <p>We aim to make Privacy Magic work like magic. But of course it's actually engineering. The details of how the extension is built matter: only by taking pains to get the code right can we be sure that the protections really work.</p>
 <p>The goal of Privacy Magic is to offer the best possible privacy for anyone using Chrome. The privacy protections are designed to be enabled by default, such that no websites should be broken. The extension constructs a multi-layered defense, including protections against fingerprinting, breadcrumbs, trackers, third-party cookies, browser leaks, and more. The user interface aims to be simple and intuitive.</p>
 <p>For those who are interested: here we describe some of the nitty gritty technical details that went into making Privacy Magic a solid privacy extension.</p>
-<h2 id="source-code"><a href="#source-code" class="heading-anchor">Source code</a></h2>
+<h2 id="source-code">Source code</h2>
 <p>Privacy Magic is a fully open-source project (see the <a href="https://github.com/littletechllc/privacymagic-extension/">source code on GitHub</a>), written in TypeScript, and licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPL 3.0 license</a>. The extension is designed for reproducible builds: that is, it is possible to confirm that the extension you install in your browser matches the public source code.</p>
 <p>The Privacy Magic extension is strictly written to the Manifest V3 (MV3) API for Chrome extensions. To protect the user's privacy, Privacy Magic makes use of content script injection, network header modification, request blocking, CSS cosmetic injection and the Chrome privacy configuration API,</p>
-<h2 id="content-script-injection"><a href="#content-script-injection" class="heading-anchor">Content script injection</a></h2>
+<h2 id="content-script-injection">Content script injection</h2>
 <p>Privacy Magic makes heavy use of the MV3's <a href="https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts">content script</a> injection capability. In short, a series of protections, written in TypeScript, are compiled and bundled into a single JavaScript file, and injected at <code>document_start</code> in the <code>MAIN</code> world of every web page and every available iframe to ensure that the hardening code runs before any remote web page scripts run.</p>
-<h2 id="iframes-web-workers-and-sharedworkers"><a href="#iframes-web-workers-and-sharedworkers" class="heading-anchor">Iframes, Web Workers and SharedWorkers</a></h2>
+<h2 id="iframes-web-workers-and-sharedworkers">Iframes, Web Workers and SharedWorkers</h2>
 <p>One challenge with web pages that is not entirely addressed by the Manifest v3 API is that iframes, web workers and SharedWorkers all contain JavaScript contexts where a remote script can fingerprint the client. In order to harden these contexts, it's necessary to find ways to inject the hardening code <em>before</em> any remote code runs.</p>
 <p>Unfortunately, although Manifest V3 is able to inject content scripts at <code>document_start</code> for most iframes, there are some iframes that do not receive a content script therefore, without further treatment, would remain unhardened. Privacy Magic addresses this issue by recursively applying its hardening script to each iframe, worker and SharedWorker found in a page.</p>
-<h2 id="network-hardening"><a href="#network-hardening" class="heading-anchor">Network hardening</a></h2>
+<h2 id="network-hardening">Network hardening</h2>
 <p>Privacy Magic also includes code to modify request headers so that they reveal less about the client.</p>
-<h2 id="browser-settings-fixes"><a href="#browser-settings-fixes" class="heading-anchor">Browser settings fixes</a></h2>
+<h2 id="browser-settings-fixes">Browser settings fixes</h2>
 <p>Privacy Magic makes use of the <a href="https://developer.chrome.com/docs/extensions/reference/api/privacy"><code>chrome.privacy</code></a> API in MV3 to disable <a href="/protections/#browser-protections">certain features</a> that are harmful to user privacy. Some features cannot be disabled using MV3; in those cases we navigate the user to the specific chrome://settings pages where the setting can be manually disabled and help them to do so by giving clear instructions in a side panel.</p>
-<h2 id="unit-tests"><a href="#unit-tests" class="heading-anchor">Unit tests</a></h2>
+<h2 id="remote-setting-control">Remote setting control</h2>
+<p>Privacy Magic has remote setting control for specific protections and specific websites. For example, if the Time Zone protection were to interfere with the proper functioning of website abc.com, then we would quickly respond by remotely disabling that particular protection on abc.com. We would remotely re-enable the protection once it had been fixed so that it no longer broke the site.</p>
+<h2 id="unit-tests">Unit tests</h2>
 <p>Privacy Magic has an extensive suite of unit tests that check the privacy protections for correctness. End-to-end testing in a live browser is under development.</p>
 
   </div>
   
+  <p class="post-back-to-top"><button type="button" class="post-back-to-top-link">↑ Back to top</button></p>
 </article>
 <script>
   const scrollToPageTop = () => {
@@ -144,7 +147,7 @@
     history.replaceState(null, "", window.location.pathname + window.location.search);
   };
 
-  document.querySelector(".author-bio-back-link")?.addEventListener("click", scrollToPageTop);
+  document.querySelector(".post-back-to-top-link")?.addEventListener("click", scrollToPageTop);
 
   document.querySelector(".post-header h1 a.heading-anchor")?.addEventListener("click", (event) => {
     event.preventDefault();
