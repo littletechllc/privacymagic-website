@@ -105,7 +105,7 @@
   
 <article class="post">
   <header class="post-header">
-    <h1 id="protections-plugging-the-leaks-in-your-browser"><a href="#" class="heading-anchor">Protections: plugging the leaks in your browser</a></h1>
+    <h1 id="protections-plugging-the-leaks-in-your-browser">Protections: plugging the leaks in your browser</h1>
     
     <p class="post-lead">How Privacy Magic protects your privacy as you browse the web</p>
     
@@ -114,7 +114,7 @@
   </header>
   <div class="post-content">
     <p>Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web. Browsers are very leaky, so Privacy Magic provides multiple layers of protection, including <a href="#blocking-ads-and-trackers">blocking ads and trackers</a>, <a href="#protecting-system-information-fingerprinting">protecting system information</a>, <a href="#removing-tracking-breadcrumbs">removing tracking breadcrumbs</a>, <a href="#stopping-web-leaks">stopping web leaks</a>, <a href="#privacy-signals">sending privacy signals</a>, and <a href="#browser-protections">enforcing browser protections</a>.</p>
-<h2 id="blocking-ads-and-trackers">Blocking ads and trackers</h2>
+<h2 id="blocking-ads-and-trackers"><a href="#blocking-ads-and-trackers" class="heading-anchor">Blocking ads and trackers</a></h2>
 <p>Across the web, advertisements, tracking scripts, and tracking pixels are following you around without your consent using a variety of invisible methods.</p>
 <p>Privacy Magic uses popular filter lists to block many ads and trackers from being requested by your browser on the network. The filter lists also hide the empty boxes that are left when ads are blocked on a web page. Privacy Magic uses a pinned version of these filter lists so that the extension's blocking behavior is fully reproducible and identical for every user.</p>
 <table>
@@ -143,7 +143,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="protecting-system-information-fingerprinting">Protecting system information (fingerprinting)</h2>
+<h2 id="protecting-system-information-fingerprinting"><a href="#protecting-system-information-fingerprinting" class="heading-anchor">Protecting system information (fingerprinting)</a></h2>
 <p>Traditionally, browsers leak copious amounts of information about your computer to any website or tracking script that asks! And trackers gather this data to track you as you browse the web.</p>
 <table>
 <thead>
@@ -246,7 +246,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="removing-tracking-breadcrumbs">Removing tracking breadcrumbs</h2>
+<h2 id="removing-tracking-breadcrumbs"><a href="#removing-tracking-breadcrumbs" class="heading-anchor">Removing tracking breadcrumbs</a></h2>
 <p>Some browser features are vulnerable to being used to share parts of your browsing history (&quot;breadcrumbs&quot;) to different websites you visit. Privacy Magic hardens these features so they are less leaky.</p>
 <table>
 <thead>
@@ -279,7 +279,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="stopping-web-leaks">Stopping web leaks</h2>
+<h2 id="stopping-web-leaks"><a href="#stopping-web-leaks" class="heading-anchor">Stopping web leaks</a></h2>
 <p>Web browsers are complicated beasts! Leaks of private information can spring from many different browser features. Our approach in Privacy Magic is to plug leaks wherever they may be found.</p>
 <table>
 <thead>
@@ -317,7 +317,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="privacy-signals">Privacy signals</h2>
+<h2 id="privacy-signals"><a href="#privacy-signals" class="heading-anchor">Privacy signals</a></h2>
 <p>We're interested in improving your privacy in every way possible. So Privacy Magic's policy is to trigger pro-privacy policies in the websites you visit, if possible.</p>
 <table>
 <thead>
@@ -335,9 +335,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="browser-protections">Browser protections</h2>
+<h2 id="browser-protections"><a href="#browser-protections" class="heading-anchor">Browser protections</a></h2>
 <p>Browsers are badly behaved not only in how they render web pages, but also in how they send data to the parent company or to third-party advertising companies. Privacy Magic disables a variety of bad browser behaviors that would otherwise leak your private information.</p>
-<h3 id="disabling-leaky-web-features">Disabling leaky web features</h3>
+<h3 id="disabling-leaky-web-features"><a href="#disabling-leaky-web-features" class="heading-anchor">Disabling leaky web features</a></h3>
 <table>
 <thead>
 <tr>
@@ -364,7 +364,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="disabling-invasive-cloud-services">Disabling invasive cloud services</h3>
+<h3 id="disabling-invasive-cloud-services"><a href="#disabling-invasive-cloud-services" class="heading-anchor">Disabling invasive cloud services</a></h3>
 <table>
 <thead>
 <tr>
@@ -396,7 +396,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="disabling-ad-targeting-apis">Disabling ad targeting APIs</h3>
+<h3 id="disabling-ad-targeting-apis"><a href="#disabling-ad-targeting-apis" class="heading-anchor">Disabling ad targeting APIs</a></h3>
 <table>
 <thead>
 <tr>
@@ -423,7 +423,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="disabling-leaky-chrome-settings">Disabling leaky Chrome settings</h3>
+<h3 id="disabling-leaky-chrome-settings"><a href="#disabling-leaky-chrome-settings" class="heading-anchor">Disabling leaky Chrome settings</a></h3>
 <p>Chrome contains certain settings that are antithetical to your privacy: specifically, functionality that collects data on your browsing habits and sends them to Google's servers. These settings cannot be directly controlled by a browser extension, but during setup, Privacy Magic will help you find the settings and turn them off yourself.</p>
 <table>
 <thead>
@@ -507,11 +507,6 @@
   window.addEventListener("scroll", scheduleBackToTop, { passive: true });
   window.addEventListener("resize", scheduleBackToTop);
   updateBackToTop();
-
-  document.querySelector(".post-header h1 a.heading-anchor")?.addEventListener("click", (event) => {
-    event.preventDefault();
-    scrollToPageTop();
-  });
 
   if (titleHeading?.id && window.location.hash === `#${titleHeading.id}`) {
     scrollToPageTop();
