@@ -749,7 +749,6 @@ footer a {
   margin-bottom: 0.75rem;
 }
 
-.post-header h1 a.heading-anchor,
 .post-content :is(h2, h3, h4) a.heading-anchor,
 .post-content td a.heading-anchor,
 .post-content thead th a.heading-anchor {
@@ -767,7 +766,6 @@ footer a {
   scroll-margin-top: var(--sticky-nav-offset);
 }
 
-.post-header h1 a.heading-anchor:hover,
 .post-content :is(h2, h3, h4) a.heading-anchor:hover,
 .post-content td a.heading-anchor:hover,
 .post-content thead th a.heading-anchor:hover {

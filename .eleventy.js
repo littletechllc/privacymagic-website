@@ -30,23 +30,20 @@ module.exports = function (eleventyConfig) {
       html.replace(
         /<(h[1-6])([^>]*\sid=["']([^"']+)["'][^>]*)>([\s\S]*?)<\/\1>/gi,
         (headingMatch, tag, attrs, id, headingInner) => {
+          if (tag.toLowerCase() === "h1") {
+            return headingMatch;
+          }
           if (/class=["'][^"']*\bheading-anchor\b/.test(headingInner)) {
             return headingMatch;
           }
-          const href = tag.toLowerCase() === "h1" ? "#" : `#${id}`;
-          return `<${tag}${attrs}><a href="${href}" class="heading-anchor">${headingInner}</a></${tag}>`;
+          return `<${tag}${attrs}><a href="#${id}" class="heading-anchor">${headingInner}</a></${tag}>`;
         }
       );
 
-    return content
-      .replace(
-        /(<header class="post-header">)([\s\S]*?)(<\/header>)/i,
-        (match, open, inner, close) => open + linkHeading(inner) + close
-      )
-      .replace(
-        /(<div class="post-content">)([\s\S]*?)(<\/div>)(\s*(?:<aside class="author-bio"|<\/article>))/i,
-        (match, open, inner, close, after) => open + linkHeading(inner) + close + after
-      );
+    return content.replace(
+      /(<article class="post">)([\s\S]*?)(<\/article>)/i,
+      (match, open, inner, close) => open + linkHeading(inner) + close
+    );
   });
 
   eleventyConfig.addTransform("table-row-anchors", function (content) {

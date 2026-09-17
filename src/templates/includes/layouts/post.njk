@@ -98,11 +98,6 @@ layout: layouts/base.njk
   window.addEventListener("resize", scheduleBackToTop);
   updateBackToTop();
 
-  document.querySelector(".post-header h1 a.heading-anchor")?.addEventListener("click", (event) => {
-    event.preventDefault();
-    scrollToPageTop();
-  });
-
   if (titleHeading?.id && window.location.hash === `#${titleHeading.id}`) {
     scrollToPageTop();
   }
