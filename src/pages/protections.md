@@ -69,7 +69,7 @@ Web browsers are complicated beasts! Leaks of private information can spring fro
 
 ## Privacy signals
 
-We're interested in improving your privacy in every way possible. So Privacy Magic's policy is to trigger pro-privacy policies in the websites you visit, if possible.
+We're interested in improving your privacy in every way possible. So Privacy Magic sends a signal to demand pro-privacy policies from the websites you visit.
 
 | Signal | Standard web browsers | Privacy Magic |
 | :--- | :--- | :--- |
