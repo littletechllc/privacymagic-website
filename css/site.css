@@ -26,14 +26,10 @@
   --cta-bg: var(--blue);
   --cta-bg-hover: var(--blue-hover);
   --cta-border: transparent;
-  --cta-hamsa-eye: #1a5ca8;
   --step-num-bg: var(--blue-light);
   --shadow: rgba(15, 61, 114, 0.12);
   --shadow-cta: rgba(26, 92, 168, 0.2);
   --logo-tile: #ffffff;
-  --logo-hand: #0f3d72;
-  --logo-pupil: #0f3d72;
-  --logo-eye-fill: #ffffff;
   --radius: 16px;
   --radius-sm: 10px;
   --sticky-nav-offset: calc(2.5rem + 64px);
@@ -61,14 +57,10 @@
     --cta-bg: #05070a;
     --cta-bg-hover: #121820;
     --cta-border: rgba(142, 192, 245, 0.28);
-    --cta-hamsa-eye: #000000;
     --step-num-bg: #243447;
     --shadow: rgba(0, 0, 0, 0.55);
     --shadow-cta: rgba(0, 0, 0, 0.5);
     --logo-tile: transparent;
-    --logo-hand: #c8d9ec;
-    --logo-pupil: #c8d9ec;
-    --logo-eye-fill: #000000;
     color-scheme: dark;
   }
 }
@@ -379,11 +371,16 @@ nav a.cta-nav:hover {
   margin-bottom: 2rem;
 }
 
+.hero-cta-icon {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
 .hero-cta svg,
 .hero-cta-icon svg {
   width: 28px;
   height: 28px;
-  color: var(--on-accent);
 }
 
 .hero-sub {
