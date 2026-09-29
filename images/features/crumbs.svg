@@ -15,6 +15,6 @@
     <path style="fill:var(--blue);fill-opacity:1;stroke:none;stroke-width:3.05599;stroke-dasharray:none"
       d="m 120.09514,88.893953 c 1.17117,1.248209 0.49786,3.006504 -0.61147,3.998379 -0.78293,1.093658 -0.4543,3.130909 1.1688,3.092513 1.84317,0.02851 3.6097,-0.610438 5.32969,-1.203876 0.74259,0.1101 1.54152,-1.129921 1.91935,-1.166908 -0.76866,-0.741283 -2.13435,-1.1888 -1.60423,-2.578689 -0.0938,-1.011215 0.69421,-3.706301 -1.07497,-3.132777 -1.04271,0.558889 -2.1944,0.785758 -3.37455,0.754006 -0.59669,1.92e-4 -1.16626,0.168032 -1.75262,0.237352 z" />
   </g>
-  <circle cx="32" cy="32" r="27" stroke="#ffaaaa" stroke-width="5" fill="none" />
-  <line x1="13" y1="13" x2="51" y2="51" stroke="#ffaaaa" stroke-width="5" stroke-linecap="round" />
+  <circle cx="32" cy="32" r="27" stroke="var(--highlight)" stroke-width="5" fill="none" />
+  <line x1="13" y1="13" x2="51" y2="51" stroke="var(--highlight)" stroke-width="5" stroke-linecap="round" />
 </svg>
