@@ -117,9 +117,10 @@ nav {
   margin-bottom: 6px;
 }
 
-.logo-icon svg {
+.logo-icon img {
   width: 40px;
   height: 40px;
+  display: block;
 }
 
 nav a.cta-nav {
@@ -377,10 +378,10 @@ nav a.cta-nav:hover {
   line-height: 0;
 }
 
-.hero-cta svg,
-.hero-cta-icon svg {
+.hero-cta-icon img {
   width: 28px;
   height: 28px;
+  display: block;
 }
 
 .hero-sub {
