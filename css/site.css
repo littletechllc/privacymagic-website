@@ -52,7 +52,7 @@
     --bg-nav: color-mix(in srgb, var(--bg) 88%, transparent);
     --bg-problem: #101826;
     --border: rgba(142, 192, 245, 0.2);
-    --highlight: #c44a4a;
+    --highlight: #e05a5a;
     --on-accent: #ffffff;
     --cta-bg: #05070a;
     --cta-bg-hover: #121820;
@@ -62,6 +62,14 @@
     --shadow-cta: rgba(0, 0, 0, 0.5);
     --logo-tile: transparent;
     color-scheme: dark;
+  }
+
+  .hero-title,
+  .post-header h1,
+  .post-content h2,
+  .post-content h3,
+  .post-content h4 {
+    color: #ffffff;
   }
 }
 
