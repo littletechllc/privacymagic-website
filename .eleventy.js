@@ -33,6 +33,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("localeLang", localeLang);
   eleventyConfig.addFilter("localeDir", localeDir);
 
+  // Markdown tables emit inline text-align:left from :--- markers; flip for RTL pages.
+  eleventyConfig.addTransform("rtl-table-align", function (content) {
+    if (!this.page.outputPath || !this.page.outputPath.endsWith(".html")) {
+      return content;
+    }
+    if (!/\bdir=["']rtl["']/i.test(content)) {
+      return content;
+    }
+    return content.replace(/text-align:\s*left/gi, "text-align: right");
+  });
+
   eleventyConfig.addTransform("heading-anchor-links", function (content) {
     if (!this.page.outputPath || !this.page.outputPath.endsWith(".html")) {
       return content;

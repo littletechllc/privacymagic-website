@@ -908,7 +908,13 @@ footer a {
 }
 
 .post-content th {
-  text-align: left;
+  text-align: start;
+}
+
+[dir="rtl"] .post-content th,
+[dir="rtl"] .post-content td {
+  /* Override markdown-it inline text-align:left from :--- column markers. */
+  text-align: right !important;
 }
 
 .post-content th,
@@ -970,7 +976,7 @@ footer a {
 
 .post-content th:not(:last-child),
 .post-content td:not(:last-child) {
-  padding-right: 2em;
+  padding-inline-end: 2em;
 }
 
 @media (max-width: 640px) {
@@ -990,7 +996,7 @@ footer a {
 
   .post-content th:not(:last-child),
   .post-content td:not(:last-child) {
-    padding-right: 0.75em;
+    padding-inline-end: 0.75em;
   }
 }
 
