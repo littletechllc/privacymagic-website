@@ -928,17 +928,8 @@ footer a {
   --sticky-table-header-height: 2.5rem;
 }
 
-/*
- * Keep table column order LTR even on RTL pages so padding between columns
- * stays on the same physical side. Cell text still follows the page direction.
- */
-[dir="rtl"] .post-content table {
-  direction: ltr;
-}
-
 [dir="rtl"] .post-content th,
 [dir="rtl"] .post-content td {
-  direction: rtl;
   /* Override markdown-it inline text-align:left from :--- column markers. */
   text-align: right !important;
 }
@@ -983,10 +974,10 @@ footer a {
   padding-bottom: 0.4rem;
 }
 
-.post-content th:not(:last-child),
-.post-content td:not(:last-child) {
-  /* Physical right padding: tables keep LTR column order (see above). */
-  padding-right: 2em;
+/* Gap before each column after the first; follows table direction (LTR/RTL). */
+.post-content th + th,
+.post-content td + td {
+  padding-inline-start: 2em;
 }
 
 @media (max-width: 640px) {
@@ -1004,9 +995,9 @@ footer a {
     width: 50%;
   }
 
-  .post-content th:not(:last-child),
-  .post-content td:not(:last-child) {
-    padding-right: 0.75em;
+  .post-content th + th,
+  .post-content td + td {
+    padding-inline-start: 0.75em;
   }
 }
 
