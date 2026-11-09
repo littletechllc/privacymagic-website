@@ -911,12 +911,6 @@ footer a {
   text-align: start;
 }
 
-[dir="rtl"] .post-content th,
-[dir="rtl"] .post-content td {
-  /* Override markdown-it inline text-align:left from :--- column markers. */
-  text-align: right !important;
-}
-
 .post-content th,
 .post-content td {
   vertical-align: top;
@@ -932,6 +926,21 @@ footer a {
   width: 100%;
   scroll-margin-top: var(--sticky-nav-offset);
   --sticky-table-header-height: 2.5rem;
+}
+
+/*
+ * Keep table column order LTR even on RTL pages so padding between columns
+ * stays on the same physical side. Cell text still follows the page direction.
+ */
+[dir="rtl"] .post-content table {
+  direction: ltr;
+}
+
+[dir="rtl"] .post-content th,
+[dir="rtl"] .post-content td {
+  direction: rtl;
+  /* Override markdown-it inline text-align:left from :--- column markers. */
+  text-align: right !important;
 }
 
 .post-content th:nth-child(1),
@@ -976,7 +985,8 @@ footer a {
 
 .post-content th:not(:last-child),
 .post-content td:not(:last-child) {
-  padding-inline-end: 2em;
+  /* Physical right padding: tables keep LTR column order (see above). */
+  padding-right: 2em;
 }
 
 @media (max-width: 640px) {
@@ -996,7 +1006,7 @@ footer a {
 
   .post-content th:not(:last-child),
   .post-content td:not(:last-child) {
-    padding-inline-end: 0.75em;
+    padding-right: 0.75em;
   }
 }
 
