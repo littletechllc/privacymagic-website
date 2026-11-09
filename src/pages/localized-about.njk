@@ -1,0 +1,17 @@
+---
+pagination:
+  data: aboutTranslations
+  size: 1
+  alias: translation
+permalink: "/{{ translation.locale }}/about/"
+layout: layouts/post.njk
+translationPage: about
+author: arthur
+date: 2026-06-24
+eleventyComputed:
+  title: "{{ translation.title }}"
+  description: "{{ translation.description }}"
+  locale: "{{ translation.locale }}"
+  backToTop: "{{ translation.backToTop }}"
+---
+{{ translation.content | safe }}

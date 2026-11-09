@@ -28,7 +28,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("**/translations/i18n/**");
 
   eleventyConfig.addPlugin(IdAttributePlugin);
-  eleventyConfig.setLibrary("md", new MarkdownIt({ html: false, linkify: true }).use(markdownItAttrs));
+  eleventyConfig.setLibrary("md", new MarkdownIt({ html: true, linkify: true }).use(markdownItAttrs));
 
   eleventyConfig.addFilter("localeLang", localeLang);
   eleventyConfig.addFilter("localeDir", localeDir);

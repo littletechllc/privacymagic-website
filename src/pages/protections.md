@@ -3,6 +3,7 @@ title: "Protections: plugging the leaks in your browser"
 description: How Privacy Magic protects your privacy as you browse the web
 permalink: /protections/
 locale: en
+translationPage: protections
 backToTop: "↑ Back to top"
 ---
 

@@ -1,0 +1,15 @@
+---
+pagination:
+  data: privacyPolicyTranslations
+  size: 1
+  alias: translation
+permalink: "/{{ translation.locale }}/privacy-policy/"
+layout: layouts/post.njk
+translationPage: privacy-policy
+eleventyComputed:
+  title: "{{ translation.title }}"
+  description: "{{ translation.description }}"
+  locale: "{{ translation.locale }}"
+  backToTop: "{{ translation.backToTop }}"
+---
+{{ translation.content | safe }}

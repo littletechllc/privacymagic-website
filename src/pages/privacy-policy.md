@@ -2,6 +2,9 @@
 title: Privacy Policy
 description: Privacy Magic's Privacy Policy
 permalink: /privacy-policy/
+locale: en
+translationPage: privacy-policy
+backToTop: "↑ Back to top"
 ---
 
 Privacy Magic is built to protect your privacy from advertisers and trackers who would like to spy on you through your browser. This Privacy Policy is about something different: it's about how we handle your data ourselves.

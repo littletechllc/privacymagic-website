@@ -7,12 +7,19 @@
   <meta name="color-scheme" content="light dark">
   <title>{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}</title>
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-  {% if locale %}
-  <link rel="alternate" hreflang="en" href="{{ site.url }}/protections/" />
-  {% for translation in protectionsTranslations %}
-  <link rel="alternate" hreflang="{{ translation.locale | localeLang }}" href="{{ site.url }}/{{ translation.locale }}/protections/" />
+  {% if locale and translationPage %}
+  {% if translationPage == "protections" %}
+    {% set hreflangTranslations = protectionsTranslations %}
+  {% elif translationPage == "about" %}
+    {% set hreflangTranslations = aboutTranslations %}
+  {% elif translationPage == "privacy-policy" %}
+    {% set hreflangTranslations = privacyPolicyTranslations %}
+  {% endif %}
+  <link rel="alternate" hreflang="en" href="{{ site.url }}/{{ translationPage }}/" />
+  {% for translation in hreflangTranslations %}
+  <link rel="alternate" hreflang="{{ translation.locale | localeLang }}" href="{{ site.url }}/{{ translation.locale }}/{{ translationPage }}/" />
   {% endfor %}
-  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/protections/" />
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/{{ translationPage }}/" />
   {% endif %}
   <link rel="me" href="{{ site.mastodonUrl }}" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />

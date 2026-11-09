@@ -4,6 +4,9 @@ description: A Chrome extension to protect your privacy
 permalink: /about/
 date: 2026-06-24
 author: arthur
+locale: en
+translationPage: about
+backToTop: "↑ Back to top"
 ---
 
 How can we, ordinary people, protect ourselves from mass surveillance? I've been working on this problem in one way or another for over a decade. In that time, I've worked on three privacy-oriented web browsers: Tor Browser, Firefox, and Brave. Millions of people use these web browsers every day and are, at least to some degree, protected from online spying.
