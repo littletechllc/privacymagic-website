@@ -1,0 +1,14 @@
+---
+pagination:
+  data: protectionsTranslations
+  size: 1
+  alias: translation
+permalink: "/{{ translation.locale }}/protections/"
+layout: layouts/post.njk
+eleventyComputed:
+  title: "{{ translation.title }}"
+  description: "{{ translation.description }}"
+  locale: "{{ translation.locale }}"
+  backToTop: "{{ translation.backToTop }}"
+---
+{{ translation.content | safe }}

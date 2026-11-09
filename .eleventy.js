@@ -1,14 +1,16 @@
 const yaml = require("js-yaml");
 const matter = require("gray-matter");
 const MarkdownIt = require("markdown-it");
+const markdownItAttrs = require("markdown-it-attrs");
 const fs = require("fs");
 const path = require("path");
 const { IdAttributePlugin } = require("@11ty/eleventy");
 const { hyphenateSync } = require("hyphen/en-us");
+const { localeDir, localeLang } = require("./src/data/locales");
 
 const arthurBioPath = path.join(__dirname, "src/data/arthur-bio.md");
 const imagesDir = path.join(__dirname, "src/static/images");
-const md = new MarkdownIt();
+const md = new MarkdownIt().use(markdownItAttrs);
 
 function loadArthurBio() {
   const parsed = matter(fs.readFileSync(arthurBioPath, "utf8"));
@@ -19,7 +21,17 @@ function loadArthurBio() {
 }
 
 module.exports = function (eleventyConfig) {
+  // Translation sources live under translations/ (and optionally src/i18n while agents write).
+  // They are loaded via data files, not published as pages.
+  eleventyConfig.ignores.add("src/i18n/**");
+  eleventyConfig.ignores.add("./src/i18n/**");
+  eleventyConfig.ignores.add("**/translations/i18n/**");
+
   eleventyConfig.addPlugin(IdAttributePlugin);
+  eleventyConfig.setLibrary("md", new MarkdownIt({ html: false, linkify: true }).use(markdownItAttrs));
+
+  eleventyConfig.addFilter("localeLang", localeLang);
+  eleventyConfig.addFilter("localeDir", localeDir);
 
   eleventyConfig.addTransform("heading-anchor-links", function (content) {
     if (!this.page.outputPath || !this.page.outputPath.endsWith(".html")) {
@@ -73,10 +85,10 @@ module.exports = function (eleventyConfig) {
         id = `${id}-${n}`;
       }
       usedIds.add(id);
-      const hyphenated = hyphenateSync(
-        inner.replace(/([a-z])([A-Z])/g, "$1\u00AD$2")
-      );
-      return `<tr>${whitespace}<${cellTag}${attrs}><a href="#${id}" id="${id}" class="heading-anchor">${hyphenated}</a></${cellTag}>`;
+      const useHyphen = !this.locale || this.locale === "en";
+      const prepared = inner.replace(/([a-z])([A-Z])/g, "$1\u00AD$2");
+      const label = useHyphen ? hyphenateSync(prepared) : prepared;
+      return `<tr>${whitespace}<${cellTag}${attrs}><a href="#${id}" id="${id}" class="heading-anchor">${label}</a></${cellTag}>`;
     };
 
     return content

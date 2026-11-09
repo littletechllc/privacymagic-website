@@ -2,11 +2,13 @@
 title: "Protections: plugging the leaks in your browser"
 description: How Privacy Magic protects your privacy as you browse the web
 permalink: /protections/
+locale: en
+backToTop: "↑ Back to top"
 ---
 
 Privacy Magic is an open-source extension for Chrome that comprehensively protects your privacy as you browse the web. Browsers are very leaky, so Privacy Magic provides multiple layers of protection, including [blocking ads and trackers](#blocking-ads-and-trackers), [protecting system information](#protecting-system-information-fingerprinting), [removing tracking breadcrumbs](#removing-tracking-breadcrumbs), [stopping web leaks](#stopping-web-leaks), [sending privacy signals](#privacy-signals), and [enforcing browser protections](#browser-protections).
 
-## Blocking ads and trackers
+## Blocking ads and trackers {#blocking-ads-and-trackers}
 
 Across the web, advertisements, tracking scripts, and tracking pixels are following you around without your consent using a variety of invisible methods.
 
@@ -19,7 +21,7 @@ Privacy Magic uses popular filter lists to block many ads and trackers from bein
 | [Fanboy's Annoyance List](https://easylist.to/) | Cookie notices, social media widgets, in-page pop-ups, and other annoyances. |
 | [small oisd blocklist](https://oisd.nl/) | Additional advertising domains. |
 
-## Protecting system information (fingerprinting)
+## Protecting system information (fingerprinting) {#protecting-system-information-fingerprinting}
 
 Traditionally, browsers leak copious amounts of information about your computer to any website or tracking script that asks! And trackers gather this data to track you as you browse the web.
 
@@ -44,7 +46,7 @@ Traditionally, browsers leak copious amounts of information about your computer 
 | Timing | High resolution timing APIs allow scripts to characterise your system by measuring tiny differences in the timing of browser behaviors. | Privacy Magic rounds off the times provided by these APIs so that it is much harder for tracking scripts to use them to distinguish between browsers. |
 | Touch | The Touch API leaks whether your device has touch and how many touch points it allows. | Privacy Magic hides this information from websites. |
 
-## Removing tracking breadcrumbs
+## Removing tracking breadcrumbs {#removing-tracking-breadcrumbs}
 
 Some browser features are vulnerable to being used to share parts of your browsing history ("breadcrumbs") to different websites you visit. Privacy Magic hardens these features so they are less leaky.
 
@@ -55,7 +57,7 @@ Some browser features are vulnerable to being used to share parts of your browsi
 | Tracking Parameters | Trackers can add extra "tracking parameters" to the addresses of the web pages you visit, so advertisers can keep track of who you are or where you have been browsing. | Privacy Magic deletes known tracking parameters from web addresses so that this information is not shared with the websites you visit. |
 | Window Name | Normally, the `window.name` JavaScript API leaks data if you navigate between websites in the same tab. | Privacy Magic prevents this leak by enforcing a separate `window.name` for each website. |
 
-## Stopping web leaks
+## Stopping web leaks {#stopping-web-leaks}
 
 Web browsers are complicated beasts! Leaks of private information can spring from many different browser features. Our approach in Privacy Magic is to plug leaks wherever they may be found.
 
@@ -67,7 +69,7 @@ Web browsers are complicated beasts! Leaks of private information can spring fro
 | Shared Workers | Shared Workers are code that runs in the background and can be shared between websites. | Privacy Magic injects its protections into every Shared Worker loaded by any website. |
 | Web Workers | Web Workers are code that runs in the background on a web page. Like the main page's scripts, web worker code can leak private data. | Privacy Magic injects its protections into every Web Worker on a page, to make sure trackers can't use Web Workers to bypass those protections. |
 
-## Privacy signals
+## Privacy signals {#privacy-signals}
 
 We're interested in improving your privacy in every way possible. So Privacy Magic sends a signal to demand pro-privacy policies from the websites you visit.
 
@@ -75,11 +77,11 @@ We're interested in improving your privacy in every way possible. So Privacy Mag
 | :--- | :--- | :--- |
 | Global Privacy Control | The Global Privacy Control is a signal that can be sent to the websites you visit to indicate that you don't want your data sold or shared. Unfortunately, most web browsers do not send the Global Privacy Control preference by default. | Privacy Magic ensures that your browser sends the Global Privacy Control header with every request to every web page or embedded resource. It also injects a JavaScript signal in every page and iframe. |
 
-## Browser protections
+## Browser protections {#browser-protections}
 
 Browsers are badly behaved not only in how they render web pages, but also in how they send data to the parent company or to third-party advertising companies. Privacy Magic disables a variety of bad browser behaviors that would otherwise leak your private information.
 
-### Disabling leaky web features
+### Disabling leaky web features {#disabling-leaky-web-features}
 
 | Feature | Standard web browsers | Privacy Magic |
 | :--- | :--- | :--- |
@@ -87,7 +89,7 @@ Browsers are badly behaved not only in how they render web pages, but also in ho
 | Third-Party Cookies | The most famous tracking feature of all. Chrome allows third-party cookies which allow you to be tracked from site to site. | Privacy Magic disables third-party cookies by default. |
 | WebRTC non-proxied UDP | WebRTC is a web browser capability that allows you to communicate with other web users directly. Unfortunately, if you are using a browser proxy, standard Chrome-based browsers will leak WebRTC communications outside of the proxy. | Privacy Magic blocks the WebRTC leaks, while still allowing WebRTC to function on the websites that use it. |
 
-### Disabling invasive cloud services
+### Disabling invasive cloud services {#disabling-invasive-cloud-services}
 
 | Service | Standard web browsers | Privacy Magic |
 | :--- | :--- | :--- |
@@ -96,7 +98,7 @@ Browsers are badly behaved not only in how they render web pages, but also in ho
 | Search Suggest | By default, Chrome sends anything you type into the address bar to your default search engine (typically Google search) while you are typing, to make auto-suggestions. | Privacy Magic blocks this continuous monitoring, so that Chrome only sends your search when you press "enter". |
 | Spelling Service | Chrome offers an "enhanced spell check" that sends what you type to Google's servers. | Privacy Magic disables this option and permits Chrome to use only the local "basic spell check." |
 
-### Disabling ad targeting APIs
+### Disabling ad targeting APIs {#disabling-ad-targeting-apis}
 
 | API | Standard web browsers | Privacy Magic |
 | :--- | :--- | :--- |
@@ -104,7 +106,7 @@ Browsers are badly behaved not only in how they render web pages, but also in ho
 | Protected Audience API | By default, this API is made available by Chrome to run an auction on your attention on behalf of advertisers. | Privacy Magic disables this API so your browsing data is not used this way. |
 | Topics API | Chrome's Topics API gives advertisers a list of topics that supposedly interest you. | Privacy Magic disables the Topics API to keep that data private. |
 
-### Disabling leaky Chrome settings
+### Disabling leaky Chrome settings {#disabling-leaky-chrome-settings}
 
 Chrome contains certain settings that are antithetical to your privacy: specifically, functionality that collects data on your browsing habits and sends them to Google's servers. These settings cannot be directly controlled by a browser extension, but during setup, Privacy Magic will help you find the settings and turn them off yourself.
 

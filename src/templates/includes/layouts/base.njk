@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ locale | localeLang }}" dir="{{ locale | localeDir }}">
 
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,13 @@
   <meta name="color-scheme" content="light dark">
   <title>{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}</title>
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  {% if locale %}
+  <link rel="alternate" hreflang="en" href="{{ site.url }}/protections/" />
+  {% for translation in protectionsTranslations %}
+  <link rel="alternate" hreflang="{{ translation.locale | localeLang }}" href="{{ site.url }}/{{ translation.locale }}/protections/" />
+  {% endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/protections/" />
+  {% endif %}
   <link rel="me" href="{{ site.mastodonUrl }}" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />

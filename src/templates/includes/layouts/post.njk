@@ -44,7 +44,7 @@ layout: layouts/base.njk
     </div>
   </aside>
   {% endif %}
-  <p class="post-back-to-top"><button type="button" class="post-back-to-top-link">↑ Back to top</button></p>
+  <p class="post-back-to-top"><button type="button" class="post-back-to-top-link">{{ backToTop or "↑ Back to top" }}</button></p>
 </article>
 <script>
   const scrollToPageTop = () => {

@@ -1,0 +1,115 @@
+---
+title: "Protecciones: tapando las fugas de tu navegador"
+description: Cómo Privacy Magic protege tu privacidad mientras navegas por la web
+backToTop: "↑ Volver arriba"
+---
+
+Privacy Magic es una extensión de código abierto para Chrome que protege de forma integral tu privacidad mientras navegas por la web. Los navegadores tienen muchas fugas, por lo que Privacy Magic ofrece varias capas de protección, entre ellas [bloquear anuncios y rastreadores](#blocking-ads-and-trackers), [proteger la información del sistema](#protecting-system-information-fingerprinting), [eliminar migas de pan de seguimiento](#removing-tracking-breadcrumbs), [detener fugas web](#stopping-web-leaks), [enviar señales de privacidad](#privacy-signals) y [aplicar protecciones del navegador](#browser-protections).
+
+## Bloqueo de anuncios y rastreadores {#blocking-ads-and-trackers}
+
+En toda la web, los anuncios, los scripts de seguimiento y los píxeles de seguimiento te siguen sin tu consentimiento mediante una variedad de métodos invisibles.
+
+Privacy Magic usa listas de filtros populares para bloquear muchos anuncios y rastreadores e impedir que tu navegador los solicite en la red. Las listas de filtros también ocultan las cajas vacías que quedan cuando se bloquean anuncios en una página web. Privacy Magic utiliza una versión fijada de estas listas de filtros para que el comportamiento de bloqueo de la extensión sea totalmente reproducible e idéntico para cada usuario.
+
+| Lista de filtros | Elementos bloqueados |
+| :--- | :--- |
+| [EasyList](https://easylist.to/) | Anuncios, incluidos banners, scripts publicitarios, imágenes y anuncios de vídeo. |
+| [EasyPrivacy](https://easylist.to/) | Rastreadores, incluidos scripts de seguimiento, píxeles, web bugs y otros recolectores de información. |
+| [Fanboy's Annoyance List](https://easylist.to/) | Avisos de cookies, widgets de redes sociales, ventanas emergentes en la página y otras molestias. |
+| [lista pequeña oisd](https://oisd.nl/) | Dominios publicitarios adicionales. |
+
+## Protección de la información del sistema (huella digital) {#protecting-system-information-fingerprinting}
+
+Tradicionalmente, los navegadores filtran grandes cantidades de información sobre tu ordenador a cualquier sitio web o script de seguimiento que lo solicite. Y los rastreadores recopilan esos datos para seguirte mientras navegas por la web.
+
+| Huella digital | Navegadores web estándar | Privacy Magic |
+| :--- | :--- | :--- |
+| Audio | La funcionalidad de procesamiento de audio de los navegadores suele filtrar información sobre tu tarjeta de sonido. | Privacy Magic reduce esas fugas borrando el bit menos significativo de los datos de audio cada vez que un script los lee. Este borrado no tiene efectos audibles. |
+| Batería | Los navegadores web suelen indicar a cualquier sitio web que lo pregunte cuál es el nivel de batería, si el dispositivo está enchufado a una fuente de alimentación y una estimación del tiempo restante antes de que la batería se agote. | Privacy Magic detiene esta fuga de información simulando una batería que siempre está al 100 % y una fuente de alimentación que siempre está enchufada. |
+| Navegador | Una página web puede interrogar a tu navegador para obtener información detallada sobre el sistema operativo en el que se ejecuta. | Privacy Magic suplanta `navigator.platform` con un único valor para cada sistema operativo distinto. |
+| Dispositivo | Los navegadores web informan a cualquier sitio web que lo pregunte de si usas un dispositivo plegable. | Privacy Magic siempre informa de que tu dispositivo no es plegable. |
+| Disco | Los navegadores web suelen filtrar la cantidad de espacio en disco disponible para el sitio web y cuánto está usando ese sitio, lo que puede revelar el espacio total en disco de tu ordenador y la forma en que se almacenan los datos. | Privacy Magic suplanta estos valores para que sean los mismos para todo el mundo. |
+| Pantalla | Tradicionalmente, los navegadores web filtran la configuración de pantalla, incluido si tu sistema tiene activada la opción de «preferir menos movimiento». | Privacy Magic evita esta fuga. |
+| Fuentes | Los navegadores web estándar filtran qué fuentes personalizadas tienes instaladas en tu sistema, lo que puede hacer que tu huella digital sea muy única. | Privacy Magic oculta a todos los scripts las fuentes personalizadas instaladas en tu sistema. Las páginas web pueden seguir usando fuentes estándar del sistema y fuentes web descargadas. |
+| Gráficos | Canvas y WebGL son dos vectores importantes de huella digital que revelan el tipo de GPU (chip gráfico) que usa tu ordenador. | Privacy Magic emplea técnicas avanzadas para ocultar el chip gráfico y permitir que sigas jugando y usando otros sitios web que hacen un uso intensivo de gráficos. |
+| Teclado | Por defecto, los navegadores filtran a cualquier sitio web que lo pregunte la disposición del teclado que usas. | Privacy Magic impide que la disposición del teclado se revele a los scripts de los sitios web. |
+| Idioma | Normalmente, los navegadores web filtran una lista de idiomas que has aprobado. Aunque es importante poder indicar qué idioma prefieres para los sitios web que visitas, los navegadores suelen revelar una lista de idiomas preferidos del usuario, lo que puede ser demasiado revelador. | Privacy Magic solo permite que se pase un único idioma a los sitios web que visitas. |
+| Matemáticas | Los scripts de seguimiento en las páginas web pueden usar el comportamiento idiosincrásico de funciones matemáticas, como el coseno o la tangente hiperbólica, en tu dispositivo para distinguirte de otros usuarios web. | Privacy Magic modifica las funciones Math de JavaScript para que se comporten de forma idéntica en todas las plataformas. |
+| Memoria | Los sitios web pueden averiguar en la mayoría de los navegadores cuánta memoria no se está usando en tu ordenador. | Privacy Magic oculta a las páginas web y a los rastreadores la cantidad de memoria disponible en tu sistema. |
+| Red | Los navegadores suelen filtrar detalles sobre el tipo de conexión de red que tienes. | Privacy Magic evita que esos detalles se filtren haciéndolos homogéneos para todos los usuarios. |
+| Procesador | Los navegadores están diseñados para informar del número de núcleos del procesador de tu ordenador. | Privacy Magic finge que todo el mundo tiene exactamente `4`. |
+| Pantalla (tamaño) | Los navegadores web filtran las dimensiones de tu pantalla a cualquier sitio web que lo pregunte, independientemente del tamaño de la ventana del navegador. | Privacy Magic oculta el tamaño real de la pantalla. |
+| Zona horaria | Los navegadores web filtran tu ubicación aproximada cuando los scripts preguntan por tu zona horaria. Por ejemplo, si estás en la hora de Europa Central, el navegador proporcionará un identificador de zona horaria que indica si estás en París, Berlín, Luxemburgo o en cualquiera de docenas de otras ciudades. | Privacy Magic agrupa las zonas horarias de modo que cada desplazamiento horario tenga una única zona horaria representativa. Así, el navegador no filtra información innecesaria sobre tu ubicación en el planeta. |
+| Temporización | Las API de temporización de alta resolución permiten a los scripts caracterizar tu sistema midiendo pequeñas diferencias en el tiempo de los comportamientos del navegador. | Privacy Magic redondea los tiempos proporcionados por estas API para que sea mucho más difícil que los scripts de seguimiento las usen para distinguir entre navegadores. |
+| Táctil | La Touch API revela si tu dispositivo tiene pantalla táctil y cuántos puntos táctiles permite. | Privacy Magic oculta esta información a los sitios web. |
+
+## Eliminación de migas de pan de seguimiento {#removing-tracking-breadcrumbs}
+
+Algunas funciones del navegador son vulnerables a usarse para compartir partes de tu historial de navegación («migas de pan») con los distintos sitios web que visitas. Privacy Magic refuerza estas funciones para que filtren menos.
+
+| Miga de pan | Navegadores web estándar | Privacy Magic |
+| :--- | :--- | :--- |
+| Fugas de caché | Los navegadores almacenan datos en cachés locales para que, cuando visitas una página o la vuelves a ver, esos datos no tengan que cargarse una segunda vez. Por desgracia, esas cachés a veces son filtradoras y revelan algo de tu historial de navegación a un sitio web que visitas. | Privacy Magic limpia las cachés vulnerables para que estas fugas no puedan producirse. |
+| Política de referrer | Tradicionalmente, los navegadores indican a cada página web que visitas desde qué página web llegaste. | Privacy Magic elimina la página (o ruta) exacta del referrer y, por compatibilidad web, solo permite compartir el dominio. |
+| Parámetros de seguimiento | Los rastreadores pueden añadir «parámetros de seguimiento» extra a las direcciones de las páginas web que visitas, para que los anunciantes puedan seguir quién eres o dónde has estado navegando. | Privacy Magic elimina los parámetros de seguimiento conocidos de las direcciones web para que esta información no se comparta con los sitios web que visitas. |
+| Nombre de ventana | Normalmente, la API de JavaScript `window.name` filtra datos si navegas entre sitios web en la misma pestaña. | Privacy Magic evita esta fuga imponiendo un `window.name` separado para cada sitio web. |
+
+## Detener fugas web {#stopping-web-leaks}
+
+¡Los navegadores web son bestias complicadas! Las fugas de información privada pueden surgir de muchas funciones distintas del navegador. Nuestro enfoque en Privacy Magic es tapar las fugas allá donde se encuentren.
+
+| Función | Navegadores web estándar | Privacy Magic |
+| :--- | :--- | :--- |
+| Iframes | Un iframe es una «página web dentro de una página web». Es una caja dentro de la página que visitas, donde una segunda página web puede ocultarse y usar todas las mismas técnicas de seguimiento que una página web normal. | Privacy Magic inyecta todas sus protecciones en cada iframe de una página web, para garantizar que un rastreador no pueda eludir esas protecciones ocultándose dentro de un iframe. |
+| Service Workers | Los Service Workers son una función del navegador que permite que el código se ejecute en segundo plano incluso cuando no estás conectado a Internet. Por desgracia, estos Service Workers pueden filtrar fácilmente información privada. | Los service workers están generalmente desactivados en todos los sitios, para evitar fugas de información privada que no pueden parchearse de otra forma. |
+| Shared Storage | Shared Storage es una función del navegador que permite agregar y recopilar datos sobre tu navegación. Aunque se presentó como respetuosa con la privacidad, esta función generó fuertes preocupaciones de privacidad y está previsto que se elimine de los navegadores. | Privacy Magic se asegura de que Shared Storage esté desactivado en todos los sitios web. |
+| Shared Workers | Los Shared Workers son código que se ejecuta en segundo plano y puede compartirse entre sitios web. | Privacy Magic inyecta sus protecciones en cada Shared Worker cargado por cualquier sitio web. |
+| Web Workers | Los Web Workers son código que se ejecuta en segundo plano en una página web. Al igual que los scripts de la página principal, el código de los web workers puede filtrar datos privados. | Privacy Magic inyecta sus protecciones en cada Web Worker de una página, para asegurarse de que los rastreadores no puedan usar Web Workers para eludir esas protecciones. |
+
+## Señales de privacidad {#privacy-signals}
+
+Nos interesa mejorar tu privacidad de todas las formas posibles. Por eso Privacy Magic envía una señal para exigir políticas favorables a la privacidad a los sitios web que visitas.
+
+| Señal | Navegadores web estándar | Privacy Magic |
+| :--- | :--- | :--- |
+| Global Privacy Control | El Global Privacy Control es una señal que puede enviarse a los sitios web que visitas para indicar que no quieres que se vendan o compartan tus datos. Por desgracia, la mayoría de los navegadores web no envían la preferencia Global Privacy Control de forma predeterminada. | Privacy Magic garantiza que tu navegador envíe la cabecera Global Privacy Control con cada solicitud a cada página web o recurso incrustado. También inyecta una señal JavaScript en cada página e iframe. |
+
+## Protecciones del navegador {#browser-protections}
+
+Los navegadores se comportan mal no solo en cómo renderizan las páginas web, sino también en cómo envían datos a la empresa matriz o a empresas publicitarias de terceros. Privacy Magic desactiva una variedad de malos comportamientos del navegador que, de otro modo, filtrarían tu información privada.
+
+### Desactivar funciones web filtradoras {#disabling-leaky-web-features}
+
+| Función | Navegadores web estándar | Privacy Magic |
+| :--- | :--- | :--- |
+| Auditoría de hipervínculos | Los navegadores estándar tienen una función que permite a los sitios web «hacer ping» a un servidor de seguimiento con los enlaces en los que haces clic. | Privacy Magic desactiva este ping. |
+| Cookies de terceros | La función de seguimiento más famosa de todas. Chrome permite cookies de terceros que permiten que te rastreen de un sitio a otro. | Privacy Magic desactiva las cookies de terceros de forma predeterminada. |
+| WebRTC UDP no proxificado | WebRTC es una capacidad del navegador web que te permite comunicarte directamente con otros usuarios web. Por desgracia, si usas un proxy del navegador, los navegadores estándar basados en Chrome filtrarán las comunicaciones WebRTC fuera del proxy. | Privacy Magic bloquea las fugas de WebRTC, permitiendo al mismo tiempo que WebRTC funcione en los sitios web que lo usan. |
+
+### Desactivar servicios en la nube invasivos {#disabling-invasive-cloud-services}
+
+| Servicio | Navegadores web estándar | Privacy Magic |
+| :--- | :--- | :--- |
+| Páginas de error alternativas | Por defecto, Chrome muestra páginas de error alternativas cuando se produce un error. Para mostrar esas páginas, se envían a los servidores de Google datos sobre las páginas que visitas. | Privacy Magic desactiva estas páginas de error alternativas para que no se envíen datos. |
+| Informes ampliados de Safe Browsing | Cuando Safe Browsing bloquea una página, Chrome puede enviar el contenido de una página bloqueada a los servidores de Google. | Privacy Magic bloquea esta función, de modo que no se envían datos. |
+| Sugerencias de búsqueda | Por defecto, Chrome envía todo lo que escribes en la barra de direcciones a tu motor de búsqueda predeterminado (normalmente la búsqueda de Google) mientras escribes, para ofrecer autosugerencias. | Privacy Magic bloquea esta monitorización continua, de modo que Chrome solo envía tu búsqueda cuando pulsas «Intro». |
+| Servicio de ortografía | Chrome ofrece una «revisión ortográfica mejorada» que envía lo que escribes a los servidores de Google. | Privacy Magic desactiva esta opción y permite que Chrome use solo la «revisión ortográfica básica» local. |
+
+### Desactivar API de segmentación publicitaria {#disabling-ad-targeting-apis}
+
+| API | Navegadores web estándar | Privacy Magic |
+| :--- | :--- | :--- |
+| Ad Measurement API | La Ad Measurement API (y la Private Aggregation API relacionada) envía datos sobre tu navegación, los anuncios en los que haces clic y otros datos privados a servidores publicitarios. | Privacy Magic desactiva estas API para proteger tus datos. |
+| Protected Audience API | Por defecto, Chrome pone a disposición esta API para celebrar una subasta por tu atención en nombre de los anunciantes. | Privacy Magic desactiva esta API para que tus datos de navegación no se usen de esta forma. |
+| Topics API | La Topics API de Chrome ofrece a los anunciantes una lista de temas que supuestamente te interesan. | Privacy Magic desactiva la Topics API para mantener esos datos privados. |
+
+### Desactivar ajustes filtradores de Chrome {#disabling-leaky-chrome-settings}
+
+Chrome contiene ciertos ajustes que son contrarios a tu privacidad: concretamente, funcionalidades que recopilan datos sobre tus hábitos de navegación y los envían a los servidores de Google. Estos ajustes no pueden controlarse directamente mediante una extensión del navegador, pero durante la configuración, Privacy Magic te ayudará a encontrar los ajustes y desactivarlos tú mismo.
+
+| Ajuste | Navegadores web estándar | Privacy Magic |
+| :--- | :--- | :--- |
+| Sincronización del historial | Cuando inicias sesión en Chrome, sincroniza tu historial de navegación entre dispositivos. También guarda esos mismos datos en los servidores de Google. | Privacy Magic te guía hasta el ajuste que desactiva la sincronización del historial para mantener privado tu historial de navegación. |
+| Métricas de experiencia de usuario | Chrome envía en silencio métricas sobre tu uso del navegador a los servidores de Google. | Privacy Magic te ayuda a bloquear esta recopilación oculta de datos. |
+| Recopilación de datos por URL | Por cada URL que visitas, Chrome recopila datos «anonimizados» sobre tu navegación en esas páginas y los envía a Google. | Privacy Magic te ayuda a desactivar este ajuste para evitar que se envíen los datos. |
