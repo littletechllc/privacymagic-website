@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,7 @@
   <meta name="color-scheme" content="light dark">
   <title>Technical details</title>
   <link rel="canonical" href="https://privacymagic.com/technical/">
+  
   <link rel="me" href="https://mastodon.social/@privacymagic">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
@@ -124,7 +125,7 @@
 <h2 id="browser-settings-fixes"><a href="#browser-settings-fixes" class="heading-anchor">Browser settings fixes</a></h2>
 <p>Privacy Magic makes use of the <a href="https://developer.chrome.com/docs/extensions/reference/api/privacy"><code>chrome.privacy</code></a> API in MV3 to disable <a href="/protections/#browser-protections">certain features</a> that are harmful to user privacy. Some features cannot be disabled using MV3; in those cases we navigate the user to the specific chrome://settings pages where the setting can be manually disabled and help them to do so by giving clear instructions in a side panel.</p>
 <h2 id="remote-setting-control"><a href="#remote-setting-control" class="heading-anchor">Remote setting control</a></h2>
-<p>Privacy Magic has remote setting control for specific protections and specific websites. For example, if the Time Zone protection were to interfere with the proper functioning of website abc.com, then we would quickly respond by remotely disabling that particular protection on abc.com. We would remotely re-enable the protection once it had been fixed so that it no longer broke the site.</p>
+<p>Privacy Magic has remote setting control for specific protections and specific websites. For example, if the Time Zone protection were to interfere with the proper functioning of website <a href="http://abc.com">abc.com</a>, then we would quickly respond by remotely disabling that particular protection on <a href="http://abc.com">abc.com</a>. We would remotely re-enable the protection once it had been fixed so that it no longer broke the site.</p>
 <h2 id="unit-tests"><a href="#unit-tests" class="heading-anchor">Unit tests</a></h2>
 <p>Privacy Magic has an extensive suite of unit tests that check the privacy protections for correctness. End-to-end testing in a live browser is under development.</p>
 

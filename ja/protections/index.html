@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>保護機能：ブラウザの情報漏洩を塞ぐ</title>
+  <link rel="canonical" href="https://privacymagic.com/ja/protections/">
+  
+  <link rel="alternate" hreflang="en" href="https://privacymagic.com/protections/">
+  
+  <link rel="alternate" hreflang="am" href="https://privacymagic.com/am/protections/">
+  
+  <link rel="alternate" hreflang="ar" href="https://privacymagic.com/ar/protections/">
+  
+  <link rel="alternate" hreflang="bg" href="https://privacymagic.com/bg/protections/">
+  
+  <link rel="alternate" hreflang="bn" href="https://privacymagic.com/bn/protections/">
+  
+  <link rel="alternate" hreflang="ca" href="https://privacymagic.com/ca/protections/">
+  
+  <link rel="alternate" hreflang="cs" href="https://privacymagic.com/cs/protections/">
+  
+  <link rel="alternate" hreflang="da" href="https://privacymagic.com/da/protections/">
+  
+  <link rel="alternate" hreflang="de" href="https://privacymagic.com/de/protections/">
+  
+  <link rel="alternate" hreflang="el" href="https://privacymagic.com/el/protections/">
+  
+  <link rel="alternate" hreflang="es" href="https://privacymagic.com/es/protections/">
+  
+  <link rel="alternate" hreflang="es-419" href="https://privacymagic.com/es_419/protections/">
+  
+  <link rel="alternate" hreflang="et" href="https://privacymagic.com/et/protections/">
+  
+  <link rel="alternate" hreflang="fa" href="https://privacymagic.com/fa/protections/">
+  
+  <link rel="alternate" hreflang="fi" href="https://privacymagic.com/fi/protections/">
+  
+  <link rel="alternate" hreflang="fil" href="https://privacymagic.com/fil/protections/">
+  
+  <link rel="alternate" hreflang="fr" href="https://privacymagic.com/fr/protections/">
+  
+  <link rel="alternate" hreflang="gu" href="https://privacymagic.com/gu/protections/">
+  
+  <link rel="alternate" hreflang="he" href="https://privacymagic.com/he/protections/">
+  
+  <link rel="alternate" hreflang="hi" href="https://privacymagic.com/hi/protections/">
+  
+  <link rel="alternate" hreflang="hr" href="https://privacymagic.com/hr/protections/">
+  
+  <link rel="alternate" hreflang="hu" href="https://privacymagic.com/hu/protections/">
+  
+  <link rel="alternate" hreflang="id" href="https://privacymagic.com/id/protections/">
+  
+  <link rel="alternate" hreflang="it" href="https://privacymagic.com/it/protections/">
+  
+  <link rel="alternate" hreflang="ja" href="https://privacymagic.com/ja/protections/">
+  
+  <link rel="alternate" hreflang="kn" href="https://privacymagic.com/kn/protections/">
+  
+  <link rel="alternate" hreflang="ko" href="https://privacymagic.com/ko/protections/">
+  
+  <link rel="alternate" hreflang="lt" href="https://privacymagic.com/lt/protections/">
+  
+  <link rel="alternate" hreflang="lv" href="https://privacymagic.com/lv/protections/">
+  
+  <link rel="alternate" hreflang="ml" href="https://privacymagic.com/ml/protections/">
+  
+  <link rel="alternate" hreflang="mr" href="https://privacymagic.com/mr/protections/">
+  
+  <link rel="alternate" hreflang="ms" href="https://privacymagic.com/ms/protections/">
+  
+  <link rel="alternate" hreflang="nl" href="https://privacymagic.com/nl/protections/">
+  
+  <link rel="alternate" hreflang="no" href="https://privacymagic.com/no/protections/">
+  
+  <link rel="alternate" hreflang="pl" href="https://privacymagic.com/pl/protections/">
+  
+  <link rel="alternate" hreflang="pt-BR" href="https://privacymagic.com/pt_BR/protections/">
+  
+  <link rel="alternate" hreflang="pt-PT" href="https://privacymagic.com/pt_PT/protections/">
+  
+  <link rel="alternate" hreflang="ro" href="https://privacymagic.com/ro/protections/">
+  
+  <link rel="alternate" hreflang="ru" href="https://privacymagic.com/ru/protections/">
+  
+  <link rel="alternate" hreflang="sk" href="https://privacymagic.com/sk/protections/">
+  
+  <link rel="alternate" hreflang="sl" href="https://privacymagic.com/sl/protections/">
+  
+  <link rel="alternate" hreflang="sr" href="https://privacymagic.com/sr/protections/">
+  
+  <link rel="alternate" hreflang="sv" href="https://privacymagic.com/sv/protections/">
+  
+  <link rel="alternate" hreflang="sw" href="https://privacymagic.com/sw/protections/">
+  
+  <link rel="alternate" hreflang="ta" href="https://privacymagic.com/ta/protections/">
+  
+  <link rel="alternate" hreflang="te" href="https://privacymagic.com/te/protections/">
+  
+  <link rel="alternate" hreflang="th" href="https://privacymagic.com/th/protections/">
+  
+  <link rel="alternate" hreflang="tr" href="https://privacymagic.com/tr/protections/">
+  
+  <link rel="alternate" hreflang="uk" href="https://privacymagic.com/uk/protections/">
+  
+  <link rel="alternate" hreflang="vi" href="https://privacymagic.com/vi/protections/">
+  
+  <link rel="alternate" hreflang="zh-CN" href="https://privacymagic.com/zh_CN/protections/">
+  
+  <link rel="alternate" hreflang="zh-TW" href="https://privacymagic.com/zh_TW/protections/">
+  
+  <link rel="alternate" hreflang="x-default" href="https://privacymagic.com/protections/">
+  
+  <link rel="me" href="https://mastodon.social/@privacymagic">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+
+<body>
+  <nav>
+  <a href="/" class="logo">
+    <span class="logo-icon">
+      <img src="/images/logo.svg" alt="" width="40" height="40">
+    </span>
+    Privacy Magic
+  </a>
+  <div class="nav-actions">
+    <div class="nav-social">
+      <a href="https://x.com/privacymagic" rel="noopener noreferrer" aria-label="Follow us on X"><span class="nav-social-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"></path>
+</svg></span></a>
+      <a href="https://github.com/littletechllc/privacymagic-extension" rel="noopener noreferrer" aria-label="View source on GitHub"><span class="nav-social-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path>
+</svg></span></a>
+    </div>
+    <a href="https://chromewebstore.google.com/detail/privacy-magic/cobojehlalmfnplnblndhofhgeglljkc" class="cta-nav">Add to Chrome</a>
+    <details class="nav-menu">
+      <summary class="nav-menu-toggle" aria-label="Open menu">
+        <span class="nav-menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </summary>
+      <ul class="nav-menu-panel">
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/protections/">Protections</a></li>
+        
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        
+        <li><a href="mailto:contact@privacymagic.com">Contact Us</a></li>
+        
+        <li class="nav-menu-social">
+          <div class="nav-menu-social-links">
+            
+            
+<a href="https://x.com/privacymagic" rel="noopener noreferrer" aria-label="Follow us on X"><span class="nav-menu-social-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"></path>
+</svg></span></a>
+
+<a href="https://bsky.app/profile/privacymagic.bsky.social" rel="noopener noreferrer" aria-label="Follow us on Bluesky"><span class="nav-menu-social-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"></path>
+</svg></span></a>
+
+<a href="https://mastodon.social/@privacymagic" rel="noopener noreferrer" aria-label="Follow us on Mastodon"><span class="nav-menu-social-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <path d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a4 4 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522q0-1.288.66-2.046c.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764q.662.757.661 2.046z"></path>
+</svg></span></a>
+
+<a href="https://www.linkedin.com/company/privacy-magic/" rel="noopener noreferrer" aria-label="Follow us on LinkedIn"><span class="nav-menu-social-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"></path>
+</svg></span></a>
+
+<a href="https://github.com/littletechllc/privacymagic-extension" rel="noopener noreferrer" aria-label="View source on GitHub"><span class="nav-menu-social-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path>
+</svg></span></a>
+
+
+          </div>
+        </li>
+      </ul>
+    </details>
+  </div>
+</nav>
+<script>
+  const menu = document.querySelector(".nav-menu");
+  if (menu) {
+    menu.querySelector(".nav-menu-panel")?.addEventListener("click", (event) => {
+      if (event.target.closest("a")) menu.open = false;
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!menu.open || menu.contains(event.target)) return;
+      menu.open = false;
+    });
+  }
+</script>
+
+  
+<article class="post">
+  <header class="post-header">
+    <h1 id="">保護機能：ブラウザの情報漏洩を塞ぐ</h1>
+    
+    <p class="post-lead">Privacy Magicがウェブ閲覧中にプライバシーをどのように保護するか</p>
+    
+    
+    
+  </header>
+  <div class="post-content">
+    <p>Privacy Magicは、ウェブを閲覧する際のプライバシーを包括的に保護するChrome向けオープンソース拡張機能です。ブラウザは情報漏洩が多いため、Privacy Magicは<a href="#blocking-ads-and-trackers">広告とトラッカーのブロック</a>、<a href="#protecting-system-information-fingerprinting">システム情報の保護</a>、<a href="#removing-tracking-breadcrumbs">追跡の痕跡の削除</a>、<a href="#stopping-web-leaks">ウェブ漏洩の阻止</a>、<a href="#privacy-signals">プライバシー信号の送信</a>、<a href="#browser-protections">ブラウザ保護の適用</a>など、複数の保護レイヤーを提供します。</p>
+<h2 id="blocking-ads-and-trackers"><a href="#blocking-ads-and-trackers" class="heading-anchor">広告とトラッカーのブロック</a></h2>
+<p>ウェブ全体で、広告、追跡スクリプト、トラッキングピクセルが、さまざまな見えない手法であなたの同意なく追いかけてきます。</p>
+<p>Privacy Magicは人気のフィルタリストを使い、ブラウザがネットワーク上で多くの広告やトラッカーをリクエストしないようブロックします。フィルタリストは、広告がブロックされたあとに残る空き枠も非表示にします。Privacy Magicはこれらのフィルタリストの固定バージョンを使用するため、拡張機能のブロック動作は完全に再現可能で、すべてのユーザーで同一です。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">フィルタリスト</th>
+<th style="text-align:left">ブロック対象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#easylist" id="easylist" class="heading-anchor"><a href="https://easylist.to/">Easy­List</a></a></td>
+<td style="text-align:left">バナー、広告スクリプト、画像、動画広告を含む広告。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#easyprivacy" id="easyprivacy" class="heading-anchor"><a href="https://easylist.to/">Easy­Privacy</a></a></td>
+<td style="text-align:left">追跡スクリプト、ピクセル、ウェブバグ、その他の情報収集を含むトラッカー。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#fanboys-annoyance-list" id="fanboys-annoyance-list" class="heading-anchor"><a href="https://easylist.to/">Fan­boy's An­noy­ance List</a></a></td>
+<td style="text-align:left">Cookie通知、ソーシャルメディアウィジェット、ページ内ポップアップ、その他の煩わしい要素。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#small-oisd-blocklist" id="small-oisd-blocklist" class="heading-anchor"><a href="https://oisd.nl/">small oisd block­list</a></a></td>
+<td style="text-align:left">追加の広告ドメイン。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="protecting-system-information-fingerprinting"><a href="#protecting-system-information-fingerprinting" class="heading-anchor">システム情報の保護（フィンガープリンティング）</a></h2>
+<p>従来、ブラウザは尋ねてきたあらゆるウェブサイトや追跡スクリプトに、あなたのコンピュータに関する大量の情報を漏らしてしまいます！トラッカーはこのデータを集め、ウェブ閲覧中のあなたを追跡します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">フィンガープリント</th>
+<th style="text-align:left">標準のウェブブラウザ</th>
+<th style="text-align:left">Privacy Magic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">オーディオ</td>
+<td style="text-align:left">ウェブブラウザの音声処理機能は、通常サウンドカードに関する情報を漏らします。</td>
+<td style="text-align:left">Privacy Magicは、スクリプトが音声データを読むたびに最下位ビットを消去することで、こうした漏洩を減らします。この消去に聞こえる影響はありません。</td>
+</tr>
+<tr>
+<td style="text-align:left">バッテリー</td>
+<td style="text-align:left">ウェブブラウザは通常、尋ねてきたあらゆるウェブサイトにバッテリー残量、電源に接続されているかどうか、バッテリーが空になるまでの推定時間を伝えます。</td>
+<td style="text-align:left">Privacy Magicは、常に100%のバッテリーと常に接続されている電源をシミュレートすることで、この情報漏洩を止めます。</td>
+</tr>
+<tr>
+<td style="text-align:left">ブラウザ</td>
+<td style="text-align:left">ウェブページはブラウザに問い合わせ、動作しているオペレーティングシステムに関する詳細情報を取得できます。</td>
+<td style="text-align:left">Privacy Magicは、オペレーティングシステムごとに<code>navigator.platform</code>を単一の値に偽装します。</td>
+</tr>
+<tr>
+<td style="text-align:left">デバイス</td>
+<td style="text-align:left">ウェブブラウザは、尋ねてきたあらゆるウェブサイトに、折りたたみ可能なデバイスを使っているかどうかを伝えます。</td>
+<td style="text-align:left">Privacy Magicは常に、デバイスが折りたたみ可能ではないと報告します。</td>
+</tr>
+<tr>
+<td style="text-align:left">ディスク</td>
+<td style="text-align:left">ウェブブラウザは通常、ウェブサイトに利用可能なディスク容量と、そのサイトがどれだけ使っているかを漏らし、コンピュータ全体の空き容量やデータの保存方式を明らかにすることがあります。</td>
+<td style="text-align:left">Privacy Magicはこれらの値を全員で同じになるよう偽装します。</td>
+</tr>
+<tr>
+<td style="text-align:left">ディスプレイ</td>
+<td style="text-align:left">従来、ウェブブラウザは「動きの減少を優先」設定を含む表示設定を漏らします。</td>
+<td style="text-align:left">Privacy Magicはこの漏洩を防ぎます。</td>
+</tr>
+<tr>
+<td style="text-align:left">フォント</td>
+<td style="text-align:left">標準のウェブブラウザは、システムにインストールされているカスタムフォントを漏らし、フィンガープリントを非常にユニークにしてしまう可能性があります。</td>
+<td style="text-align:left">Privacy Magicは、システムにインストールされたカスタムフォントをすべてのスクリプトから隠します。ウェブページは標準のシステムフォントとダウンロードしたウェブフォントを引き続き使用できます。</td>
+</tr>
+<tr>
+<td style="text-align:left">グラフィックス</td>
+<td style="text-align:left">CanvasとWebGLは、コンピュータが使用しているGPU（グラフィックスチップ）の種類を漏らす主要なフィンガープリンティング経路です。</td>
+<td style="text-align:left">Privacy Magicは高度な手法でグラフィックスチップを隠しつつ、ゲームやグラフィックスを多用する他のウェブサイトを引き続き使えるようにします。</td>
+</tr>
+<tr>
+<td style="text-align:left">キーボード</td>
+<td style="text-align:left">デフォルトでは、ブラウザは使用中のキーボードレイアウトを尋ねてきたあらゆるウェブサイトに漏らします。</td>
+<td style="text-align:left">Privacy Magicは、ウェブサイトのスクリプトにキーボードレイアウトが明かされないようブロックします。</td>
+</tr>
+<tr>
+<td style="text-align:left">言語</td>
+<td style="text-align:left">通常、ウェブブラウザは承認した言語の一覧を漏らします。訪問するウェブサイトの希望言語を指定できることは重要ですが、ブラウザはユーザーの優先言語リストを明かしてしまい、情報が多すぎることがあります。</td>
+<td style="text-align:left">Privacy Magicは、訪問するウェブサイトに渡せる言語を1つだけに制限します。</td>
+</tr>
+<tr>
+<td style="text-align:left">数学</td>
+<td style="text-align:left">ウェブページ内の追跡スクリプトは、余弦や双曲線正接などのMath関数がデバイス上で示す特異な挙動を使い、他のウェブユーザーと区別できます。</td>
+<td style="text-align:left">Privacy MagicはJavaScriptのMath関数をパッチし、すべてのプラットフォームで同一の挙動になるようにします。</td>
+</tr>
+<tr>
+<td style="text-align:left">メモリ</td>
+<td style="text-align:left">ウェブサイトは、多くのブラウザからコンピュータ上の未使用メモリ量を調べることができます。</td>
+<td style="text-align:left">Privacy Magicは、システムで利用可能なメモリ量をウェブページやトラッカーから隠します。</td>
+</tr>
+<tr>
+<td style="text-align:left">ネットワーク</td>
+<td style="text-align:left">ブラウザは通常、ネットワーク接続の種類に関する詳細を漏らします。</td>
+<td style="text-align:left">Privacy Magicはこれらの詳細を全ユーザーで均一にし、漏洩を防ぎます。</td>
+</tr>
+<tr>
+<td style="text-align:left">プロセッサ</td>
+<td style="text-align:left">ブラウザは、コンピュータのプロセッサのコア数を報告するよう設計されています。</td>
+<td style="text-align:left">Privacy Magicは、誰もがちょうど<code>4</code>個であるかのように装います。</td>
+</tr>
+<tr>
+<td style="text-align:left">画面</td>
+<td style="text-align:left">ウェブブラウザは、ブラウザウィンドウの大きさに関係なく、尋ねてきたあらゆるウェブサイトに画面の寸法を漏らします。</td>
+<td style="text-align:left">Privacy Magicは実際の画面サイズを隠します。</td>
+</tr>
+<tr>
+<td style="text-align:left">タイムゾーン</td>
+<td style="text-align:left">スクリプトがタイムゾーンを尋ねると、ウェブブラウザはおおよその所在地を漏らします。たとえば中央ヨーロッパ時間にいる場合、ブラウザはパリ、ベルリン、ルクセンブルク、その他数十の都市のいずれかを示すタイムゾーン識別子を提供します。</td>
+<td style="text-align:left">Privacy Magicはタイムゾーンを統合し、各タイムゾーンオフセットに対して代表となるタイムゾーンを1つだけにします。これにより、地球上の位置について不要な情報が漏れることはありません。</td>
+</tr>
+<tr>
+<td style="text-align:left">タイミング</td>
+<td style="text-align:left">高解像度のタイミングAPIにより、スクリプトはブラウザ挙動のわずかな時間差を測定してシステムを特徴づけられます。</td>
+<td style="text-align:left">Privacy MagicはこれらのAPIが返す時刻を丸め、追跡スクリプトがブラウザを区別するのに使うのをはるかに難しくします。</td>
+</tr>
+<tr>
+<td style="text-align:left">タッチ</td>
+<td style="text-align:left">Touch APIは、デバイスにタッチがあるか、何タッチポイントまで許可するかを漏らします。</td>
+<td style="text-align:left">Privacy Magicはこの情報をウェブサイトから隠します。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="removing-tracking-breadcrumbs"><a href="#removing-tracking-breadcrumbs" class="heading-anchor">追跡の痕跡の削除</a></h2>
+<p>一部のブラウザ機能は、閲覧履歴の一部（「パンくず」）を訪問するさまざまなウェブサイトに共有するために悪用されやすいです。Privacy Magicはこれらの機能を強化し、漏洩しにくくします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">痕跡</th>
+<th style="text-align:left">標準のウェブブラウザ</th>
+<th style="text-align:left">Privacy Magic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">キャッシュ漏洩</td>
+<td style="text-align:left">ブラウザはデータをローカルキャッシュに保存するため、ページを再訪問したり再度表示したりする際に、そのデータを二度読み込む必要がありません。残念ながら、これらのキャッシュは時に漏洩し、訪問したウェブサイトに閲覧履歴の一端を明かしてしまいます。</td>
+<td style="text-align:left">Privacy Magicは脆弱なキャッシュをクリアし、こうした漏洩が起きないようにします。</td>
+</tr>
+<tr>
+<td style="text-align:left">リファラーポリシー</td>
+<td style="text-align:left">従来、ブラウザは訪問する各ウェブページに、どのページから来たかを伝えてしまいます！</td>
+<td style="text-align:left">Privacy Magicはリファラー内の正確なページ（またはパス）を削除し、ウェブ互換性のためドメインのみの共有を許可します。</td>
+</tr>
+<tr>
+<td style="text-align:left">トラッキングパラメータ</td>
+<td style="text-align:left">トラッカーは訪問するウェブページのアドレスに余分な「トラッキングパラメータ」を追加し、広告主があなたが誰か、どこを閲覧したかを追跡できるようにします。</td>
+<td style="text-align:left">Privacy Magicはウェブアドレスから既知のトラッキングパラメータを削除し、この情報が訪問先のウェブサイトと共有されないようにします。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#window-name" id="window-name" class="heading-anchor">Win­dow Name</a></td>
+<td style="text-align:left">通常、<code>window.name</code> JavaScript APIは、同じタブ内でウェブサイト間を移動するとデータを漏らします。</td>
+<td style="text-align:left">Privacy Magicはウェブサイトごとに別々の<code>window.name</code>を強制することで、この漏洩を防ぎます。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="stopping-web-leaks"><a href="#stopping-web-leaks" class="heading-anchor">ウェブ漏洩の阻止</a></h2>
+<p>ウェブブラウザは複雑な存在です！個人情報の漏洩は、さまざまなブラウザ機能から生じ得ます。Privacy Magicのアプローチは、見つかった漏洩をどこでも塞ぐことです。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">機能</th>
+<th style="text-align:left">標準のウェブブラウザ</th>
+<th style="text-align:left">Privacy Magic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#iframes" id="iframes" class="heading-anchor">Iframes</a></td>
+<td style="text-align:left">iframeは「ウェブページ内のウェブページ」です。訪問中のページ内の枠で、別のウェブページが隠れ、通常のウェブページと同じ追跡手法をすべて使えます。</td>
+<td style="text-align:left">Privacy Magicはウェブページ上のすべてのiframeに保護機能を注入し、トラッカーがiframe内に隠れて保護を迂回できないようにします。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#service-workers" id="service-workers" class="heading-anchor">Ser­vice Work­ers</a></td>
+<td style="text-align:left">Service Workersは、インターネットに接続していなくてもバックグラウンドでコードを実行できるブラウザ機能です。残念ながら、これらのService Workersは個人情報を簡単に漏らしてしまいます。</td>
+<td style="text-align:left">他の方法では修正できない個人情報の漏洩を防ぐため、Service workersは原則としてすべてのサイトで無効化されます。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#shared-storage" id="shared-storage" class="heading-anchor">Shared Stor­age</a></td>
+<td style="text-align:left">Shared Storageは、閲覧に関するデータを集約・収集できるブラウザ機能です。プライバシーを保護すると謳われていましたが、強いプライバシー上の懸念を招き、ブラウザから削除される予定です。</td>
+<td style="text-align:left">Privacy Magicは、すべてのウェブサイトでShared Storageが無効であることを確実にします。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#shared-workers" id="shared-workers" class="heading-anchor">Shared Work­ers</a></td>
+<td style="text-align:left">Shared Workersはバックグラウンドで動作し、ウェブサイト間で共有できるコードです。</td>
+<td style="text-align:left">Privacy Magicは、あらゆるウェブサイトが読み込むすべてのShared Workerに保護機能を注入します。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#web-workers" id="web-workers" class="heading-anchor">Web Work­ers</a></td>
+<td style="text-align:left">Web Workersはウェブページ上でバックグラウンド実行されるコードです。メインページのスクリプトと同様に、Web Workerのコードも個人データを漏らす可能性があります。</td>
+<td style="text-align:left">Privacy Magicはページ上のすべてのWeb Workerに保護機能を注入し、トラッカーがWeb Workersを使って保護を迂回できないようにします。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="privacy-signals"><a href="#privacy-signals" class="heading-anchor">プライバシー信号</a></h2>
+<p>私たちはあらゆる方法であなたのプライバシーを改善したいと考えています。そのためPrivacy Magicは、訪問するウェブサイトにプライバシー重視のポリシーを求める信号を送信します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">信号</th>
+<th style="text-align:left">標準のウェブブラウザ</th>
+<th style="text-align:left">Privacy Magic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#global-privacy-control" id="global-privacy-control" class="heading-anchor">Glob­al Pri­va­cy Con­trol</a></td>
+<td style="text-align:left">Global Privacy Controlは、訪問するウェブサイトにデータの販売や共有を望まないことを示す信号です。残念ながら、ほとんどのウェブブラウザはデフォルトでGlobal Privacy Controlの設定を送信しません。</td>
+<td style="text-align:left">Privacy Magicは、すべてのウェブページや埋め込みリソースへのすべてのリクエストで、ブラウザがGlobal Privacy Controlヘッダーを送信することを保証します。また、すべてのページとiframeにJavaScript信号も注入します。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="browser-protections"><a href="#browser-protections" class="heading-anchor">ブラウザ保護</a></h2>
+<p>ブラウザの問題ある挙動は、ウェブページの表示方法だけでなく、親会社や第三者の広告会社へのデータ送信にも現れます。Privacy Magicは、そうでなければ個人情報を漏らしてしまうさまざまな悪いブラウザ挙動を無効化します。</p>
+<h3 id="disabling-leaky-web-features"><a href="#disabling-leaky-web-features" class="heading-anchor">漏洩しやすいウェブ機能の無効化</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">機能</th>
+<th style="text-align:left">標準のウェブブラウザ</th>
+<th style="text-align:left">Privacy Magic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ハイパーリンク監査</td>
+<td style="text-align:left">標準ブラウザには、クリックしたリンクで追跡サーバーに「ping」を送れる機能があります。</td>
+<td style="text-align:left">Privacy Magicはこのpingを無効化します。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#cookie" id="cookie" class="heading-anchor">サードパーティ­Cook­ie</a></td>
+<td style="text-align:left">最も有名な追跡機能です。Chromeはサイト間での追跡を可能にするサードパーティCookieを許可しています。</td>
+<td style="text-align:left">Privacy MagicはデフォルトでサードパーティCookieを無効化します。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#webrtc-udp" id="webrtc-udp" class="heading-anchor">Web­RTCの非プロキシUDP</a></td>
+<td style="text-align:left">WebRTCは、他のウェブユーザーと直接通信できるウェブブラウザの機能です。残念ながら、ブラウザプロキシを使っている場合、標準のChrome系ブラウザはプロキシの外にWebRTC通信を漏らしてしまいます。</td>
+<td style="text-align:left">Privacy MagicはWebRTCの漏洩をブロックしつつ、WebRTCを使うウェブサイトでは引き続き機能できるようにします。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="disabling-invasive-cloud-services"><a href="#disabling-invasive-cloud-services" class="heading-anchor">侵襲的なクラウドサービスの無効化</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">サービス</th>
+<th style="text-align:left">標準のウェブブラウザ</th>
+<th style="text-align:left">Privacy Magic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">代替エラーページ</td>
+<td style="text-align:left">デフォルトでは、Chromeはエラー発生時に代替エラーページを表示します。これらのページを表示するため、訪問中のページに関するデータがGoogleのサーバーに送信されます。</td>
+<td style="text-align:left">Privacy Magicはこれらの代替エラーページを無効化し、データが送信されないようにします。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#safe-browsing" id="safe-browsing" class="heading-anchor">Safe Brows­ing拡張レポート</a></td>
+<td style="text-align:left">Safe Browsingがページをブロックすると、Chromeはブロックされたページの内容をGoogleのサーバーに送信することがあります。</td>
+<td style="text-align:left">Privacy Magicはこの機能をブロックし、データが送信されないようにします。</td>
+</tr>
+<tr>
+<td style="text-align:left">検索候補</td>
+<td style="text-align:left">デフォルトでは、Chromeはアドレスバーに入力した内容を入力中にデフォルトの検索エンジン（通常はGoogle検索）へ送信し、自動候補を表示します。</td>
+<td style="text-align:left">Privacy Magicはこの継続的な監視をブロックし、「Enter」を押したときだけ検索が送信されるようにします。</td>
+</tr>
+<tr>
+<td style="text-align:left">スペルチェックサービス</td>
+<td style="text-align:left">Chromeは、入力内容をGoogleのサーバーに送信する「強化スペルチェック」を提供しています。</td>
+<td style="text-align:left">Privacy Magicはこのオプションを無効化し、Chromeがローカルの「基本スペルチェック」のみを使えるようにします。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="disabling-ad-targeting-apis"><a href="#disabling-ad-targeting-apis" class="heading-anchor">広告ターゲティングAPIの無効化</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><a href="#api" id="api" class="heading-anchor">API</a></th>
+<th style="text-align:left">標準のウェブブラウザ</th>
+<th style="text-align:left">Privacy Magic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#ad-measurement-api" id="ad-measurement-api" class="heading-anchor">Ad Mea­sure­ment API</a></td>
+<td style="text-align:left">Ad Measurement API（および関連するPrivate Aggregation API）は、閲覧、クリックした広告、その他の個人データを広告サーバーに送信します。</td>
+<td style="text-align:left">Privacy Magicはデータを保護するため、これらのAPIを無効化します。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#protected-audience-api" id="protected-audience-api" class="heading-anchor">Pro­tect­ed Au­di­ence API</a></td>
+<td style="text-align:left">デフォルトでは、このAPIは広告主のためにあなたの注目をオークションにかけるため、Chromeから利用可能になっています。</td>
+<td style="text-align:left">Privacy MagicはこのAPIを無効化し、閲覧データがそのように使われないようにします。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#topics-api" id="topics-api" class="heading-anchor">Top­ics API</a></td>
+<td style="text-align:left">ChromeのTopics APIは、あなたが関心を持つとされるトピックの一覧を広告主に渡します。</td>
+<td style="text-align:left">Privacy MagicはTopics APIを無効化し、そのデータを非公開に保ちます。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="disabling-leaky-chrome-settings"><a href="#disabling-leaky-chrome-settings" class="heading-anchor">漏洩しやすいChrome設定の無効化</a></h3>
+<p>Chromeにはプライバシーに反する特定の設定があります。具体的には、閲覧習慣に関するデータを収集してGoogleのサーバーに送信する機能です。これらの設定はブラウザ拡張機能から直接制御できませんが、セットアップ時にPrivacy Magicが設定を見つけて自分でオフにする手助けをします。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">設定</th>
+<th style="text-align:left">標準のウェブブラウザ</th>
+<th style="text-align:left">Privacy Magic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">履歴の同期</td>
+<td style="text-align:left">Chromeにサインインしていると、閲覧履歴をデバイス間で同期します。同じデータはGoogleのサーバーにも保存されます。</td>
+<td style="text-align:left">Privacy Magicは、閲覧履歴を非公開に保つため、履歴同期を無効にする設定へ案内します。</td>
+</tr>
+<tr>
+<td style="text-align:left">ユーザー体験メトリクス</td>
+<td style="text-align:left">Chromeはブラウザの使用状況に関するメトリクスを、静かにGoogleのサーバーへ送り返します。</td>
+<td style="text-align:left">Privacy Magicは、この隠れたデータ収集をブロックする手助けをします。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#url" id="url" class="heading-anchor">URLごとのデータ収集</a></td>
+<td style="text-align:left">訪問するすべてのURLについて、Chromeはそれらのページでの閲覧に関する「匿名化された」データを収集し、Googleに送信します。</td>
+<td style="text-align:left">Privacy Magicは、この設定を無効化してデータ送信を防ぐ手助けをします。</td>
+</tr>
+</tbody>
+</table>
+
+
+  </div>
+  
+  <p class="post-back-to-top"><button type="button" class="post-back-to-top-link">↑ ページ上部へ</button></p>
+</article>
+<script>
+  const scrollToPageTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  };
+
+  const backToTop = document.querySelector(".post-back-to-top");
+  const titleHeading = document.querySelector(".post-header h1");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let backToTopFrame = 0;
+
+  const updateBackToTop = () => {
+    if (backToTop == null || titleHeading == null) return;
+    const navHeight = document.querySelector("nav")?.getBoundingClientRect().height ?? 0;
+    const pastTitle = navHeight - titleHeading.getBoundingClientRect().bottom;
+    const travel = backToTop.offsetHeight + (parseFloat(getComputedStyle(backToTop).bottom) || 0);
+    let shift = Math.min(travel, Math.max(0, travel - pastTitle));
+    if (prefersReducedMotion.matches) {
+      shift = pastTitle > 0 ? 0 : travel;
+    }
+    backToTop.style.setProperty("--back-to-top-shift", `${shift}px`);
+    const hidden = shift >= travel - 0.5;
+    backToTop.classList.toggle("is-visible", !hidden);
+    backToTop.toggleAttribute("inert", hidden);
+    backToTop.setAttribute("aria-hidden", hidden ? "true" : "false");
+
+    const article = document.querySelector(".post");
+    const button = backToTop.querySelector(".post-back-to-top-link") ?? backToTop;
+    let inGutter = true;
+    if (article != null) {
+      const articleRect = article.getBoundingClientRect();
+      const articlePaddingRight = parseFloat(getComputedStyle(article).paddingRight) || 0;
+      inGutter =
+        button.getBoundingClientRect().left >=
+        articleRect.right - articlePaddingRight + 8;
+    }
+    backToTop.classList.toggle("is-in-gutter", inGutter);
+  };
+
+  const scheduleBackToTop = () => {
+    if (backToTopFrame) return;
+    backToTopFrame = requestAnimationFrame(() => {
+      backToTopFrame = 0;
+      updateBackToTop();
+    });
+  };
+
+  backToTop?.querySelector(".post-back-to-top-link")?.addEventListener("click", scrollToPageTop);
+  window.addEventListener("scroll", scheduleBackToTop, { passive: true });
+  window.addEventListener("resize", scheduleBackToTop);
+  updateBackToTop();
+
+  if (titleHeading?.id && window.location.hash === `#${titleHeading.id}`) {
+    scrollToPageTop();
+  }
+
+  (function () {
+    const tables = document.querySelectorAll(".post-content table");
+    if (tables.length === 0) return;
+
+    const syncTableHeaderHeights = () => {
+      tables.forEach((table) => {
+        const thead = table.querySelector("thead");
+        if (thead == null) return;
+        table.style.setProperty(
+          "--sticky-table-header-height",
+          `${Math.ceil(thead.getBoundingClientRect().height)}px`
+        );
+      });
+    };
+
+    const scrollTableToTop = (table) => {
+      table.scrollIntoView({ block: "start" });
+    };
+
+    const retargetHash = () => {
+      const id = window.location.hash.slice(1);
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (target == null) return;
+      const table = target.closest(".post-content table");
+      if (table == null) return;
+      if (target.closest("thead")) {
+        scrollTableToTop(table);
+        return;
+      }
+      target.scrollIntoView();
+    };
+
+    document.querySelectorAll(".post-content thead th a.heading-anchor").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const table = link.closest("table");
+        if (table == null) return;
+        event.preventDefault();
+        const href = link.getAttribute("href");
+        if (href && window.location.hash !== href) {
+          history.pushState(null, "", href);
+        }
+        scrollTableToTop(table);
+      });
+    });
+
+    document.querySelectorAll(
+      ".post-content :is(th, td):nth-child(1) a.heading-anchor"
+    ).forEach((link) => {
+      link.addEventListener("click", () => {
+        link.blur();
+        requestAnimationFrame(() => link.blur());
+      });
+    });
+
+    window.addEventListener("hashchange", retargetHash);
+    window.addEventListener("popstate", retargetHash);
+
+    syncTableHeaderHeights();
+    if (window.location.hash) {
+      requestAnimationFrame(() => {
+        syncTableHeaderHeights();
+        retargetHash();
+      });
+    }
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", syncTableHeaderHeights);
+      return;
+    }
+
+    const observer = new ResizeObserver(syncTableHeaderHeights);
+    tables.forEach((table) => {
+      const thead = table.querySelector("thead");
+      if (thead != null) observer.observe(thead);
+    });
+  })();
+</script>
+
+  <section class="cta-section" id="install">
+  <div class="cta-title">Privacy is your <span class="highlight">right</span>.</div>
+  <p>Protect yourself and your family.</p>
+  <a href="https://chromewebstore.google.com/detail/privacy-magic/cobojehlalmfnplnblndhofhgeglljkc" class="hero-cta">
+    <span class="hero-cta-icon" aria-hidden="true"><img src="/images/logo.svg" alt="" width="28" height="28"></span>
+    Add to Chrome
+  </a>
+  <p class="cta-follow">
+    Follow us:
+    <span class="cta-follow-links">
+      
+      
+<a href="https://x.com/privacymagic" rel="noopener noreferrer" aria-label="Follow us on X"><span class="cta-follow-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"></path>
+</svg></span></a>
+
+<a href="https://bsky.app/profile/privacymagic.bsky.social" rel="noopener noreferrer" aria-label="Follow us on Bluesky"><span class="cta-follow-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"></path>
+</svg></span></a>
+
+<a href="https://mastodon.social/@privacymagic" rel="noopener noreferrer" aria-label="Follow us on Mastodon"><span class="cta-follow-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <path d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a4 4 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522q0-1.288.66-2.046c.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764q.662.757.661 2.046z"></path>
+</svg></span></a>
+
+<a href="https://www.linkedin.com/company/privacy-magic/" rel="noopener noreferrer" aria-label="Follow us on LinkedIn"><span class="cta-follow-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"></path>
+</svg></span></a>
+
+<a href="https://github.com/littletechllc/privacymagic-extension" rel="noopener noreferrer" aria-label="View source on GitHub"><span class="cta-follow-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path>
+</svg></span></a>
+
+
+    </span>
+  </p>
+  <p class="cta-get-in-touch">
+    Email:<a class="cta-support-email" href="mailto:support@privacymagic.com">support@privacymagic.com</a>
+  </p>
+</section>
+
+<footer>
+  &copy; 2026 Little Tech LLC &nbsp;·&nbsp;
+  <a href="https://github.com/littletechllc/privacymagic-extension">Privacy Magic Source Code</a>
+</footer>
+
+</body>
+
+</html>
