@@ -1,5 +1,4 @@
 const yaml = require("js-yaml");
-const matter = require("gray-matter");
 const MarkdownIt = require("markdown-it");
 const markdownItAttrs = require("markdown-it-attrs");
 const fs = require("fs");
@@ -7,18 +6,10 @@ const path = require("path");
 const { IdAttributePlugin } = require("@11ty/eleventy");
 const { hyphenateSync } = require("hyphen/en-us");
 const { localeDir, localeLang } = require("./src/data/locales");
+const loadArthurBios = require("./src/lib/loadArthurBios");
 
-const arthurBioPath = path.join(__dirname, "src/data/arthur-bio.md");
 const imagesDir = path.join(__dirname, "src/static/images");
-const md = new MarkdownIt().use(markdownItAttrs);
-
-function loadArthurBio() {
-  const parsed = matter(fs.readFileSync(arthurBioPath, "utf8"));
-  return {
-    ...parsed.data,
-    bio: md.render(parsed.content.trim()),
-  };
-}
+const md = new MarkdownIt({ html: true, linkify: true }).use(markdownItAttrs);
 
 module.exports = function (eleventyConfig) {
   // Translation sources live under translations/ (and optionally src/i18n while agents write).
@@ -168,7 +159,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addGlobalData("authors", () => ({
-    arthur: loadArthurBio(),
+    arthur: loadArthurBios(),
   }));
 
   eleventyConfig.addPassthroughCopy({ "src/static": "/" });
