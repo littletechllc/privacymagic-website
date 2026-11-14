@@ -53,5 +53,5 @@ Do **not** include `permalink`, `locale`, `author`, `date`, or `photo` in transl
 5. For `es_419`, use Latin American Spanish. For `pt_BR` vs `pt_PT`, use the appropriate regional variant. For `zh_CN` use Simplified Chinese; `zh_TW` Traditional Chinese.
 6. `backToTop` should be a short localized equivalent of "↑ Back to top" (keep the ↑).
 7. Author name (`arthur-bio` `name` field):
-   - Latin-script locales: keep **Arthur Edelstein** in Latin letters.
-   - Non-Latin-script locales (e.g. ja, zh_CN, zh_TW, ko, ru, uk, bg, el, ar, fa, he, hi, bn, gu, kn, ml, mr, ta, te, th, am): use a conventional local **transliteration**, then the original Latin name in parentheses, e.g. `アーサー・エーデルシュタイン (Arthur Edelstein)` or `Артур Эдельштейн (Arthur Edelstein)`. Use the same form at the start of the bio body. Do not invent unrelated nicknames.
+   - Latin-script locales, plus Japanese (`ja`) and Korean (`ko`): keep **Arthur Edelstein** in Latin letters (no transliteration). Use the same form at the start of the bio body.
+   - Other non-Latin-script locales (e.g. zh_CN, zh_TW, ru, uk, bg, el, ar, fa, he, hi, bn, gu, kn, ml, mr, ta, te, th, am): use a conventional local **transliteration**, then the original Latin name in parentheses, e.g. `Артур Эдельштейн (Arthur Edelstein)`. Use the same form at the start of the bio body. Do not invent unrelated nicknames.
